@@ -2,7 +2,7 @@ package sample;
 
 import java.util.List;
 
-public class Retailer implements Client
+public class Customer implements Client
 {
     private String FirstName;
     private String LastName;
@@ -12,6 +12,9 @@ public class Retailer implements Client
     private String MobileNo;
     private String PinNo;
     private String Email;
+    private List<Product> ProductsInCart;
+    private List<Product> ProductsBought;
+    private List<Product> ProductsWishList;
 
     public String getFirstName() {
         return FirstName;
@@ -29,9 +32,6 @@ public class Retailer implements Client
         LastName = lastName;
     }
 
-    private List<Product> ProductsPending;
-    private int ProductSold;
-    private int TurnOver;
     public String getUserName() {
         return UserName;
     }
@@ -80,31 +80,32 @@ public class Retailer implements Client
         Email = email;
     }
 
-    public List<Product> getProductsPending() {
-        return ProductsPending;
+    public List<Product> getProductsInCart() {
+        return ProductsInCart;
     }
 
-    public void setProductsPending(List<Product> productsPending) {
-        ProductsPending = productsPending;
+    public void setProductsInCart(List<Product> productsInCart) {
+        ProductsInCart = productsInCart;
     }
 
-    public int getProductSold() {
-        return ProductSold;
+    public List<Product> getProductsBought() {
+        return ProductsBought;
     }
 
-    public void setProductSold(int productSold) {
-        ProductSold = productSold;
+    public void setProductsBought(List<Product> productsBought) {
+        ProductsBought = productsBought;
     }
 
-    public int getTurnOver() {
-        return TurnOver;
+    public List<Product> getProductsWishList() {
+        return ProductsWishList;
     }
 
-    public void setTurnOver(int turnOver) {
-        TurnOver = turnOver;
+    public void setProductsWishList(List<Product> productsWishList) {
+        ProductsWishList = productsWishList;
     }
 
-    public Retailer(String firstName, String lastName, String userName, String password, String address, String mobileNo, String pinNo, String email, List<Product> productsPending, int productSold, int turnOver) {
+    public Customer(String firstName, String lastName, String userName, String password, String address, String mobileNo, String pinNo, String email, List<Product> productsInCart, List<Product> productsBought, List<Product> productsWishList)
+    {
         FirstName = firstName;
         LastName = lastName;
         UserName = userName;
@@ -113,8 +114,8 @@ public class Retailer implements Client
         MobileNo = mobileNo;
         PinNo = pinNo;
         Email = email;
-        ProductsPending = productsPending;
-        ProductSold = productSold;
-        TurnOver = turnOver;
+        ProductsInCart = productsInCart;
+        ProductsBought = productsBought;
+        ProductsWishList = productsWishList;
     }
 }
