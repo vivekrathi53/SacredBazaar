@@ -36,7 +36,6 @@ public class Main extends Application {
         Button retailer = new Button("Log in as a retailer");
         Button admin = new Button("Log in as an admin");
         Button signUp = new Button("SignUp");
-
         grid.setConstraints(signUp,7,5);
         grid.setConstraints(user,6,15);
         grid.setConstraints(retailer,6,16);
