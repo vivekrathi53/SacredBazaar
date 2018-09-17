@@ -40,7 +40,6 @@ public class Main extends Application {
         grid.setConstraints(user,6,15);
         grid.setConstraints(retailer,6,16);
         grid.setConstraints(admin,6,17);
-
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         window.setTitle("Log in Page");
         grid.getChildren().addAll(name,pass,user,retailer,admin,signUp,imageView);
