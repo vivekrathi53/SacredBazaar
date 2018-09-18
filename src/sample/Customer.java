@@ -44,6 +44,11 @@ public class Customer implements Client
         return Password;
     }
 
+    @Override
+    public int getType() {
+        return 1;
+    }
+
     public void setPassword(String password) {
         Password = password;
     }

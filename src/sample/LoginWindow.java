@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import sun.reflect.generics.scope.Scope;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,6 +23,8 @@ public class LoginWindow extends Application {
     Stage window;
     Scene s1,s2;
     TextArea name,pass;
+    Socket socket;
+    Transaction Authentication;
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage;
@@ -80,16 +83,43 @@ public class LoginWindow extends Application {
         window.setScene(s1);
         window.show();
     }
-
-    private void Login(int type) throws IOException
-    {
-        Socket socket = new Socket("127.0.0.1",8281);
+    private void Login(int type) throws IOException{
+        socket = new Socket("127.0.0.1",8188);
         System.out.println("Connected to server");
         LoginData data = new LoginData(name.getText(),pass.getText(),type);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         oos.writeObject(data);
         oos.flush();
-        oos.close();
+        System.out.println("Waiting for Approval!");
+        ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+        try
+        {
+            System.out.println("reading letter");
+            Transaction a = (Authentication) ois.readObject();
+            if(((Authentication) a).auth)
+            {
+                if(type==0);
+                else if(type==1)
+                {
+                    System.out.println("Approved!!");
+                    ShopWindow sw = new ShopWindow();
+                    //sw.c = (Customer) ois.readObject();
+                    try
+                    {
+                        sw.start(window);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                else if(type==3);
+            }
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("Class Not Found");
+        }
     }
 
 

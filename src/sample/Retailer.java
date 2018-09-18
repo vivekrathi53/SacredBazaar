@@ -44,6 +44,11 @@ public class Retailer implements Client
         return Password;
     }
 
+    @Override
+    public int getType() {
+        return 0;
+    }
+
     public void setPassword(String password) {
         Password = password;
     }

@@ -24,6 +24,8 @@ public class ShopWindow extends Application implements Initializable
     @Override
     public void start(Stage primaryStage) throws Exception
     {
+        Customer c = new Customer("h", "j", "t", "y", "u", "12", "11", "ee", null, null, null);
+        this.c=c;
         loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         DisplayPane  = (BorderPane) loader.load();
         controller = loader.getController();
