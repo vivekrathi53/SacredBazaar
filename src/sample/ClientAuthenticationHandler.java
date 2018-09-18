@@ -11,11 +11,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class ClientHandler implements Runnable
+public class ClientAuthenticationHandler implements Runnable
 {
     private Socket ClientSocket;
     private Client client;
-    public ClientHandler(Socket clientSocket)
+    Connection connection;
+    ObjectInputStream objectInputStream = null;
+    ObjectOutputStream objectOutputStream = null;
+    public ClientAuthenticationHandler(Socket clientSocket)
     {
         ClientSocket = clientSocket;
         System.out.println("Hii");
@@ -24,8 +27,7 @@ public class ClientHandler implements Runnable
     @Override
     public void run()
     {
-        ObjectInputStream objectInputStream = null;
-        ObjectOutputStream objectOutputStream = null;
+
         try
         {
             objectInputStream = new ObjectInputStream(ClientSocket.getInputStream());
@@ -78,6 +80,8 @@ public class ClientHandler implements Runnable
                 objectOutputStream.writeObject(t);
                 objectOutputStream.flush();
                 System.out.println("Logged In!!");
+                CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream,objectOutputStream);
+                ch.handle();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
@@ -115,10 +119,11 @@ public class ClientHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        Connection connection = DriverManager.getConnection(url, "root", "root");
+        connection = DriverManager.getConnection(url, "root", "root");
         String q="INSERT INTO retailertable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"'','"+(Email)+"'";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
+
     }
 
     private void signupcustomer() throws SQLException, ClassNotFoundException {
@@ -148,7 +153,7 @@ public class ClientHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        Connection connection = DriverManager.getConnection(url, "root", "password");
+        connection = DriverManager.getConnection(url, "root", "password");
         String q="INSERT INTO customertable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"'','"+(email)+"'";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
@@ -175,7 +180,7 @@ public class ClientHandler implements Runnable
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Connected to database");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        Connection connection = DriverManager.getConnection(url, "root", "password");
+        connection = DriverManager.getConnection(url, "root", "password");
         if(type==0)
         {
             query="SELECT Password FROM retailertable WHERE USERNAME='"+(user)+"'";

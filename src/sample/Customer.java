@@ -1,8 +1,9 @@
 package sample;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Customer implements Client
+public class Customer implements Client, Serializable
 {
     private String FirstName;
     private String LastName;
