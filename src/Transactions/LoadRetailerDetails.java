@@ -1,6 +1,8 @@
 package Transactions;
 
-public class LoadRetailerDetails
+import java.io.Serializable;
+
+public class LoadRetailerDetails implements Serializable
 {
 
 }

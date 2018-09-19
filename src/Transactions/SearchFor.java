@@ -3,6 +3,7 @@ package Transactions;
 import sample.Product;
 
 import javax.xml.transform.Result;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchFor
+public class SearchFor implements Serializable
 {
-    String searchProduct;
-    Connection connection;
+    public String searchProduct;
+    public Connection connection;
     public ArrayList<Product> getReleventProducts() throws SQLException
     {
         ArrayList<Product> prodList = new ArrayList<>();

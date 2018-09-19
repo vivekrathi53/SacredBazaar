@@ -1,6 +1,8 @@
 package Transactions;
 
-public class BuyProduct
+import java.io.Serializable;
+
+public class BuyProduct implements Serializable
 {
 
 }

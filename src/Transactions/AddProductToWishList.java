@@ -1,6 +1,8 @@
 package Transactions;
 
-public class AddProductToWishList
+import java.io.Serializable;
+
+public class AddProductToWishList implements Serializable
 {
 
 }
