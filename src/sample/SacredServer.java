@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SacredServer
 {
@@ -16,7 +15,7 @@ public class SacredServer
         {
             Socket soc = serverSocket.accept();
             ActiveUsers.add(soc);
-            Thread t = new Thread(new ClientHandler(soc));
+            Thread t = new Thread(new ClientAuthenticationHandler(soc));
             t.start();
             System.out.println("New Client Connected");
         }

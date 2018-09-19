@@ -1,21 +1,35 @@
 package sample;
 
+import Transactions.ChangeCustomerDetails;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import sun.font.Decoration;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ShopWindowController
 {
+    public Socket socket;
+    ObjectOutputStream oos;
+    ObjectInputStream ois;
     Customer customer;
-
+    Label UserNameLabel,PasswordLabel,EmailLabel,MobileNoLabel,FirstNameLabel,LasNameLabel,AddressLabel,PinNoLabel;
+    TextArea UserNameArea,PasswordArea,FirstNameArea,LastNameArea,MobileNoArea,AddressArea,EmailArea,PinNoArea;
+    Button SaveProfile;
     public ShopWindowController()
     {
 
@@ -36,9 +50,11 @@ public class ShopWindowController
     @FXML
     BorderPane DisplayPane;
     @FXML
-    private void ShowInCart()
+    ScrollPane scrollPane;
+    @FXML
+    private void ShowInCart(ArrayList<Product> prodList)
     {
-
+        ShowProductList(prodList);
     }
     @FXML
     private void ShowWishList()
@@ -48,45 +64,103 @@ public class ShopWindowController
     @FXML
     private void ShowTrending()
     {
-
+        ArrayList<Product> prodList = getTending();
+        ShowProductList(prodList);
     }
 
+    private void ShowProductList(ArrayList<Product> prodList)
+    {
+        int len = prodList.size();
+        Label[] ProductCategory = new Label[len];
+        Label[] ProductDescription = new Label[len];
+        Label[] ProductPrice = new Label[len];
+        Label[] ProductDiscount = new Label[len];
+        HBox[] productDetailsDisplay = new HBox[len];
+        for(int i=0;i<len;i++)
+        {
+            Product prod = prodList.get(i);
+            ProductCategory[i] = new Label();
+            ProductCategory[i].setText(prod.getProductCategory());
+            ProductDescription[i] = new Label();
+            ProductDescription[i].setText(prod.getProductDescription());
+            ProductPrice[i]= new Label();
+            ProductPrice[i].setText(Integer.toString(prod.getPrice()));
+            ProductDiscount[i] = new Label();
+            ProductDiscount[i].setText(Integer.toString(prod.getDiscount()));
+            productDetailsDisplay[i] = new HBox();
+            productDetailsDisplay[i].getChildren().addAll(ProductCategory[i],ProductDescription[i],ProductPrice[i],ProductDiscount[i]);
+            CentreDisplay.getChildren().clear();
+            CentreDisplay.getChildren().add(productDetailsDisplay[i]);
+        }
+    }
+
+    private ArrayList<Product> getTending()
+    {
+        return null;
+    }
+    private
 
     @FXML
     void SetProfileScene()
     {
-        Label UserNameLabel = new Label("UserName");
-        Label PasswordLabel = new Label("Password");
-        TextArea UserNameArea = new TextArea();
+        UserNameLabel = new Label("UserName");
+        PasswordLabel = new Label("Password");
+        UserNameArea = new TextArea();
         UserNameArea.setText(customer.getUserName());
         UserNameArea.setDisable(true);
-        TextArea PasswordArea = new TextArea();
+        PasswordArea = new TextArea();
         PasswordArea.setText(customer.getPassword());
-        Label EmailLabel = new Label("Email");
-        Label MobileNoLabel = new Label("Mobile No");
-        Label FirstNameLabel = new Label("First Name");
-        Label LasNameLabel = new Label("Last Name");
-        Label AddressLabel = new Label("Address");
-        Label PinNo = new Label("Pin No");
-        TextArea FirstNameArea = new TextArea();
+        EmailLabel = new Label("Email");
+        MobileNoLabel = new Label("Mobile No");
+        FirstNameLabel = new Label("First Name");
+        LasNameLabel = new Label("Last Name");
+        AddressLabel = new Label("Address");
+        PinNoLabel = new Label("Pin No");
+        PinNoArea = new TextArea();
+        PinNoArea.setText(customer.getPinNo());
+        FirstNameArea = new TextArea();
         FirstNameArea.setText(customer.getFirstName());
-        TextArea EmailArea = new TextArea();
+        EmailArea = new TextArea();
         EmailArea.setText(customer.getEmail());
-        TextArea LastNameArea = new TextArea();
+        LastNameArea = new TextArea();
         LastNameArea.setText(customer.getLastName());
-        TextArea MobileNoArea = new TextArea();
+        MobileNoArea = new TextArea();
         MobileNoArea.setText(customer.getMobileNo());
-        TextArea AddressArea = new TextArea();
+        AddressArea = new TextArea();
         AddressArea.setText(customer.getAddress());
+        SaveProfile = new Button("Save Your Changes");
+        SaveProfile.setOnAction(e -> {
+            try {
+                SaveChangesToProfile();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
+            }
+        });
         try
         {
-            CentreDisplay.getChildren().addAll(UserNameLabel, UserNameArea, PasswordLabel, PasswordArea, FirstNameLabel, FirstNameArea, LasNameLabel, LastNameArea, EmailLabel, EmailArea, MobileNoLabel, MobileNoArea, AddressLabel, AddressArea);
+
+            CentreDisplay.getChildren().addAll(UserNameLabel, UserNameArea, PasswordLabel, PasswordArea, FirstNameLabel, FirstNameArea, LasNameLabel, LastNameArea, EmailLabel, EmailArea, MobileNoLabel, MobileNoArea, AddressLabel, AddressArea,PinNoLabel,PinNoArea,SaveProfile);
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
     }
+
+    private void SaveChangesToProfile() throws IOException, ClassNotFoundException {
+        ChangeCustomerDetails ccd = new ChangeCustomerDetails();
+        customer = new Customer(FirstNameArea.getText(),LastNameArea.getText(),UserNameArea.getText(),PasswordArea.getText(),AddressArea.getText(),MobileNoArea.getText(),PinNoArea.getText(),EmailArea.getText(),null,null,null);
+        ccd.client = customer;
+        ccd.connection=null;
+        if(oos==null)System.out.println(oos);
+        oos.writeObject(ccd);
+        oos.flush();
+        customer= (Customer)ois.readObject();
+        //SetProfileScene();
+    }
+
 
 
 }

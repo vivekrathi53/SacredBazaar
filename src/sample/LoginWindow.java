@@ -6,12 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import sun.reflect.generics.scope.Scope;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -76,7 +74,7 @@ public class LoginWindow extends Application {
         grid.setConstraints(Customer,6,15);
         grid.setConstraints(retailer,6,16);
         grid.setConstraints(admin,6,17);
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ShopWindow.fxml"));
         window.setTitle("Log in Page");
         grid.getChildren().addAll(name,pass,Customer,retailer,admin,signUp,imageView);
         Scene s1= new Scene(grid,700,800);
@@ -103,7 +101,9 @@ public class LoginWindow extends Application {
                 {
                     System.out.println("Approved!!");
                     ShopWindow sw = new ShopWindow();
-                    //sw.c = (Customer) ois.readObject();
+                    sw.c = (Customer) ois.readObject();
+                    sw.ois = ois;
+                    sw.oos = oos;
                     try
                     {
                         sw.start(window);

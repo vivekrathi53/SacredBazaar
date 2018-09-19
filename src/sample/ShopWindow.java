@@ -1,46 +1,44 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ShopWindow extends Application implements Initializable
 {
     Stage window;
+    Socket socket;
+    ObjectInputStream ois;
+    ObjectOutputStream oos;
     FXMLLoader loader;
     ShopWindowController controller;
     BorderPane DisplayPane;
-    static Customer c;
+    Customer c;
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Customer c = new Customer("h", "j", "t", "y", "u", "12", "11", "ee", null, null, null);
-        this.c=c;
-        loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        loader = new FXMLLoader(getClass().getResource("ShopWindow.fxml"));
         DisplayPane  = (BorderPane) loader.load();
         controller = loader.getController();
         window=primaryStage;
         controller.customer= c;
+        controller.socket = this.socket;
+        System.out.println(this.socket + "##" + socket + "##" + controller.socket);
+        controller.ois = this.ois;
+        controller.oos = this.oos;
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(DisplayPane, 300, 275));
+        primaryStage.setScene(new Scene(DisplayPane, 600, 600));
         primaryStage.show();
 
-    }
-
-    public static void main(String[] args)
-    {
-        c = new Customer("h", "j", "t", "y", "u", "12", "11", "ee", null, null, null);
-        launch(args);
     }
     @Override
     public void initialize(URL location, ResourceBundle resources)

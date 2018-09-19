@@ -1,9 +1,11 @@
 package sample;
 
-public class Product
+import java.io.Serializable;
+
+public class Product implements Serializable
 {
     private String ProductId;
-    private Retailer retailer;
+    private int retailer;
     private int Price;
     private int Quantity;
     private String ProductCategory;
@@ -18,11 +20,11 @@ public class Product
         this.ProductId = productId;
     }
 
-    public Retailer getRetailer() {
+    public int getRetailer() {
         return retailer;
     }
 
-    public void setRetailer(Retailer retailer) {
+    public void setRetailer(int retailer) {
         this.retailer = retailer;
     }
 
@@ -65,7 +67,7 @@ public class Product
     public void setDiscount(int discount) {
         this.Discount = discount;
     }
-    Product(String Productid,Retailer retailer,int price,int Quantity,String ProductCategory,String ProductDescription,int Discount)
+    public Product(String Productid, int retailer, int price, int Quantity, String ProductCategory, String ProductDescription, int Discount)
     {
         this.ProductId =Productid;
         this.Discount=Discount;
