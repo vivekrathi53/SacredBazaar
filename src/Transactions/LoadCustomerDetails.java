@@ -2,12 +2,13 @@ package Transactions;
 
 import sample.Customer;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoadCustomerDetails
+public class LoadCustomerDetails implements Serializable
 {
     Connection connection;
     Boolean solved;

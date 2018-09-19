@@ -3,6 +3,7 @@ package sample;
 import Transactions.BuyProduct;
 import Transactions.ChangeCustomerDetails;
 import Transactions.LoadCustomerDetails;
+import Transactions.SearchFor;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -10,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CustomerHandler 
 {
@@ -43,6 +45,14 @@ public class CustomerHandler
             ccd.connection=connection;
             ccd.updateEntries();
             Customer c = lcd.getDetails(clientLoginDetails.getUserName());
+        }
+        else if(transaction instanceof SearchFor)
+        {
+            SearchFor sf = (SearchFor) transaction;
+            sf.connection=connection;
+            ArrayList<Product> prodList= sf.getReleventProducts();
+            oos.writeObject(prodList);
+            oos.flush();
         }
     }
 }

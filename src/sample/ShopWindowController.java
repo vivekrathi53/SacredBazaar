@@ -1,6 +1,8 @@
 package sample;
 
 import Transactions.ChangeCustomerDetails;
+import Transactions.SearchFor;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -52,9 +54,10 @@ public class ShopWindowController
     @FXML
     ScrollPane scrollPane;
     @FXML
-    private void ShowInCart(ArrayList<Product> prodList)
+    TextArea SearchBar;
+    @FXML
+    private void ShowInCart()
     {
-        ShowProductList(prodList);
     }
     @FXML
     private void ShowWishList()
@@ -70,6 +73,7 @@ public class ShopWindowController
 
     private void ShowProductList(ArrayList<Product> prodList)
     {
+        CentreDisplay.getChildren().clear();
         int len = prodList.size();
         Label[] ProductCategory = new Label[len];
         Label[] ProductDescription = new Label[len];
@@ -89,7 +93,7 @@ public class ShopWindowController
             ProductDiscount[i].setText(Integer.toString(prod.getDiscount()));
             productDetailsDisplay[i] = new HBox();
             productDetailsDisplay[i].getChildren().addAll(ProductCategory[i],ProductDescription[i],ProductPrice[i],ProductDiscount[i]);
-            CentreDisplay.getChildren().clear();
+
             CentreDisplay.getChildren().add(productDetailsDisplay[i]);
         }
     }
@@ -161,7 +165,15 @@ public class ShopWindowController
         //SetProfileScene();
     }
 
-
-
+    @FXML
+    public void SearchProduct() throws IOException, ClassNotFoundException
+    {
+        SearchFor sf = new SearchFor();
+        sf.searchProduct = SearchBar.getText();
+        oos.writeObject(sf);
+        oos.flush();
+        ArrayList<Product> prodlist = (ArrayList<Product>) ois.readObject();
+        ShowProductList(prodlist);
+    }
 }
 
