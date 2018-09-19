@@ -2,11 +2,12 @@ package Transactions;
 
 import sample.Customer;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ChangeCustomerDetails
+public class ChangeCustomerDetails implements Serializable
 {
     public Customer client;
     public Connection connection;
@@ -32,7 +33,7 @@ public class ChangeCustomerDetails
         {
             exception.printStackTrace();
         }
-        String q="UPDATE customertable SET (FirstName = '"+(firstname)+"',LastName = '"+(lastname)+"',Password = '"+(password)+"',Address = '"+(Address)+"',MobileNo = '"+(MobileNo)+"',PinNo = '"+(PinNo)+"'',Email = '"+(email)+"'";
+        String q="UPDATE CustomerTable SET FirstName = '"+(firstname)+"',LastName = '"+(lastname)+"',Password = '"+(password)+"',Address = '"+(Address)+"',MobileNo = '"+(MobileNo)+"',PinNo = '"+(PinNo)+"',Email = '"+(email)+"' WHERE UserName =  '"+(client.getUserName())+"'";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
     }

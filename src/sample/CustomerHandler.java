@@ -40,6 +40,7 @@ public class CustomerHandler
         else if(transaction instanceof ChangeCustomerDetails)
         {
             ChangeCustomerDetails ccd = (ChangeCustomerDetails) transaction;
+            ccd.connection=connection;
             ccd.updateEntries();
             Customer c = lcd.getDetails(clientLoginDetails.getUserName());
         }

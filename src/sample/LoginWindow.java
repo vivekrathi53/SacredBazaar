@@ -102,6 +102,8 @@ public class LoginWindow extends Application {
                     System.out.println("Approved!!");
                     ShopWindow sw = new ShopWindow();
                     sw.c = (Customer) ois.readObject();
+                    sw.ois = ois;
+                    sw.oos = oos;
                     try
                     {
                         sw.start(window);

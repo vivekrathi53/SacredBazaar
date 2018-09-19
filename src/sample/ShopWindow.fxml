@@ -12,10 +12,10 @@
    <left>
       <VBox fx:id="LeftVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="ProfileButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="99.0" text="Profile" onAction="#SetProfileScene"/>
-            <Button fx:id="MyCartButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="99.0" text="My Cart" onAction="#ShowInCart"/>
-            <Button fx:id="WishListButton" mnemonicParsing="false" prefHeight="42.0" prefWidth="98.0" text="Wish List" onAction="#ShowWishList"/>
-            <Button fx:id="TrendingButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="97.0" text="Trending " onAction="#ShowTrending"/>
+            <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#SetProfileScene" prefHeight="41.0" prefWidth="99.0" text="Profile" />
+            <Button fx:id="MyCartButton" mnemonicParsing="false" onAction="#ShowInCart" prefHeight="42.0" prefWidth="99.0" text="My Cart" />
+            <Button fx:id="WishListButton" mnemonicParsing="false" onAction="#ShowWishList" prefHeight="42.0" prefWidth="98.0" text="Wish List" />
+            <Button fx:id="TrendingButton" mnemonicParsing="false" onAction="#ShowTrending" prefHeight="36.0" prefWidth="97.0" text="Trending " />
          </children>
       </VBox>
    </left>
@@ -46,6 +46,10 @@
       </VBox>
    </top>
    <center>
-      <VBox fx:id="CentreDisplay" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="scrollPane">
+         <content>
+            <VBox fx:id="CentreDisplay" prefHeight="343.0" prefWidth="498.0" />
+         </content>
+      </ScrollPane>
    </center>
 </BorderPane>

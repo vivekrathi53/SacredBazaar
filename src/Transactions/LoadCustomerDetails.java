@@ -12,11 +12,13 @@ public class LoadCustomerDetails
     Connection connection;
     Boolean solved;
 
-    public LoadCustomerDetails(Connection connection) {
+    public LoadCustomerDetails(Connection connection)
+    {
         this.connection = connection;
     }
 
-    public Customer getDetails(String userName) throws SQLException {
+    public Customer getDetails(String userName) throws SQLException
+    {
         String query = "SELECT * FROM CustomerTable WHERE UserName='" + userName + "'";
         PreparedStatement prepStat = connection.prepareStatement(query);
         ResultSet rs = prepStat.executeQuery();

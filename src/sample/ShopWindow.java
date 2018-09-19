@@ -32,10 +32,11 @@ public class ShopWindow extends Application implements Initializable
         window=primaryStage;
         controller.customer= c;
         controller.socket = this.socket;
+        System.out.println(this.socket + "##" + socket + "##" + controller.socket);
         controller.ois = this.ois;
         controller.oos = this.oos;
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(DisplayPane, 300, 275));
+        primaryStage.setScene(new Scene(DisplayPane, 600, 600));
         primaryStage.show();
 
     }
