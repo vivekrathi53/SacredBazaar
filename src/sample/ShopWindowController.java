@@ -1,5 +1,6 @@
 package sample;
 
+import Transactions.AddProductTo;
 import Transactions.BuyProduct;
 import Transactions.ChangeCustomerDetails;
 import Transactions.SearchFor;
@@ -81,31 +82,25 @@ public class ShopWindowController
     {
         CentreDisplay.getChildren().clear();
         int len = prodList.size();
-        Label[] ProductCategory = new Label[len];
-        Label[] ProductDescription = new Label[len];
-        Label[] ProductPrice = new Label[len];
-        Label[] ProductDiscount = new Label[len];
-        HBox[] productDetailsDisplay = new HBox[len];
+        SplitPane[] productDetailsDisplay = new SplitPane[len];
         for(int i=0;i<len;i++)
         {
             Product prod = prodList.get(i);
-            ProductCategory[i] = new Label();
-            ProductCategory[i].setText(prod.getProductCategory());
-            ProductDescription[i] = new Label();
-            ProductDescription[i].setText(prod.getProductDescription());
-            ProductPrice[i]= new Label();
-            ProductPrice[i].setText(Integer.toString(prod.getPrice()));
-            ProductDiscount[i] = new Label();
-            ProductDiscount[i].setText(Integer.toString(prod.getDiscount()));
-            Button BuyButton = new Button("Buy");
-            BuyButton.setOnAction(e -> BuyProducts(prod));
-            Button AddWishListButton = new Button("Add To WishList");
-            AddWishListButton.setOnAction(e -> AddToWishListProduct(prod));
-            Button AddToCart = new Button(" Add To Cart");
-            AddToCart.setOnAction(e -> AddToCartProduct(prod));
-            productDetailsDisplay[i] = new HBox();
-            productDetailsDisplay[i].getChildren().addAll(ProductCategory[i],ProductDescription[i],ProductPrice[i],ProductDiscount[i],BuyButton,AddWishListButton,AddToCart);
-            CentreDisplay.getChildren().clear();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductDisplayDesign.fxml")) ;
+                productDetailsDisplay[i] = (SplitPane) loader.load();
+                ProductDesignController controller = loader.getController();
+                controller.BuyButton.setOnAction(e -> BuyProducts(prod));
+                controller.AddtoCart.setOnAction(e -> AddToCartProduct(prod));
+                controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
+                controller.price.setText(controller.price.getText() + Integer.toString(prod.getPrice()));
+                controller.productCategory.setText(prod.getProductCategory());
+                controller.productDescription.setText(prod.getProductDescription());
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             CentreDisplay.getChildren().add(productDetailsDisplay[i]);
         }
     }
@@ -128,11 +123,38 @@ public class ShopWindowController
     }
     private void AddToCartProduct(Product prod)
     {
+        AddProductTo bp = new AddProductTo();
+        bp.Quantity=1;
+        bp.prod=prod;
+        bp.CustomerUserName=customer.getUserName();
+        bp.time= new Time(new Date().getTime());
+        bp.Address = customer.getAddress();
+        bp.type=2;
+        try {
+            oos.writeObject(bp);
+            oos.flush();
+            System.out.println("Done!!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void AddToWishListProduct(Product prod)
     {
-
+        AddProductTo bp = new AddProductTo();
+        bp.Quantity=1;
+        bp.prod=prod;
+        bp.CustomerUserName=customer.getUserName();
+        bp.time= new Time(new Date().getTime());
+        bp.Address = customer.getAddress();
+        bp.type=3;
+        try {
+            oos.writeObject(bp);
+            oos.flush();
+            System.out.println("Done!!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private ArrayList<Product> getTending()
@@ -211,7 +233,5 @@ public class ShopWindowController
         ArrayList<Product> prodlist = (ArrayList<Product>) ois.readObject();
         ShowProductList(prodlist);
     }
-
-
 }
 

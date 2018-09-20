@@ -1,9 +1,6 @@
 package sample;
 
-import Transactions.BuyProduct;
-import Transactions.ChangeCustomerDetails;
-import Transactions.LoadCustomerDetails;
-import Transactions.SearchFor;
+import Transactions.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -59,6 +56,13 @@ public class CustomerHandler
             else if(transaction instanceof BuyProduct)
             {
                 BuyProduct bp = (BuyProduct) transaction;
+                bp.connection=connection;
+                bp.buyProduct();
+                System.out.println("Done!!");
+            }
+            else if(transaction instanceof AddProductTo)
+            {
+                AddProductTo bp = (AddProductTo) transaction;
                 bp.connection=connection;
                 bp.buyProduct();
                 System.out.println("Done!!");
