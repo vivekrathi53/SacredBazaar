@@ -33,26 +33,37 @@ public class CustomerHandler
         LoadCustomerDetails lcd = new LoadCustomerDetails(connection);
         oos.writeObject(lcd.getDetails(clientLoginDetails.getUserName()));
         oos.flush();
-        Object transaction = ois.readObject();
-        if(transaction instanceof LoadCustomerDetails)
+        while(true)
         {
-            lcd = (LoadCustomerDetails) ois.readObject();
-            lcd.getDetails(clientLoginDetails.getUserName());
+            Object transaction = ois.readObject();
+            if(transaction instanceof LoadCustomerDetails)
+            {
+                lcd = (LoadCustomerDetails) ois.readObject();
+                lcd.getDetails(clientLoginDetails.getUserName());
+            }
+            else if(transaction instanceof ChangeCustomerDetails)
+            {
+                ChangeCustomerDetails ccd = (ChangeCustomerDetails) transaction;
+                ccd.connection=connection;
+                ccd.updateEntries();
+                Customer c = lcd.getDetails(clientLoginDetails.getUserName());
+            }
+            else if(transaction instanceof SearchFor)
+            {
+                SearchFor sf = (SearchFor) transaction;
+                sf.connection=connection;
+                ArrayList<Product> prodList= sf.getReleventProducts();
+                oos.writeObject(prodList);
+                oos.flush();
+            }
+            else if(transaction instanceof BuyProduct)
+            {
+                BuyProduct bp = (BuyProduct) transaction;
+                bp.connection=connection;
+                bp.buyProduct();
+                System.out.println("Done!!");
+            }
         }
-        else if(transaction instanceof ChangeCustomerDetails)
-        {
-            ChangeCustomerDetails ccd = (ChangeCustomerDetails) transaction;
-            ccd.connection=connection;
-            ccd.updateEntries();
-            Customer c = lcd.getDetails(clientLoginDetails.getUserName());
-        }
-        else if(transaction instanceof SearchFor)
-        {
-            SearchFor sf = (SearchFor) transaction;
-            sf.connection=connection;
-            ArrayList<Product> prodList= sf.getReleventProducts();
-            oos.writeObject(prodList);
-            oos.flush();
-        }
+
     }
 }

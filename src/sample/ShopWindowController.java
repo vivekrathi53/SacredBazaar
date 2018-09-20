@@ -18,6 +18,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Date;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -95,7 +98,7 @@ public class ShopWindowController
             ProductDiscount[i] = new Label();
             ProductDiscount[i].setText(Integer.toString(prod.getDiscount()));
             Button BuyButton = new Button("Buy");
-            BuyButton.setOnAction(e -> BuyProduct(prod));
+            BuyButton.setOnAction(e -> BuyProducts(prod));
             Button AddWishListButton = new Button("Add To WishList");
             AddWishListButton.setOnAction(e -> AddToWishListProduct(prod));
             Button AddToCart = new Button(" Add To Cart");
@@ -107,13 +110,24 @@ public class ShopWindowController
         }
     }
 
-    private void BuyProduct(Product prod)
+    private void BuyProducts(Product prod)
     {
-
+        BuyProduct bp = new BuyProduct();
+        bp.Quantity=1;
+        bp.prod=prod;
+        bp.CustomerUserName=customer.getUserName();
+        bp.time= new Time(new Date().getTime());
+        bp.Address = customer.getAddress();
+        try {
+            oos.writeObject(bp);
+            oos.flush();
+            System.out.println("Done!!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     private void AddToCartProduct(Product prod)
     {
-
     }
 
     private void AddToWishListProduct(Product prod)
