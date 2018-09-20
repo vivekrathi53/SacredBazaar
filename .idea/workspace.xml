@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/AddProductToSell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/AddProductToWishList.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/BuyProduct.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/ChangeCustomerDetails.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/CustomerProducts.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/GetTrendingList.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/LoadCustomerDetails.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/LoadRetailerDetails.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/Transactions/SearchFor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Authentication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/ClientAuthenticationHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Controller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/CustomerHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/LoginData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/LoginWindow.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Retailer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/SacredServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/ShopWindow.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/ShopWindow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/ShopWindowController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Signup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Signup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SacredBazaar/sample/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ClientAuthenticationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ClientAuthenticationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SacredServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SacredServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Signup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Signup.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -161,7 +128,7 @@
         <entry file="file://$PROJECT_DIR$/src/sample/ShopWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
-              <caret line="28" column="75" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="75" />
+              <caret line="28" column="75" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/src/sample/SacredServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+              <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
               <folding>
                 <element signature="e#356#385#0" expanded="true" />
               </folding>
@@ -203,7 +170,7 @@
         <entry file="file://$PROJECT_DIR$/src/sample/LoginWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="930">
-              <caret line="83" column="30" lean-forward="true" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -223,7 +190,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/ClientAuthenticationHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="815">
+            <state relative-caret-position="1860">
               <caret line="124" column="181" selection-start-line="124" selection-start-column="181" selection-end-line="124" selection-end-column="181" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -369,7 +336,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SearchEverywhereHistoryKey" value="javafx.application.Application&#9;PSI&#9;JAVA://javafx.application.Application" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537425622417" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537426740303" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/mysql-connector-java-5.1.46" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -816,7 +783,7 @@
     <entry file="file://$PROJECT_DIR$/src/sample/ShopWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
-          <caret line="28" column="75" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="75" />
+          <caret line="28" column="75" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -856,7 +823,7 @@
     <entry file="file://$PROJECT_DIR$/src/sample/LoginWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
-          <caret line="83" column="30" lean-forward="true" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -866,7 +833,7 @@
     <entry file="file://$PROJECT_DIR$/src/sample/SacredServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
           <folding>
             <element signature="e#356#385#0" expanded="true" />
           </folding>
@@ -875,7 +842,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/ClientAuthenticationHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
+        <state relative-caret-position="1860">
           <caret line="124" column="181" selection-start-line="124" selection-start-column="181" selection-end-line="124" selection-end-column="181" />
           <folding>
             <element signature="imports" expanded="true" />
