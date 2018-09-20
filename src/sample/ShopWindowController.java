@@ -1,15 +1,13 @@
 package sample;
 
+import Transactions.BuyProduct;
 import Transactions.ChangeCustomerDetails;
 import Transactions.SearchFor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -58,11 +56,12 @@ public class ShopWindowController
     @FXML
     private void ShowInCart()
     {
+        ShowProductList(customer.getProductsInCart());
     }
     @FXML
     private void ShowWishList()
     {
-
+        ShowProductList(customer.getProductsWishList());
     }
     @FXML
     private void ShowTrending()
@@ -70,7 +69,11 @@ public class ShopWindowController
         ArrayList<Product> prodList = getTending();
         ShowProductList(prodList);
     }
-
+    @FXML
+    private void ShowHistory()
+    {
+        ShowProductList(customer.getProductsBought());
+    }
     private void ShowProductList(ArrayList<Product> prodList)
     {
         CentreDisplay.getChildren().clear();
@@ -91,18 +94,37 @@ public class ShopWindowController
             ProductPrice[i].setText(Integer.toString(prod.getPrice()));
             ProductDiscount[i] = new Label();
             ProductDiscount[i].setText(Integer.toString(prod.getDiscount()));
+            Button BuyButton = new Button("Buy");
+            BuyButton.setOnAction(e -> BuyProduct(prod));
+            Button AddWishListButton = new Button("Add To WishList");
+            AddWishListButton.setOnAction(e -> AddToWishListProduct(prod));
+            Button AddToCart = new Button(" Add To Cart");
+            AddToCart.setOnAction(e -> AddToCartProduct(prod));
             productDetailsDisplay[i] = new HBox();
-            productDetailsDisplay[i].getChildren().addAll(ProductCategory[i],ProductDescription[i],ProductPrice[i],ProductDiscount[i]);
-
+            productDetailsDisplay[i].getChildren().addAll(ProductCategory[i],ProductDescription[i],ProductPrice[i],ProductDiscount[i],BuyButton,AddWishListButton,AddToCart);
+            CentreDisplay.getChildren().clear();
             CentreDisplay.getChildren().add(productDetailsDisplay[i]);
         }
+    }
+
+    private void BuyProduct(Product prod)
+    {
+
+    }
+    private void AddToCartProduct(Product prod)
+    {
+
+    }
+
+    private void AddToWishListProduct(Product prod)
+    {
+
     }
 
     private ArrayList<Product> getTending()
     {
         return null;
     }
-    private
 
     @FXML
     void SetProfileScene()
@@ -175,5 +197,7 @@ public class ShopWindowController
         ArrayList<Product> prodlist = (ArrayList<Product>) ois.readObject();
         ShowProductList(prodlist);
     }
+
+
 }
 

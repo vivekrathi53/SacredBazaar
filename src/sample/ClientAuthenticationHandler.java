@@ -154,7 +154,7 @@ public class ClientAuthenticationHandler implements Runnable
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
         connection = DriverManager.getConnection(url, "root", "password");
-        String q="INSERT INTO customertable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"'','"+(email)+"'";
+        String q="INSERT INTO CustomerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"'','"+(email)+"'";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
     }

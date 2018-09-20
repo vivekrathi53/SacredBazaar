@@ -10,6 +10,18 @@ public class Product implements Serializable
     private int Quantity;
     private String ProductCategory;
     private String ProductDescription;
+    private int Status;// 1 for bought 2 for in cart 3 for in wishlist
+
+    public int getStatus()
+    {
+        return Status;
+    }
+
+    public void setStatus(int status)
+    {
+        Status = status;
+    }
+
     // public Image
     private int Discount;
     public String getProductId() {
