@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -68,13 +69,31 @@ public class LoginWindow extends Application {
         Button signUp = new Button("SignUp");
         signUp.setOnAction(e ->
         {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Signup.fxml"));
+                Parent root = loader.load();
+                Signup controller = loader.getController();
+                window.setTitle("SignUp Window");
+                socket = new Socket("127.0.0.1",8188);
+                System.out.println("Connected to server");
+                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+                controller.socket = socket;
+                controller.objectOutputStream = oos;
+                controller.objectInputStream = ois;
+                controller.logwindow = this;
+                window.setScene(new Scene(root,700,800));
+                window.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
 
         });
         grid.setConstraints(signUp,7,5);
         grid.setConstraints(Customer,6,15);
         grid.setConstraints(retailer,6,16);
         grid.setConstraints(admin,6,17);
-        Parent root = FXMLLoader.load(getClass().getResource("ShopWindow.fxml"));
+
         window.setTitle("Log in Page");
         grid.getChildren().addAll(name,pass,Customer,retailer,admin,signUp,imageView);
         Scene s1= new Scene(grid,700,800);

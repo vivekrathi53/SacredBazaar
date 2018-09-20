@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 public class ClientAuthenticationHandler implements Runnable
 {
+    Thread thread;
     private Socket ClientSocket;
     private Client client;
     Connection connection;
@@ -90,6 +91,7 @@ public class ClientAuthenticationHandler implements Runnable
                 e.printStackTrace();
             }
         }
+
     }
 
     private  void  signupretailer() throws SQLException, ClassNotFoundException {
@@ -119,11 +121,11 @@ public class ClientAuthenticationHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        connection = DriverManager.getConnection(url, "root", "root");
-        String q="INSERT INTO retailertable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"'','"+(Email)+"'";
+        connection = DriverManager.getConnection(url, "root", "password");
+        String q="INSERT INTO RetailerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(Email)+"')";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
-
+        thread.stop();
     }
 
     private void signupcustomer() throws SQLException, ClassNotFoundException {
@@ -154,9 +156,10 @@ public class ClientAuthenticationHandler implements Runnable
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
         connection = DriverManager.getConnection(url, "root", "password");
-        String q="INSERT INTO CustomerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"'','"+(email)+"'";
+        String q="INSERT INTO CustomerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(email)+"','0')";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
+        thread.stop();
     }
 
     private void verifyLogin()throws ClassNotFoundException, SQLException
@@ -183,7 +186,7 @@ public class ClientAuthenticationHandler implements Runnable
         connection = DriverManager.getConnection(url, "root", "password");
         if(type==0)
         {
-            query="SELECT Password FROM retailertable WHERE USERNAME='"+(user)+"'";
+            query="SELECT Password FROM RetailerTable WHERE USERNAME='"+(user)+"'";
         }
         else if(type==1)
         {

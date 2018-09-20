@@ -24,9 +24,13 @@ import static sun.management.Agent.getText;
 
 public class Signup
 {
-    int type;
-    Socket socket;
-    ObjectOutputStream objectOutputStream = null;
+    public ObjectInputStream objectInputStream;
+    public int type;
+    public Socket socket;
+    public ObjectOutputStream objectOutputStream;
+    @FXML
+    public Button SignInButton;
+    public LoginWindow logwindow;
     @FXML
     private TextArea namefirst;
     @FXML
@@ -41,15 +45,16 @@ public class Signup
     private TextArea idemail;
     @FXML
     private TextArea useraddress;
+    @FXML
     private TextArea Password;
-    String firstName=null;
-    String lastName=null;
-    String userName=null;
-    String password=null;
-    String address=null;
-    String mobileNo=null;
-    String pinNo=null;
-    String email=null;
+    String firstName;
+    String lastName;
+    String userName;
+    String password;
+    String address;
+    String mobileNo;
+    String pinNo;
+    String email;
     @FXML
     private void signupcustomer()
     {
@@ -57,6 +62,8 @@ public class Signup
         try {
             sign();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -66,6 +73,8 @@ public class Signup
         try {
             sign();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -77,26 +86,32 @@ public class Signup
             sign();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-    private void sign() throws IOException
+    private void sign() throws Exception
     {
         display();
-        socket = new Socket("127.0.0.1",8281);
-        System.out.println("Connected to server");
+
+
         if(type==0)
         {
-            // Customer data = new Customer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,null,null);
+            Customer data = new Customer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,null,null);
+            objectOutputStream.writeObject(data);
+            objectOutputStream.flush();
+            logwindow.start((Stage)SignInButton.getScene().getWindow());
         }
         else if(type==1)
         {
-            //  Retailer data =new Retailer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,0,0);
+            Retailer data =new Retailer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,0,0);
+            objectOutputStream.writeObject(data);
+            objectOutputStream.flush();
+            logwindow.start((Stage)SignInButton.getScene().getWindow());
+
         }
         // else{ }
-        objectOutputStream= new ObjectOutputStream(socket.getOutputStream());
-        objectOutputStream.writeObject(objectOutputStream);
-        objectOutputStream.flush();
-        objectOutputStream.close();
+
     }
 
     private void display()
