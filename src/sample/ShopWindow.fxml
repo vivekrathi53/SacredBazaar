@@ -12,10 +12,11 @@
    <left>
       <VBox fx:id="LeftVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#SetProfileScene" prefHeight="41.0" prefWidth="99.0" text="Profile" />
-            <Button fx:id="MyCartButton" mnemonicParsing="false" onAction="#ShowInCart" prefHeight="42.0" prefWidth="99.0" text="My Cart" />
-            <Button fx:id="WishListButton" mnemonicParsing="false" onAction="#ShowWishList" prefHeight="42.0" prefWidth="98.0" text="Wish List" />
-            <Button fx:id="TrendingButton" mnemonicParsing="false" onAction="#ShowTrending" prefHeight="36.0" prefWidth="97.0" text="Trending " />
+            <Button fx:id="ProfileButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#SetProfileScene" text="Profile" />
+            <Button fx:id="MyCartButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowInCart" text="My Cart" />
+            <Button fx:id="WishListButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowWishList" text="Wish List" />
+            <Button minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="History" onAction="#ShowHistory"/>
+            <Button fx:id="TrendingButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowTrending" text="Trending " />
          </children>
       </VBox>
    </left>
@@ -44,16 +45,16 @@
             <HBox prefHeight="0.0" prefWidth="600.0">
                <children>
                   <TextArea fx:id="SearchBar" cache="true" promptText="Search For Product" />
-                  <Button mnemonicParsing="false" text="Search" fx:id="SearchButton" onMouseClicked="#SearchProduct"/>
+                  <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#SearchProduct" text="Search" />
                </children>
             </HBox>
          </children>
       </VBox>
    </top>
    <center>
-      <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="scrollPane" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="CentreDisplay" prefHeight="343.0" prefWidth="498.0" />
+            <VBox fx:id="CentreDisplay" />
          </content>
       </ScrollPane>
    </center>

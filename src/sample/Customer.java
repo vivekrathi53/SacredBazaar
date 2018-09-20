@@ -1,6 +1,7 @@
 package sample;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer implements Client, Serializable
@@ -13,9 +14,9 @@ public class Customer implements Client, Serializable
     private String MobileNo;
     private String PinNo;
     private String Email;
-    private List<Product> ProductsInCart;
-    private List<Product> ProductsBought;
-    private List<Product> ProductsWishList;
+    private ArrayList<Product> ProductsInCart;
+    private ArrayList<Product> ProductsBought;
+    private ArrayList<Product> ProductsWishList;
 
     public String getFirstName() {
         return FirstName;
@@ -86,31 +87,31 @@ public class Customer implements Client, Serializable
         Email = email;
     }
 
-    public List<Product> getProductsInCart() {
+    public ArrayList<Product> getProductsInCart() {
         return ProductsInCart;
     }
 
-    public void setProductsInCart(List<Product> productsInCart) {
+    public void setProductsInCart(ArrayList<Product> productsInCart) {
         ProductsInCart = productsInCart;
     }
 
-    public List<Product> getProductsBought() {
+    public ArrayList<Product> getProductsBought() {
         return ProductsBought;
     }
 
-    public void setProductsBought(List<Product> productsBought) {
+    public void setProductsBought(ArrayList<Product> productsBought) {
         ProductsBought = productsBought;
     }
 
-    public List<Product> getProductsWishList() {
+    public ArrayList<Product> getProductsWishList() {
         return ProductsWishList;
     }
 
-    public void setProductsWishList(List<Product> productsWishList) {
+    public void setProductsWishList(ArrayList<Product> productsWishList) {
         ProductsWishList = productsWishList;
     }
 
-    public Customer(String firstName, String lastName, String userName, String password, String address, String mobileNo, String pinNo, String email, List<Product> productsInCart, List<Product> productsBought, List<Product> productsWishList)
+    public Customer(String firstName, String lastName, String userName, String password, String address, String mobileNo, String pinNo, String email, ArrayList<Product> productsInCart, ArrayList<Product> productsBought, ArrayList<Product> productsWishList)
     {
         FirstName = firstName;
         LastName = lastName;
