@@ -123,11 +123,7 @@ public class LoginWindow extends Application {
                 if(type==0)
                 {
                     System.out.println("Login Retalier Approved");
-                    RetalierWindow rw=new RetalierWindow();
-                    rw.r=(Retailer)ois.readObject();
-                    rw.ois=ois;
-                    rw.oos=oos;
-                    rw.start(window);
+
                 }
                 else if(type==1)
                 {
