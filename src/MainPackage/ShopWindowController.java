@@ -203,7 +203,7 @@ public class ShopWindowController
         });
         try
         {
-
+            CentreDisplay.getChildren().clear();
             CentreDisplay.getChildren().addAll(UserNameLabel, UserNameArea, PasswordLabel, PasswordArea, FirstNameLabel, FirstNameArea, LasNameLabel, LastNameArea, EmailLabel, EmailArea, MobileNoLabel, MobileNoArea, AddressLabel, AddressArea,PinNoLabel,PinNoArea,SaveProfile);
         }
         catch (Exception e)

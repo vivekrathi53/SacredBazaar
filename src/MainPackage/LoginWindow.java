@@ -120,7 +120,15 @@ public class LoginWindow extends Application {
             Transaction a = (Authentication) ois.readObject();
             if(((Authentication) a).auth)
             {
-                if(type==0);
+                if(type==0)
+                {
+                    System.out.println("Login Retalier Approved");
+                    RetalierWindow rw=new RetalierWindow();
+                    rw.r=(Retailer)ois.readObject();
+                    rw.ois=ois;
+                    rw.oos=oos;
+                    rw.start(window);
+                }
                 else if(type==1)
                 {
                     System.out.println("Approved!!");
@@ -151,6 +159,8 @@ public class LoginWindow extends Application {
         catch(ClassNotFoundException e)
         {
             System.out.println("Class Not Found");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
