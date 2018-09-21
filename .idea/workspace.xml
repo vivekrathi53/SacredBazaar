@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CustomerQueries/GetTrendingList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/AddProductTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/AddProductTo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/AddProductToSell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/AddProductToSell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/BuyProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/BuyProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/ChangeCustomerDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/ChangeCustomerDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/CustomerProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/GetTrendingList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/LoadCustomerDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/LoadCustomerDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/LoadRetailerDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/LoadRetailerDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/ProductNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/ProductNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transactions/SearchFor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ClientAuthenticationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/CustomerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/CustomerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/LoginData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ProductDesignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ProductDesignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ProductDisplayDesign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ProductDisplayDesign.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Retailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Retailer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SacredServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/SacredServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ShopWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ShopWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ShopWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Signup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Signup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Transaction.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -143,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
-              <caret line="89" column="67" lean-forward="true" selection-start-line="89" selection-start-column="67" selection-end-line="89" selection-end-column="67" />
+              <caret line="89" column="67" selection-start-line="89" selection-start-column="67" selection-end-line="89" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -311,7 +279,7 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1612" />
@@ -367,7 +335,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SearchEverywhereHistoryKey" value="javafx.application.Application&#9;PSI&#9;JAVA://javafx.application.Application" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537530479761" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537530917623" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/mysql-connector-java-5.1.46" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -522,7 +490,7 @@
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30517927" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30517927" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -531,7 +499,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32919255" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26397514" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26397514" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.29813665" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -871,7 +839,7 @@
     <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="89" column="67" lean-forward="true" selection-start-line="89" selection-start-column="67" selection-end-line="89" selection-end-column="67" />
+          <caret line="89" column="67" selection-start-line="89" selection-start-column="67" selection-end-line="89" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -899,7 +867,7 @@
     <entry file="file://$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
