@@ -1,4 +1,4 @@
-package sample;
+package MainPackage;
 
 public class RetalierSWindowController {
 }
