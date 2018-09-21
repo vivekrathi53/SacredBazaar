@@ -15,12 +15,12 @@ public class SacredServer
         while(true)
         {
             Socket soc = serverSocket.accept();
-            ActiveUsers.add(soc);
+            ActiveUsers.add(soc);//list of socket
             ClientAuthenticationHandler cah= new ClientAuthenticationHandler(soc);
             Thread t = new Thread(cah);
             t.start();
             cah.thread=t;
-            OnlineClients.add(cah);
+            OnlineClients.add(cah);//list of ClientAuthenticationHandler
             System.out.println("New Client Connected");
         }
     }

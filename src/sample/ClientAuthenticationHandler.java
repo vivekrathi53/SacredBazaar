@@ -19,6 +19,8 @@ public class ClientAuthenticationHandler implements Runnable
     Connection connection;
     ObjectInputStream objectInputStream = null;
     ObjectOutputStream objectOutputStream = null;
+    int type;
+
     public ClientAuthenticationHandler(Socket clientSocket)
     {
         ClientSocket = clientSocket;
@@ -28,7 +30,6 @@ public class ClientAuthenticationHandler implements Runnable
     @Override
     public void run()
     {
-
         try
         {
             objectInputStream = new ObjectInputStream(ClientSocket.getInputStream());
@@ -63,8 +64,6 @@ public class ClientAuthenticationHandler implements Runnable
             client = (Customer) obj;
             try {
                 signupcustomer();
-
-
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -76,14 +75,19 @@ public class ClientAuthenticationHandler implements Runnable
             client = (LoginData) obj;
             try {
                 System.out.println("Calling verifyLogin()");
-                verifyLogin();
-                Transaction t = new Authentication(true,"Successfull Login");
-                objectOutputStream.writeObject(t);
-                objectOutputStream.flush();
-                System.out.println("Logged In!!");
-                CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream,objectOutputStream);
-                ch.handle();
-            } catch (ClassNotFoundException e) {
+                if (verifyLogin() == 1) {
+                    Transaction t = new Authentication(true, "Successfull Login");
+                    objectOutputStream.writeObject(t);
+                    objectOutputStream.flush();
+                    System.out.println("Logged In!!");
+                    CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
+                    ch.handle();
+                } else {
+                        Transaction t=new Authentication(false,"Invalid username or password");
+                        objectOutputStream.writeObject(t);
+                        objectOutputStream.flush();
+                }
+            }  catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -162,7 +166,7 @@ public class ClientAuthenticationHandler implements Runnable
         thread.stop();
     }
 
-    private void verifyLogin()throws ClassNotFoundException, SQLException
+    private int verifyLogin()throws ClassNotFoundException, SQLException
     {
         String query = null;
         String CheckPassword=null;
@@ -202,10 +206,11 @@ public class ClientAuthenticationHandler implements Runnable
         CheckPassword=rs.getString("Password");
         if(CheckPassword.equals(password))
         {
-            return ;
+            return 1;
         }
         else
         {
+            return 0;
         }
     }
 }
