@@ -1,7 +1,6 @@
-package sample;
+package MainPackage;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.Connection;
@@ -76,13 +75,19 @@ public class ClientAuthenticationHandler implements Runnable
             client = (LoginData) obj;
             try {
                 System.out.println("Calling verifyLogin()");
-                verifyLogin();
-                Transaction t = new Authentication(true,"Successfull Login");
+                boolean res = verifyLogin();
+                Transaction t = new Authentication(res,"Successfull Login");
                 objectOutputStream.writeObject(t);
                 objectOutputStream.flush();
-                System.out.println("Logged In!!");
-                CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream,objectOutputStream);
-                ch.handle();
+                if(res)
+                {
+                    System.out.println("Logged In!!");
+                    CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream,objectOutputStream);
+                    ch.handle();
+                }
+                else System.out.println("Invalid");
+                thread.stop();
+
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
@@ -162,7 +167,7 @@ public class ClientAuthenticationHandler implements Runnable
         thread.stop();
     }
 
-    private void verifyLogin()throws ClassNotFoundException, SQLException
+    private boolean verifyLogin()throws ClassNotFoundException, SQLException
     {
         String query = null;
         String CheckPassword=null;
@@ -202,10 +207,11 @@ public class ClientAuthenticationHandler implements Runnable
         CheckPassword=rs.getString("Password");
         if(CheckPassword.equals(password))
         {
-            return ;
+            return true;
         }
         else
         {
+            return false;
         }
     }
 }

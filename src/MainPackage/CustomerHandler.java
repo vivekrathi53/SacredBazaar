@@ -1,6 +1,6 @@
-package sample;
+package MainPackage;
 
-import Transactions.*;
+import CustomerQueries.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -66,6 +66,13 @@ public class CustomerHandler
                 bp.connection=connection;
                 bp.buyProduct();
                 System.out.println("Done!!");
+            }
+            else if(transaction instanceof GetTrendingList)
+            {
+                GetTrendingList gtl = (GetTrendingList) transaction;
+                gtl.connection=connection;
+                oos.writeObject(gtl.getList());
+                oos.flush();
             }
         }
 

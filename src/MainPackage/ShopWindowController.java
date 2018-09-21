@@ -1,29 +1,20 @@
-package sample;
+package MainPackage;
 
-import Transactions.AddProductTo;
-import Transactions.BuyProduct;
-import Transactions.ChangeCustomerDetails;
-import Transactions.SearchFor;
-import javafx.event.ActionEvent;
+import CustomerQueries.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import sun.font.Decoration;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.URL;
 import java.util.Date;
 import java.sql.Time;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class ShopWindowController
 {
@@ -96,8 +87,7 @@ public class ShopWindowController
                 controller.price.setText(controller.price.getText() + Integer.toString(prod.getPrice()));
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
-
-
+                productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -159,6 +149,17 @@ public class ShopWindowController
 
     private ArrayList<Product> getTending()
     {
+        GetTrendingList gtl = new GetTrendingList();
+        try {
+            oos.writeObject(gtl);
+            oos.flush();
+            ArrayList<Product> prodList = (ArrayList<Product>) ois.readObject();
+            return prodList;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

@@ -1,4 +1,4 @@
-package Transactions;
+package CustomerQueries;
 
 import java.io.Serializable;
 

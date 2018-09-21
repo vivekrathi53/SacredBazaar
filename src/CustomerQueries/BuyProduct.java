@@ -1,6 +1,6 @@
-package Transactions;
+package CustomerQueries;
 
-import sample.Product;
+import MainPackage.Product;
 
 import java.io.Serializable;
 import java.sql.Connection;

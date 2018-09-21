@@ -1,7 +1,7 @@
-package Transactions;
+package CustomerQueries;
 
-import sample.Customer;
-import sample.Product;
+import MainPackage.Customer;
+import MainPackage.Product;
 
 import java.io.Serializable;
 

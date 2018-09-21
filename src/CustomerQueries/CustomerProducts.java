@@ -1,7 +1,6 @@
-package Transactions;
+package CustomerQueries;
 
-import sample.Customer;
-import sample.Product;
+import MainPackage.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
