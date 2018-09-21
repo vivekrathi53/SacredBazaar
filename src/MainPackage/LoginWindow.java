@@ -1,15 +1,17 @@
-package sample;
+package MainPackage;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -96,8 +98,11 @@ public class LoginWindow extends Application {
 
         window.setTitle("Log in Page");
         grid.getChildren().addAll(name,pass,Customer,retailer,admin,signUp,imageView);
-        Scene s1= new Scene(grid,700,800);
+        Scene s1= new Scene(grid);
         window.setScene(s1);
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        window.setWidth((primScreenBounds.getWidth()));
+        window.setHeight((primScreenBounds.getHeight()));
         window.show();
     }
     private void Login(int type) throws IOException{
@@ -133,6 +138,14 @@ public class LoginWindow extends Application {
                     }
                 }
                 else if(type==3);
+            }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Authentication Failed");
+                alert.setHeaderText("Please Check Your Login Credentials");
+                alert.setContentText("Wrong UserName or Password");
+                alert.show();
             }
         }
         catch(ClassNotFoundException e)
