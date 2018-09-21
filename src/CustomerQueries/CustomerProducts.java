@@ -26,7 +26,7 @@ public class CustomerProducts
             Product prod;
             if(resultSet.next())
             {
-                prod = new Product(resultSet.getString("ProductId"),resultSet.getInt("Retailer"),resultSet.getInt("Price"),resultSet.getInt("Quantity"),resultSet.getString("Category"),resultSet.getString("Description"),resultSet.getInt("Discount"));
+                prod = new Product(resultSet.getString("ProductId"),resultSet.getString("Retailer"),resultSet.getInt("Price"),resultSet.getInt("Quantity"),resultSet.getString("Category"),resultSet.getString("Description"),resultSet.getInt("Discount"));
                 prod.setStatus(result.getInt("Status"));
                 prodList.add(prod);
             }

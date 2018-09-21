@@ -21,7 +21,7 @@ public class SearchFor implements Serializable
         ResultSet resultSet = prepStat.executeQuery();
         while(resultSet.next())
         {
-            Product prod = new Product(resultSet.getString("ProductId"),resultSet.getInt("Retailer"),resultSet.getInt("Price"),resultSet.getInt("Quantity"),resultSet.getString("Category"),resultSet.getString("Description"),resultSet.getInt("Discount"));
+            Product prod = new Product(resultSet.getString("ProductId"),resultSet.getString("Retailer"),resultSet.getInt("Price"),resultSet.getInt("Quantity"),resultSet.getString("Category"),resultSet.getString("Description"),resultSet.getInt("Discount"));
             prodList.add(prod);
         }
         return prodList;
