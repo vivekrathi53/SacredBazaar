@@ -76,7 +76,7 @@ public class LoginWindow extends Application {
                 Parent root = loader.load();
                 Signup controller = loader.getController();
                 window.setTitle("SignUp Window");
-                socket = new Socket("127.0.0.1",8188);
+                socket = new Socket("192.168.219.1",8188);
                 System.out.println("Connected to server");
                 ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
