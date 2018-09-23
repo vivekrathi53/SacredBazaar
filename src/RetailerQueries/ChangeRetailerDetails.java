@@ -9,5 +9,6 @@ public class ChangeRetailerDetails
 
     public void updateEntries()
     {
+
     }
 }

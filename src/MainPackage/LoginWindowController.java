@@ -86,8 +86,9 @@ public class LoginWindowController
             {
                 if(type==0)
                 {
-                    System.out.println("Login Retalier Approved");
+                    System.out.println("Login Retailer Approved");
                     RetailerWindow rw = new RetailerWindow();
+                    rw.retailer = (Retailer) ois.readObject();
                     rw.ois=ois;
                     rw.oos=oos;
                     rw.socket=socket;
@@ -129,6 +130,7 @@ public class LoginWindowController
     }
 
     public void sign() throws IOException {
+        window = (Stage)name.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Signup.fxml"));
         Parent root = loader.load();
         Signup controllers = loader.getController();

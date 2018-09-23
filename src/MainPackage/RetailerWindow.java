@@ -19,7 +19,7 @@ public class RetailerWindow extends Application
     private BorderPane DisplayPane;
     private RetailerWindowController controller;
     private Stage window;
-    private Retailer retailer;
+    protected Retailer retailer;
     protected Socket socket;
     protected ObjectOutputStream oos;
     protected ObjectInputStream ois;
@@ -31,18 +31,6 @@ public class RetailerWindow extends Application
     @Override
     public void start(Stage primaryStage)
     {
-        try
-        {
-            retailer = (Retailer) ois.readObject();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
         loader = new FXMLLoader(getClass().getResource("RetailerWindow.fxml"));
         try
         {

@@ -31,6 +31,7 @@ public class RetailerHandler
         LoadRetailerDetails lrd = new LoadRetailerDetails(connection, clientLoginDetails.getUserName());
         oos.writeObject(lrd.getDetails());
         oos.flush();
+        System.out.println("Send the details");
         while(true)
         {
             Object transaction = ois.readObject();

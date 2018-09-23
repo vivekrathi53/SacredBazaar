@@ -21,9 +21,23 @@ public class RetailerProfileController
     public Label NameDisplay;
     public Label UserNameDisplay;
     public Label AddressDisplay;
-    public RetailerWindowController rwc;
+    public Retailer retailer;
+    public void ShowProfile()
+    {
+        AddressBox.setText(retailer.getAddress());
+        AddressDisplay.setText(retailer.getAddress());
+        EmailBox.setText(retailer.getEmail());
+        FirstNameBox.setText(retailer.getFirstName());
+        LastNameBox.setText(retailer.getLastName());
+        MobileNoBox.setText(retailer.getMobileNo());
+        NameDisplay.setText(retailer.getFirstName() + " " + retailer.getLastName());
+        PasswordBox.setText(retailer.getPassword());
+        PinNoBox.setText(retailer.getPinNo());
+        UserNameDisplay.setText(retailer.getUserName());
+    }
+
     public void ChangeProfile()
     {
-        rwc.ChangeProfile();
+
     }
 }
