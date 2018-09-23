@@ -39,4 +39,7 @@
          </children>
       </VBox>
    </left>
+   <center>
+      <ScrollPane fx:id="CentreDisplay" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

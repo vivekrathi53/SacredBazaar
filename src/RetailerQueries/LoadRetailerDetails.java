@@ -25,6 +25,7 @@ public class LoadRetailerDetails
         ResultSet rs = prepStats.executeQuery();
         ArrayList<Product> soldList = new LoadSoldProducts(connection,userName).loadProducts();
         ArrayList<Product> allList = new GetRetailerProducts(connection,userName).getCustomerProduct();
+        rs.next();
         Retailer r = new Retailer(rs.getString("FirstName"),rs.getString("LastName"),rs.getString("UserName"),rs.getString("Password"),rs.getString("Address"),rs.getString("MobileNo"),rs.getString("PinNo"),rs.getString("Email"),allList,soldList,0);
         return r;
     }

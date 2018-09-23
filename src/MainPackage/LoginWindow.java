@@ -123,7 +123,11 @@ public class LoginWindow extends Application {
                 if(type==0)
                 {
                     System.out.println("Login Retalier Approved");
-
+                    RetailerWindow rw = new RetailerWindow();
+                    rw.ois=ois;
+                    rw.oos=oos;
+                    rw.socket=socket;
+                    rw.start(window);
                 }
                 else if(type==1)
                 {
