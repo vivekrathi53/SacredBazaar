@@ -1,5 +1,6 @@
 package MainPackage;
 
+import RetailerQueries.GetRetailerProducts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
@@ -45,6 +46,18 @@ public class RetailerWindowController
     }
     public void ShowAllProducts()
     {
+        GetRetailerProducts grp = new GetRetailerProducts();
+        grp.UserName=retailer.getUserName();
+        try {
+            oos.writeObject(grp);
+            oos.flush();
+            retailer.setAllProducts((ArrayList<Product>) ois.readObject());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         DisplayProducts(retailer.getAllProducts());
     }
     public void DisplayProducts(ArrayList<Product> prodList)
@@ -87,6 +100,18 @@ public class RetailerWindowController
 
     public void AddProduct()
     {
+        loader = new FXMLLoader(getClass().getResource("AddProduct.fxml"));
+        try
+        {
+            borderPane.setCenter(loader.load());
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        AddProductController apc = loader.getController();
+        apc.retailer=retailer;
+        apc.oos=oos;
+
 
     }
 }

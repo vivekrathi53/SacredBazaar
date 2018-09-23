@@ -1,6 +1,8 @@
 package MainPackage;
 
+import RetailerQueries.AddProductToSell;
 import RetailerQueries.ChangeRetailerDetails;
+import RetailerQueries.GetRetailerProducts;
 import RetailerQueries.LoadRetailerDetails;
 
 import java.io.IOException;
@@ -35,9 +37,12 @@ public class RetailerHandler
         while(true)
         {
             Object transaction = ois.readObject();
+            System.out.println("Recieving Request");
             if(transaction instanceof LoadRetailerDetails)
             {
-                lrd = (LoadRetailerDetails) ois.readObject();
+                lrd = (LoadRetailerDetails) transaction;
+                lrd.connection=connection;
+                lrd.userName=clientLoginDetails.getUserName();
                 oos.writeObject(lrd.getDetails());
                 oos.flush();
             }
@@ -50,7 +55,20 @@ public class RetailerHandler
                 oos.writeObject(r);
                 oos.flush();
             }
-
+            else if(transaction instanceof AddProductToSell)
+            {
+                AddProductToSell aps = (AddProductToSell) transaction;
+                aps.connection=connection;
+                aps.add();
+                System.out.println("Added");
+            }
+            else if(transaction instanceof GetRetailerProducts)
+            {
+                GetRetailerProducts grp = (GetRetailerProducts) transaction;
+                grp.connection=connection;
+                oos.writeObject(grp.getCustomerProduct());
+                oos.flush();
+            }
         }
 
     }
