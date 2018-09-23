@@ -20,9 +20,9 @@ public class RetailerWindow extends Application
     private RetailerWindowController controller;
     private Stage window;
     private Retailer retailer;
-    private Socket socket;
-    private ObjectOutputStream oos;
-    private ObjectInputStream ois;
+    protected Socket socket;
+    protected ObjectOutputStream oos;
+    protected ObjectInputStream ois;
     public static void main(String[] args)
     {
         launch(args);

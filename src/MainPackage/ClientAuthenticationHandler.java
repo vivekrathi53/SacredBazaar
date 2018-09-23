@@ -73,14 +73,29 @@ public class ClientAuthenticationHandler implements Runnable
         {
             client = (LoginData) obj;
             try {
-                if (verifyLogin() == 1) {
-                        Transaction t = new Authentication(true, "Successfull Login");
-                        objectOutputStream.writeObject(t);
-                        objectOutputStream.flush();
-                        System.out.println("Logged In!!");
-                        CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
-                        ch.handle();
-                    } else {
+                if (verifyLogin() == 1)
+                {
+                        if(client.getType()==1)
+                        {
+                            Transaction t = new Authentication(true, "Successfull Login");
+                            objectOutputStream.writeObject(t);
+                            objectOutputStream.flush();
+                            System.out.println("Logged In!!");
+                            CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
+                            ch.handle();
+                        }
+                        else if(client.getType()==0)
+                        {
+                            Transaction t = new Authentication(true,"Successfull Login");
+                            objectOutputStream.writeObject(t);
+                            objectOutputStream.flush();
+                            System.out.println("Logged in!!");
+                            RetailerHandler rh = new RetailerHandler(ClientSocket,(LoginData)client,connection,objectInputStream,objectOutputStream);
+                            rh.handle();
+                        }
+                    }
+                    else
+                    {
                             Transaction t=new Authentication(false,"Invalid username or password");
                             objectOutputStream.writeObject(t);
                             objectOutputStream.flush();
@@ -190,7 +205,7 @@ public class ClientAuthenticationHandler implements Runnable
         connection = DriverManager.getConnection(url, "root", "password");
         if(type==0)
         {
-            query="SELECT Password FROM RetailerTable WHERE USERNAME='"+(user)+"'";
+            query="SELECT Password FROM RetailerTable WHERE UserName='"+(user)+"'";
         }
         else if(type==1)
         {

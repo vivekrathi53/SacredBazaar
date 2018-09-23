@@ -27,7 +27,7 @@ public class LoadSoldProducts
         ResultSet rs = prepStat.executeQuery();
         while(rs.next())
         {
-            String q = "SELECT * FROM ProdutsTable WHERE ProductsId='" + (rs.getString("ProductId")) + "'";
+            String q = "SELECT * FROM ProductsTable WHERE ProductId='" + (rs.getString("ProductId")) + "'";
             PreparedStatement ps = connection.prepareStatement(q);
             ResultSet res = ps.executeQuery();
             res.next();
