@@ -47,6 +47,8 @@ public class RetailerHandler
                 ccd.connection=connection;
                 ccd.updateEntries();
                 Retailer r = lrd.getDetails();
+                oos.writeObject(r);
+                oos.flush();
             }
 
         }

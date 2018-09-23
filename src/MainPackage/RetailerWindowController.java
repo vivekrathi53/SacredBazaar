@@ -3,12 +3,16 @@ package MainPackage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class RetailerWindowController
 {
@@ -19,15 +23,17 @@ public class RetailerWindowController
     public ObjectOutputStream oos;
     public ScrollPane CentreDisplay;
     public BorderPane borderPane;
-
+    FXMLLoader loader;
     public void ShowProfile()
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
+        loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
         try
         {
             CentreDisplay = (ScrollPane) loader.load();
             controller = loader.getController();
             controller.retailer= retailer;
+            controller.oos = oos;
+            controller.ois = ois;
             controller.ShowProfile();
             borderPane.setCenter(CentreDisplay);
         }
@@ -39,7 +45,34 @@ public class RetailerWindowController
     }
     public void ShowAllProducts()
     {
+        DisplayProducts(retailer.getAllProducts());
+    }
+    public void DisplayProducts(ArrayList<Product> prodList)
+    {
+        VBox CDisplay = new VBox();
+        int len = prodList.size();
+        SplitPane[] productDetailsDisplay = new SplitPane[len];
+        for(int i=0;i<len;i++)
+        {
+            Product prod = prodList.get(i);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductDisplayDesign.fxml")) ;
+                productDetailsDisplay[i] = (SplitPane) loader.load();
+                ProductDesignController controller = loader.getController();
+                controller.BuyButton.setVisible(false);
+                controller.AddtoCart.setVisible(false);
+                controller.AddtoWishList.setVisible(false);
+                controller.price.setText(controller.price.getText() + Integer.toString(prod.getPrice()));
+                controller.productCategory.setText(prod.getProductCategory());
+                controller.productDescription.setText(prod.getProductDescription());
+                productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            CDisplay.getChildren().add(productDetailsDisplay[i]);
 
+        }
+        borderPane.setCenter(CDisplay);
     }
 
     public void ShowNotifications()
@@ -49,7 +82,7 @@ public class RetailerWindowController
 
     public void ShowSoldProducts()
     {
-
+        DisplayProducts(retailer.getProductSold());
     }
 
     public void AddProduct()
