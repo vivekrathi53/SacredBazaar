@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class LoadRetailerDetails 
 {
-    Connection connection;
-    String userName;
+    public Connection connection;
+    public String userName;
     public LoadRetailerDetails(Connection connection, String userName)
     {
         this.connection=connection;
