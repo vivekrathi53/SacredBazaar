@@ -1,9 +1,6 @@
 package MainPackage;
 
-import RetailerQueries.AddProductToSell;
-import RetailerQueries.ChangeRetailerDetails;
-import RetailerQueries.GetRetailerProducts;
-import RetailerQueries.LoadRetailerDetails;
+import RetailerQueries.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -67,6 +64,13 @@ public class RetailerHandler
                 GetRetailerProducts grp = (GetRetailerProducts) transaction;
                 grp.connection=connection;
                 oos.writeObject(grp.getCustomerProduct());
+                oos.flush();
+            }
+            else if(transaction instanceof LoadNotifications)
+            {
+                LoadNotifications ln = (LoadNotifications) transaction;
+                ln.connection = connection;
+                oos.writeObject(ln.load());
                 oos.flush();
             }
         }

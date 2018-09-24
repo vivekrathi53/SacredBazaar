@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="276.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.NotificationDesignController">
+   <children>
+      <Label fx:id="productBox" text="Product Sold Name">
+         <font>
+            <Font name="Lucida Sans Regular" size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="customerNameBox" layoutX="309.0" layoutY="2.0" prefHeight="38.0" prefWidth="286.0" text="Customer Name">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="AddressBox" layoutY="37.0" prefHeight="121.0" prefWidth="600.0" text="Delivery Address">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="QuantityBox" layoutY="170.0" prefHeight="38.0" prefWidth="87.0" text="Quantity" />
+      <Label fx:id="TotalAmountBox" layoutX="382.0" layoutY="166.0" prefHeight="38.0" prefWidth="213.0" text="Total Amount" />
+      <Button layoutY="251.0" mnemonicParsing="false" onAction="#Delivered" text="Mark As delivered" />
+      <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" onAction="#CancelDelivery" text="Cancel Delivery" />
+   </children>
+</AnchorPane>
