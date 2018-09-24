@@ -12,7 +12,7 @@ public class graph extends Application
     Stage window;
     FXMLLoader loader;
     graphcontroller controller;
-    LineChart<?,?> MainDisplay
+    LineChart<?,?> MainDisplay;
 
     public void start(Stage primaryStage) throws Exception
     {
