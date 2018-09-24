@@ -101,6 +101,7 @@ public class LoginWindowController
                     sw.c = (Customer) ois.readObject();
                     sw.ois = ois;
                     sw.oos = oos;
+                    sw.socket = socket;
                     try
                     {
                         sw.start(window);

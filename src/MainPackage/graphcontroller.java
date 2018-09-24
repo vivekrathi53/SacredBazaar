@@ -22,6 +22,7 @@ public class graphcontroller
     Retailer username;
     String currentdate;
     int Time;
+
     public void startgraph() throws ClassNotFoundException, SQLException
     {
         int []arr=new int[40];

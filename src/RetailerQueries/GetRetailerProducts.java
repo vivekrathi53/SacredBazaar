@@ -27,7 +27,7 @@ public class GetRetailerProducts implements Serializable
         ResultSet rs = prepStat.executeQuery();
         while(rs.next())
         {
-            Product prod = new Product(rs.getString("ProductId"),rs.getString("Retailer"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Category"),rs.getString("Description"),rs.getInt("Discount"));
+            Product prod = new Product(rs.getInt("ProductId"),rs.getString("Retailer"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Category"),rs.getString("Description"),rs.getInt("Discount"));
             prodList.add(prod);
         }
         return prodList;

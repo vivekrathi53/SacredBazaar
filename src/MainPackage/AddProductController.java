@@ -22,7 +22,7 @@ public class AddProductController
     public ObjectOutputStream oos;
     public void AddProduct()
     {
-        Product prod = new Product(null,retailer.getUserName(),Integer.parseInt(priceBox.getText()),Integer.parseInt(quantityBox.getText()),productCategoryBox.getText(),descriptionBox.getText(),Integer.parseInt(discountBox.getText()));
+        Product prod = new Product(-1,retailer.getUserName(),Integer.parseInt(priceBox.getText()),Integer.parseInt(quantityBox.getText()),productCategoryBox.getText(),descriptionBox.getText(),Integer.parseInt(discountBox.getText()));
         AddProductToSell adts = new AddProductToSell();
         adts.product=prod;
         try {

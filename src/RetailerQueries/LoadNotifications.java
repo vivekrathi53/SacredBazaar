@@ -28,7 +28,7 @@ public class LoadNotifications implements Serializable
             prepStat = connection.prepareStatement(query);
             ResultSet resultSet = prepStat.executeQuery();
             resultSet.next();
-            if(!resultSet.next()) continue;
+            if(!resultSet.next()||resultSet.getInt("DeliveryStatus")==1) continue;
             PendingProducts pp = new PendingProducts(allprod.get(i).getProductId(),allprod.get(i).getRetailer(),allprod.get(i).getPrice(),allprod.get(i).getQuantity(),allprod.get(i).getProductCategory(),allprod.get(i).getProductDescription(),allprod.get(i).getDiscount());
             query = "SELECT * FROM CustomerTable WHERE UserName='"+(resultSet.getString("CustomerUserName"))+"'";
             prepStat = connection.prepareStatement(query);

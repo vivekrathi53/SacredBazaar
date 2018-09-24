@@ -2,18 +2,23 @@ package MainPackage;
 
 import RetailerQueries.GetRetailerProducts;
 import RetailerQueries.LoadNotifications;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RetailerWindowController
@@ -26,6 +31,8 @@ public class RetailerWindowController
     public ScrollPane CentreDisplay;
     public BorderPane borderPane;
     FXMLLoader loader;
+    Stage currentStage;
+
     public void ShowProfile()
     {
         loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
@@ -61,6 +68,19 @@ public class RetailerWindowController
 
         DisplayProducts(retailer.getAllProducts());
     }
+
+    public void buildGraph() throws IOException, SQLException, ClassNotFoundException
+    {
+        LineChart<?,?> MainDisplay;
+        loader = new FXMLLoader(getClass().getResource("graph.fxml")) ;
+        graphcontroller controller = loader.getController();
+        MainDisplay  = (LineChart<?,?>) loader.load();
+        controller.startgraph();
+        currentStage.setTitle("Retailer Window");
+        currentStage.setScene(new Scene(MainDisplay));
+        currentStage.show();//check
+    }
+
     public void DisplayProducts(ArrayList<Product> prodList)
     {
         VBox CDisplay = new VBox();
@@ -123,6 +143,9 @@ public class RetailerWindowController
             ndc.QuantityBox.setText(ndc.QuantityBox.getText()+Integer.toString(pp.get(i).getQuantityOrdered()));
             ndc.productBox.setText(pp.get(i).getProductCategory());
             ndc.MobileNo.setText(pp.get(i).getMobileNo());
+            ndc.ProductId = pp.get(i).getProductId();
+            ndc.oos=oos;
+            ndc.ois=ois;
             ndc.TotalAmountBox.setText(ndc.TotalAmountBox.getText() + Integer.toString(pp.get(i).getPrice()*pp.get(i).getQuantityOrdered()));
         }
         vBox.setFillWidth(true);
@@ -147,7 +170,23 @@ public class RetailerWindowController
         AddProductController apc = loader.getController();
         apc.retailer=retailer;
         apc.oos=oos;
+    }
 
+    public void Logout(ActionEvent actionEvent)
+    {
+        LogoutClient lc =new LogoutClient();
+        try {
+            oos.writeObject(lc);
+            oos.flush();
+            socket.close();
+            LoginWindow lw = new LoginWindow();
+            lw.start(currentStage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
+
 }
