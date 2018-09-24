@@ -1,54 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0a45a4b-b15d-477d-b50d-a5d1985dd771" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MainPackage/LogoutClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RetailerQueries/DeliveredProduct.java" afterDir="false" />
+    <list default="true" id="0df5cd2e-4ed5-4051-aba4-b4b388d85f47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MainPackage/graph.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MainPackage/graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MainPackage/graphcontroller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/AddProductTo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/AddProductTo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/BuyProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/BuyProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/CustomerProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/CustomerProducts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/GetTrendingList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/GetTrendingList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/SearchFor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/SearchFor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/AddProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/AddProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/ClientAuthenticationHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/ClientAuthenticationHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/CustomerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/CustomerHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/LoginWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/LoginWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/NotificationDesign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/NotificationDesign.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/NotificationDesignController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/NotificationDesignController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/PendingProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/PendingProducts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/RetailerWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/ShopWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/ShopWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/RetailerQueries/GetRetailerProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/RetailerQueries/GetRetailerProducts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/RetailerQueries/LoadNotifications.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/RetailerQueries/LoadNotifications.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/RetailerQueries/LoadSoldProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SacredBazaar/RetailerQueries/LoadSoldProducts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomerQueries/GetTrendingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/GetTrendingList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/AddProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/CustomerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/CustomerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/RetailerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/RetailerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/RetailerWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/RetailerWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/RetailerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/RetailerWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/SacredServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/SacredServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SacredBazaar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SacredBazaar.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainPackage/ShopWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainPackage/ShopWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RetailerQueries/GetRetailerProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RetailerQueries/GetRetailerProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RetailerQueries/LoadSoldProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RetailerQueries/LoadSoldProducts.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,39 +20,14 @@
     <session id="1933184980">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="12" />
-          <entry key="html" value="1" />
-          <entry key="java" value="92" />
+          <entry key="java" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="1" />
-          <entry key="JAVA" value="92" />
-          <entry key="XML" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="14" />
-          <entry key="fxml" value="168" />
-          <entry key="java" value="4771" />
-          <entry key="xml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="4771" />
-          <entry key="PLAIN_TEXT" value="14" />
-          <entry key="XML" value="169" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="JAVA" value="1" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -101,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="258">
-              <caret line="173" column="5" lean-forward="true" selection-start-line="158" selection-start-column="3" selection-end-line="173" selection-end-column="5" />
+              <caret line="173" column="5" selection-start-line="158" selection-start-column="3" selection-end-line="173" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +59,8 @@
         <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindow.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            <state relative-caret-position="345">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -131,11 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainPackage/LoginWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="92" column="31" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -151,20 +85,24 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -179,27 +117,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="95" selection-start-line="95" selection-end-line="95" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainPackage/SacredServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -209,14 +126,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/src/MainPackage</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -230,50 +139,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/MainPackage/LoginWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/MainPackage/LoginWindowDesign.fxml" />
-        <option value="$PROJECT_DIR$/src/MainPackage/Signup.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/LoginWindow.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/ChangeRetailerDetails.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/RetailerProfileController.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/Retailer.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/AddProduct.fxml" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/AddProduct.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/LoadRetailerDetails.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/AddProductToSell.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml" />
-        <option value="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/DeliveredProduct.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/Product.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/AddProductController.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/GetRetailerProducts.java" />
-        <option value="$PROJECT_DIR$/src/RetailerQueries/LoadSoldProducts.java" />
-        <option value="$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java" />
-        <option value="$PROJECT_DIR$/src/CustomerQueries/GetTrendingList.java" />
-        <option value="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/RetailerHandler.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/RetailerWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/CustomerQueries/LogoutCustomer.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/CustomerHandler.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/RetailerWindow.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/LogoutClient.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/SacredServer.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/ShopWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/MainPackage/LoginWindowController.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/ShopWindow.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" />
       </list>
     </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1612" />
-    <option name="height" value="876" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -308,7 +177,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537812636370" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537813218988" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -409,18 +278,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2613546" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2613546" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32919255" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32919255" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996016" visible="true" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996016" weight="0.32919255" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -428,7 +297,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5003984" side_tool="true" weight="0.32919255" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32919255" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32919255" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -467,9 +336,6 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
     </layout-to-restore>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MainPackage/Client.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -505,9 +371,6 @@
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://$USER_HOME$/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -755,16 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainPackage/SacredServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -792,8 +645,8 @@
     <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindow.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="345">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -810,17 +663,10 @@
     <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
-          <caret line="173" column="5" lean-forward="true" selection-start-line="158" selection-start-column="3" selection-end-line="173" selection-end-column="5" />
+          <caret line="173" column="5" selection-start-line="158" selection-start-column="3" selection-end-line="173" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -831,99 +677,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindow.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainPackage/LoginWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="92" column="31" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>JavaFXApp</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>SacredBazaar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>mysql-connector-java-5.1</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

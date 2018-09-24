@@ -29,6 +29,7 @@ public class ShopWindow extends Application implements Initializable
     @Override
     public void start(Stage primaryStage) throws Exception
     {
+        int a;
         loader = new FXMLLoader(getClass().getResource("ShopWindow.fxml"));
         DisplayPane  = (BorderPane) loader.load();
         controller = loader.getController();
@@ -39,6 +40,8 @@ public class ShopWindow extends Application implements Initializable
         controller.oos = this.oos;
         controller.currentStage = primaryStage;
         controller.socket = socket;
+        a=controller.Total();
+        controller.Totalspending.setText("$ "+(a)+"");
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(DisplayPane));
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
