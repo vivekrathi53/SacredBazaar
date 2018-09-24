@@ -1,6 +1,7 @@
 package MainPackage;
 
 import RetailerQueries.GetRetailerProducts;
+import RetailerQueries.LoadNotifications;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
@@ -90,7 +91,39 @@ public class RetailerWindowController
 
     public void ShowNotifications()
     {
-
+        LoadNotifications ln = new LoadNotifications();
+        ln.UserName=retailer.getUserName();
+        ArrayList<PendingProducts> pp = null;
+        try
+        {
+            oos.writeObject(ln);
+            oos.flush();
+            pp = (ArrayList<PendingProducts>) ois.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        NotificationDesignController ndc;
+        VBox vBox = new VBox();
+        for(int i=0;i<pp.size();i++)
+        {
+            loader = new FXMLLoader(getClass().getResource("NotificationDesign.fxml"));
+            try
+            {
+                vBox.getChildren().add(loader.load());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ndc = loader.getController();
+            ndc.AddressBox.setText(pp.get(i).getAddress());
+            ndc.customerNameBox.setText(pp.get(i).getCustomerName());
+            ndc.QuantityBox.setText(Integer.toString(pp.get(i).getQuantityOrdered()));
+            ndc.productBox.setText(pp.get(i).getProductCategory());
+            ndc.TotalAmountBox.setText(Integer.toString(pp.get(i).getPrice()*pp.get(i).getQuantityOrdered()));
+        }
+        borderPane.setCenter(vBox);
     }
 
     public void ShowSoldProducts()
