@@ -74,6 +74,10 @@ public class CustomerHandler
                 oos.writeObject(gtl.getList());
                 oos.flush();
             }
+            else if(transaction instanceof LogoutClient)
+            {
+                return;
+            }
         }
 
     }

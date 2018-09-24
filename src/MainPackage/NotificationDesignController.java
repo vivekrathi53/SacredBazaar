@@ -1,8 +1,10 @@
 package MainPackage;
 
+import RetailerQueries.DeliveredProduct;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -16,10 +18,17 @@ public class NotificationDesignController
     public Label AddressBox;
     public Label QuantityBox;
     public Label TotalAmountBox;
-
+    public int ProductId;
     public void Delivered()
     {
-
+        DeliveredProduct dp = new DeliveredProduct();
+        dp.productId = ProductId;
+        try {
+            oos.writeObject(dp);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void CancelDelivery()

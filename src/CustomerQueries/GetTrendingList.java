@@ -28,7 +28,7 @@ public class GetTrendingList implements Serializable
             Product prod;
             if(resultSet.next())
             {
-                prod = new Product(resultSet.getString("ProductId"),resultSet.getString("Retailer"),resultSet.getInt("Price"),resultSet.getInt("Quantity"),resultSet.getString("Category"),resultSet.getString("Description"),resultSet.getInt("Discount"));
+                prod = new Product(resultSet.getInt("ProductId"),resultSet.getString("Retailer"),resultSet.getInt("Price"),resultSet.getInt("Quantity"),resultSet.getString("Category"),resultSet.getString("Description"),resultSet.getInt("Discount"));
                 if(!prodList.contains(prod))
                     prodList.add(prod);
                 else count.add(prodList.indexOf(prod),count.get(prodList.indexOf(prod))+1);

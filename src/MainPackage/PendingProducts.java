@@ -76,7 +76,7 @@ public class PendingProducts extends Product
         CustomerName = customerName;
     }
 
-    public PendingProducts(String Productid, String retailer, int price, int Quantity, String ProductCategory, String ProductDescription, int Discount)
+    public PendingProducts(int Productid, String retailer, int price, int Quantity, String ProductCategory, String ProductDescription, int Discount)
     {
         super(Productid, retailer, price, Quantity, ProductCategory, ProductDescription, Discount);
     }

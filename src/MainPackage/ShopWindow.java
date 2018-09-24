@@ -37,6 +37,8 @@ public class ShopWindow extends Application implements Initializable
         controller.socket = this.socket;
         controller.ois = this.ois;
         controller.oos = this.oos;
+        controller.currentStage = primaryStage;
+        controller.socket = socket;
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(DisplayPane));
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

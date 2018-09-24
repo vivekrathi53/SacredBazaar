@@ -10,7 +10,7 @@ public class SacredServer
 
     public static void main(String[] args) throws IOException {
         ArrayList<Socket> ActiveUsers = new ArrayList<>();
-        ArrayList<ClientAuthenticationHandler> OnlineClients = new ArrayList<ClientAuthenticationHandler>();
+        ArrayList<ClientAuthenticationHandler> OnlineClients = new ArrayList<>();
         ServerSocket serverSocket = new ServerSocket(8188);
         while(true)
         {
@@ -19,7 +19,6 @@ public class SacredServer
             ClientAuthenticationHandler cah= new ClientAuthenticationHandler(soc);
             Thread t = new Thread(cah);
             t.start();
-            cah.thread=t;
             OnlineClients.add(cah);//list of ClientAuthenticationHandler
             System.out.println("New Client Connected");
         }

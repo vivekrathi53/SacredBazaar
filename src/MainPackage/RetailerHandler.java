@@ -73,6 +73,12 @@ public class RetailerHandler
                 oos.writeObject(ln.load());
                 oos.flush();
             }
+            else if(transaction instanceof DeliveredProduct)
+            {
+                DeliveredProduct dp = (DeliveredProduct) transaction;
+                dp.connection = connection;
+                dp.mark();
+            }
         }
 
     }
