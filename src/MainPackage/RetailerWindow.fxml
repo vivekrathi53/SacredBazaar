@@ -36,6 +36,7 @@
             <Button mnemonicParsing="false" onAction="#ShowNotifications" prefHeight="37.0" prefWidth="112.0" text="Notifications" />
             <Button mnemonicParsing="false" onAction="#ShowSoldProducts" prefHeight="42.0" prefWidth="113.0" text="Sold Products" />
             <Button mnemonicParsing="false" onAction="#AddProduct" prefHeight="39.0" prefWidth="112.0" text="Add Products" />
+            <Button onAction="#Logout" mnemonicParsing="false" prefHeight="38.0" prefWidth="113.0" text="Logout" />
          </children>
       </VBox>
    </left>

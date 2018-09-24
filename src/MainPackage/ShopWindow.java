@@ -38,6 +38,8 @@ public class ShopWindow extends Application implements Initializable
         controller.socket = this.socket;
         controller.ois = this.ois;
         controller.oos = this.oos;
+        controller.currentStage = primaryStage;
+        controller.socket = socket;
         a=controller.Total();
         controller.Totalspending.setText("$ "+(a)+"");
         primaryStage.setTitle("Hello World");

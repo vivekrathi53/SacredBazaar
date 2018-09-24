@@ -44,6 +44,7 @@ public class RetailerWindow extends Application
         controller.socket = this.socket;
         controller.ois = this.ois;
         controller.oos = this.oos;
+        controller.currentStage = primaryStage;
         primaryStage.setTitle("Retailer Window");
         primaryStage.setScene(new Scene(DisplayPane));
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

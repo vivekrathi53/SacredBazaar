@@ -2,13 +2,16 @@ package MainPackage;
 
 import RetailerQueries.GetRetailerProducts;
 import RetailerQueries.LoadNotifications;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -26,6 +29,7 @@ public class RetailerWindowController
     public ScrollPane CentreDisplay;
     public BorderPane borderPane;
     FXMLLoader loader;
+    Stage currentStage;
     public void ShowProfile()
     {
         loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
@@ -123,6 +127,9 @@ public class RetailerWindowController
             ndc.QuantityBox.setText(ndc.QuantityBox.getText()+Integer.toString(pp.get(i).getQuantityOrdered()));
             ndc.productBox.setText(pp.get(i).getProductCategory());
             ndc.MobileNo.setText(pp.get(i).getMobileNo());
+            ndc.ProductId = pp.get(i).getProductId();
+            ndc.oos=oos;
+            ndc.ois=ois;
             ndc.TotalAmountBox.setText(ndc.TotalAmountBox.getText() + Integer.toString(pp.get(i).getPrice()*pp.get(i).getQuantityOrdered()));
         }
         vBox.setFillWidth(true);
@@ -147,7 +154,22 @@ public class RetailerWindowController
         AddProductController apc = loader.getController();
         apc.retailer=retailer;
         apc.oos=oos;
+    }
 
+    public void Logout(ActionEvent actionEvent)
+    {
+        LogoutClient lc =new LogoutClient();
+        try {
+            oos.writeObject(lc);
+            oos.flush();
+            socket.close();
+            LoginWindow lw = new LoginWindow();
+            lw.start(currentStage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -27,11 +27,11 @@ public class LoadSoldProducts
         ResultSet rs = prepStat.executeQuery();
         while(rs.next())
         {
-            String q = "SELECT * FROM ProductsTable WHERE ProductId='" + (rs.getString("ProductId")) + "'";
+            String q = "SELECT * FROM ProductsTable WHERE ProductId='" + (rs.getInt("ProductId")) + "'";
             PreparedStatement ps = connection.prepareStatement(q);
             ResultSet res = ps.executeQuery();
             res.next();
-            Product prod = new Product(res.getString("ProductId"),res.getString("Retailer"),res.getInt("Price"),rs.getInt("Quantity"),res.getString("Category"),res.getString("Description"),res.getInt("Discount"));
+            Product prod = new Product(res.getInt("ProductId"),res.getString("Retailer"),res.getInt("Price"),rs.getInt("Quantity"),res.getString("Category"),res.getString("Description"),res.getInt("Discount"));
             prodList.add(prod);
         }
         return prodList;

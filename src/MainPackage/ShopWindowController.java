@@ -1,12 +1,14 @@
 package MainPackage;
 
 import CustomerQueries.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -25,11 +27,7 @@ public class ShopWindowController
     Label UserNameLabel,PasswordLabel,EmailLabel,MobileNoLabel,FirstNameLabel,LasNameLabel,AddressLabel,PinNoLabel;
     TextArea UserNameArea,PasswordArea,FirstNameArea,LastNameArea,MobileNoArea,AddressArea,EmailArea,PinNoArea;
     Button SaveProfile;
-    public ShopWindowController()
-    {
-
-    }
-
+    public Stage currentStage;
     @FXML
     Button ProfileButton;
     @FXML
@@ -238,6 +236,22 @@ public class ShopWindowController
         ShowProductList(prodlist);
     }
 
+    public void Logout(ActionEvent actionEvent)
+    {
+        LogoutClient lc =new LogoutClient();
+        try {
+            oos.writeObject(lc);
+            oos.flush();
+            socket.close();
+            LoginWindow lw = new LoginWindow();
+            lw.start(currentStage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
     public int Total() throws ClassNotFoundException, SQLException
     {
         String price;int q;int p;String quantity;int sum=0;
