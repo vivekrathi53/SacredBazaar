@@ -30,7 +30,15 @@ public class LoadNotifications implements Serializable
             resultSet.next();
             if(!resultSet.next()) continue;
             PendingProducts pp = new PendingProducts(allprod.get(i).getProductId(),allprod.get(i).getRetailer(),allprod.get(i).getPrice(),allprod.get(i).getQuantity(),allprod.get(i).getProductCategory(),allprod.get(i).getProductDescription(),allprod.get(i).getDiscount());
-            pp.setCustomerName(resultSet.getString("CustomerUserName"));
+            query = "SELECT * FROM CustomerTable WHERE UserName='"+(resultSet.getString("CustomerUserName"))+"'";
+            prepStat = connection.prepareStatement(query);
+            ResultSet rs = prepStat.executeQuery();
+            if(rs.next())
+            {
+                pp.setCustomerName(rs.getString("FirstName") + " " + rs.getString("LastName"));
+                pp.setMobileNo(rs.getString("MobileNo"));
+            }
+            else pp.setCustomerName("Customer Name Not Found");
             pp.setDeliveryStatus(resultSet.getInt("DeliveryStatus"));
             pp.setTime(resultSet.getTime("Time"));
             pp.setTransactionId(resultSet.getInt("TransactionId"));

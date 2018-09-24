@@ -217,15 +217,18 @@ public class ClientAuthenticationHandler implements Runnable
         }
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
-        rs.next();
-        CheckPassword=rs.getString("Password");
-        if(CheckPassword.equals(password))
+        if(rs.next())
         {
-            return 1;
+            CheckPassword=rs.getString("Password");
+            if(CheckPassword.equals(password))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
-        else
-        {
-            return 0;
-        }
+        else return 0;
     }
 }

@@ -107,7 +107,8 @@ public class RetailerWindowController
         }
         NotificationDesignController ndc;
         VBox vBox = new VBox();
-        for(int i=0;i<pp.size();i++)
+        assert pp != null;
+        for(int i = 0; i<pp.size(); i++)
         {
             loader = new FXMLLoader(getClass().getResource("NotificationDesign.fxml"));
             try
@@ -117,12 +118,14 @@ public class RetailerWindowController
                 e.printStackTrace();
             }
             ndc = loader.getController();
-            ndc.AddressBox.setText(pp.get(i).getAddress());
-            ndc.customerNameBox.setText(pp.get(i).getCustomerName());
-            ndc.QuantityBox.setText(Integer.toString(pp.get(i).getQuantityOrdered()));
+            ndc.AddressBox.setText(ndc.AddressBox.getText()+pp.get(i).getAddress());
+            ndc.customerNameBox.setText(ndc.customerNameBox.getText()+pp.get(i).getCustomerName());
+            ndc.QuantityBox.setText(ndc.QuantityBox.getText()+Integer.toString(pp.get(i).getQuantityOrdered()));
             ndc.productBox.setText(pp.get(i).getProductCategory());
-            ndc.TotalAmountBox.setText(Integer.toString(pp.get(i).getPrice()*pp.get(i).getQuantityOrdered()));
+            ndc.MobileNo.setText(pp.get(i).getMobileNo());
+            ndc.TotalAmountBox.setText(ndc.TotalAmountBox.getText() + Integer.toString(pp.get(i).getPrice()*pp.get(i).getQuantityOrdered()));
         }
+        vBox.setFillWidth(true);
         borderPane.setCenter(vBox);
     }
 

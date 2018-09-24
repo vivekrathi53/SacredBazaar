@@ -84,7 +84,7 @@ public class ShopWindowController
                 controller.BuyButton.setOnAction(e -> BuyProducts(prod));
                 controller.AddtoCart.setOnAction(e -> AddToCartProduct(prod));
                 controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
-                controller.price.setText(controller.price.getText() + Integer.toString(prod.getPrice()));
+                controller.price.setText(controller.price.getText() + prod.getPrice());
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
                 productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());

@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 
 public class NotificationDesignController
 {
+    public Label MobileNo;
     protected ObjectInputStream ois;
     protected ObjectOutputStream oos;
     public Label productBox;
