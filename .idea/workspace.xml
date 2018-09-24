@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a45a4b-b15d-477d-b50d-a5d1985dd771" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,30 +22,30 @@
         <counts>
           <entry key="fxml" value="10" />
           <entry key="html" value="1" />
-          <entry key="java" value="56" />
+          <entry key="java" value="60" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="56" />
+          <entry key="JAVA" value="60" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="fxml" value="138" />
-          <entry key="java" value="3578" />
+          <entry key="fxml" value="149" />
+          <entry key="java" value="3801" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3578" />
+          <entry key="JAVA" value="3801" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="XML" value="139" />
+          <entry key="XML" value="150" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -58,20 +59,51 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MainPackage/PendingProducts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+              <folding>
+                <element signature="e#334#335#0" expanded="true" />
+                <element signature="e#365#366#0" expanded="true" />
+                <element signature="e#413#414#0" expanded="true" />
+                <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
+                <element signature="e#455#456#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="86" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
+            <state relative-caret-position="212">
+              <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+            <state relative-caret-position="17">
+              <caret line="10" column="16" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,10 +112,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
+        <entry file="file://$PROJECT_DIR$/src/MainPackage/ProductDesignController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="64" column="34" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="34" />
+            <state relative-caret-position="60">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,24 +140,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CustomerQueries/GetTrendingList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="30" column="252" selection-start-line="30" selection-start-column="252" selection-end-line="30" selection-end-column="252" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainPackage/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -147,15 +173,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="28" column="252" selection-start-line="28" selection-start-column="252" selection-end-line="28" selection-end-column="252" />
             </state>
           </provider>
         </entry>
@@ -206,18 +223,18 @@
         <option value="$PROJECT_DIR$/src/MainPackage/AddProductController.java" />
         <option value="$PROJECT_DIR$/src/RetailerQueries/AddProductToSell.java" />
         <option value="$PROJECT_DIR$/src/RetailerQueries/GetRetailerProducts.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml" />
-        <option value="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/RetailerHandler.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" />
-        <option value="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" />
         <option value="$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" />
         <option value="$PROJECT_DIR$/src/CustomerQueries/GetTrendingList.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/Product.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/CustomerHandler.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/ClientAuthenticationHandler.java" />
+        <option value="$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml" />
+        <option value="$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java" />
+        <option value="$PROJECT_DIR$/src/MainPackage/PendingProducts.java" />
         <option value="$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java" />
+        <option value="$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java" />
       </list>
     </option>
   </component>
@@ -248,6 +265,12 @@
               <item name="SacredBazaar" type="b2602c69:ProjectViewProjectNode" />
               <item name="SacredBazaar" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="MainPackage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SacredBazaar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SacredBazaar" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="RetailerQueries" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -260,7 +283,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537770661441" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537772060799" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -570,13 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/ProductDesignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainPackage/AddProduct.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -633,16 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -654,64 +660,12 @@
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/PendingProducts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-          <folding>
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#587#588#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3216#3217#0" expanded="true" />
-            <element signature="e#3274#3275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RetailerQueries/GetRetailerProducts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="29" column="100" lean-forward="true" selection-start-line="29" selection-start-column="100" selection-end-line="29" selection-end-column="100" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="86" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CustomerQueries/CustomerProducts.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -737,7 +691,7 @@
     <entry file="file://$PROJECT_DIR$/src/MainPackage/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
-          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -778,12 +732,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java">
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/ProductDesignController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/NotificationDesign.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/NotificationDesignController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RetailerQueries/LoadNotifications.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/RetailerWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainPackage/PendingProducts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+          <folding>
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
           </folding>
         </state>
       </provider>

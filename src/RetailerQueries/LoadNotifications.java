@@ -33,7 +33,11 @@ public class LoadNotifications implements Serializable
             query = "SELECT * FROM CustomerTable WHERE UserName='"+(resultSet.getString("CustomerUserName"))+"'";
             prepStat = connection.prepareStatement(query);
             ResultSet rs = prepStat.executeQuery();
-            if(rs.next()) pp.setCustomerName(rs.getString("FirstName") + " " + rs.getString("LastName"));
+            if(rs.next())
+            {
+                pp.setCustomerName(rs.getString("FirstName") + " " + rs.getString("LastName"));
+                pp.setMobileNo(rs.getString("MobileNo"));
+            }
             else pp.setCustomerName("Customer Name Not Found");
             pp.setDeliveryStatus(resultSet.getInt("DeliveryStatus"));
             pp.setTime(resultSet.getTime("Time"));

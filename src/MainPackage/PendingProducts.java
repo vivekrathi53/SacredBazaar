@@ -10,6 +10,15 @@ public class PendingProducts extends Product
     private String CustomerName;
     private String Address;
     private int QuantityOrdered;
+    private String MobileNo;
+
+    public String getMobileNo() {
+        return MobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        MobileNo = mobileNo;
+    }
 
     public int getQuantityOrdered() {
         return QuantityOrdered;

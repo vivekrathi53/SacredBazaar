@@ -24,13 +24,13 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="MobileNo" layoutX="13.0" layoutY="167.0" text="Mobile No:">
+      <Label fx:id="MobileNo" layoutX="9.0" layoutY="84.0" text="Mobile No:">
          <font>
             <Font name="System Italic" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="QuantityBox" layoutX="14.0" layoutY="208.0" text="Quantity Ordered: " />
-      <Label fx:id="TotalAmountBox" layoutX="329.0" layoutY="207.0" text="Total Amount to be Paid: " />
+      <Label fx:id="QuantityBox" layoutY="170.0" text="Quantity Ordered: " />
+      <Label fx:id="TotalAmountBox" layoutX="323.0" layoutY="166.0" text="Total Amount to be Paid: " />
       <Button layoutY="251.0" mnemonicParsing="false" onAction="#Delivered" text="Mark As delivered" />
       <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" onAction="#CancelDelivery" text="Cancel Delivery" />
    </children>
