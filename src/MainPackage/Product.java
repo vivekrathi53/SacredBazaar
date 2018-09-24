@@ -83,7 +83,7 @@ public class Product implements Serializable
     {
         this.ProductId =Productid;
         this.Discount=Discount;
-        this.Price=Price;
+        this.Price=price;
         this.Quantity=Quantity;
         this.ProductCategory=ProductCategory;
         this.ProductDescription=ProductDescription;

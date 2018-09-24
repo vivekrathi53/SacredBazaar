@@ -87,7 +87,7 @@ public class Retailer implements Client, Serializable
         Email = email;
     }
 
-    public List<Product> getAllProducts() {
+    public ArrayList<Product> getAllProducts() {
         return AllProducts;
     }
 

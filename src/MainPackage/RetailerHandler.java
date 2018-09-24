@@ -1,7 +1,6 @@
 package MainPackage;
 
-import RetailerQueries.ChangeRetailerDetails;
-import RetailerQueries.LoadRetailerDetails;
+import RetailerQueries.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -31,12 +30,16 @@ public class RetailerHandler
         LoadRetailerDetails lrd = new LoadRetailerDetails(connection, clientLoginDetails.getUserName());
         oos.writeObject(lrd.getDetails());
         oos.flush();
+        System.out.println("Send the details");
         while(true)
         {
             Object transaction = ois.readObject();
+            System.out.println("Recieving Request");
             if(transaction instanceof LoadRetailerDetails)
             {
-                lrd = (LoadRetailerDetails) ois.readObject();
+                lrd = (LoadRetailerDetails) transaction;
+                lrd.connection=connection;
+                lrd.userName=clientLoginDetails.getUserName();
                 oos.writeObject(lrd.getDetails());
                 oos.flush();
             }
@@ -46,8 +49,30 @@ public class RetailerHandler
                 ccd.connection=connection;
                 ccd.updateEntries();
                 Retailer r = lrd.getDetails();
+                oos.writeObject(r);
+                oos.flush();
             }
-
+            else if(transaction instanceof AddProductToSell)
+            {
+                AddProductToSell aps = (AddProductToSell) transaction;
+                aps.connection=connection;
+                aps.add();
+                System.out.println("Added");
+            }
+            else if(transaction instanceof GetRetailerProducts)
+            {
+                GetRetailerProducts grp = (GetRetailerProducts) transaction;
+                grp.connection=connection;
+                oos.writeObject(grp.getCustomerProduct());
+                oos.flush();
+            }
+            else if(transaction instanceof LoadNotifications)
+            {
+                LoadNotifications ln = (LoadNotifications) transaction;
+                ln.connection = connection;
+                oos.writeObject(ln.load());
+                oos.flush();
+            }
         }
 
     }

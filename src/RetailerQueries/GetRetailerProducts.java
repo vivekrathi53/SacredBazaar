@@ -2,13 +2,14 @@ package RetailerQueries;
 
 import MainPackage.Product;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class GetRetailerProducts
+public class GetRetailerProducts implements Serializable
 {
     public Connection connection;
     public String UserName;
@@ -17,7 +18,7 @@ public class GetRetailerProducts
         this.connection = connection;
         UserName = userName;
     }
-
+    public GetRetailerProducts(){}
     public ArrayList<Product> getCustomerProduct() throws SQLException
     {
         ArrayList<Product> prodList = new ArrayList<>();
