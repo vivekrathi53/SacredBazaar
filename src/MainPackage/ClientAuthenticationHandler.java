@@ -76,24 +76,27 @@ public class ClientAuthenticationHandler implements Runnable
             try {
                 if (verifyLogin() == 1)
                 {
+                    Transaction t = new Authentication(true, "Successfull Login");
+                    objectOutputStream.writeObject(t);
+                    objectOutputStream.flush();
+                    System.out.println("Logged In!!");
                         if(client.getType()==1)
                         {
-                            Transaction t = new Authentication(true, "Successfull Login");
-                            objectOutputStream.writeObject(t);
-                            objectOutputStream.flush();
-                            System.out.println("Logged In!!");
+
                             CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
                             ch.handle();
                             Thread.currentThread().interrupt();
                         }
                         else if(client.getType()==0)
                         {
-                            Transaction t = new Authentication(true,"Successfull Login");
-                            objectOutputStream.writeObject(t);
-                            objectOutputStream.flush();
-                            System.out.println("Logged in!!");
                             RetailerHandler rh = new RetailerHandler(ClientSocket,(LoginData)client,connection,objectInputStream,objectOutputStream);
                             rh.handle();
+                            Thread.currentThread().interrupt();
+                        }
+                        else if(client.getType()==3)
+                        {
+                            AdminHandler ah = new AdminHandler(ClientSocket,(LoginData)client,connection,objectInputStream,objectOutputStream);
+                            ah.handle();
                             Thread.currentThread().interrupt();
                         }
                     }
@@ -142,7 +145,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        connection = DriverManager.getConnection(url, "root", "password");
+        connection = DriverManager.getConnection(url, "root", "ayushman2002");
         String q="INSERT INTO RetailerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(Email)+"')";
         PreparedStatement preStat = connection.prepareStatement(q);
     }
@@ -174,7 +177,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        connection = DriverManager.getConnection(url, "root", "password");
+        connection = DriverManager.getConnection(url, "root", "ayushman2002");
         String q="INSERT INTO CustomerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(email)+"','0')";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
@@ -201,8 +204,8 @@ public class ClientAuthenticationHandler implements Runnable
         System.out.println("Hii");
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Connected to database");
-        String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        connection = DriverManager.getConnection(url, "root", "password");
+        String url = "jdbc:mysql://localhost:3306/SacredBazaar";
+        connection = DriverManager.getConnection(url, "root", "ayushman2002");
         if(type==0)
         {
             query="SELECT Password FROM RetailerTable WHERE UserName='"+(user)+"'";
@@ -213,7 +216,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         else if(type==3)
         {
-            query = "SELECT Password FROM LOGINADMIN WHERE USERNAME='"+(user)+"'";
+            query = "SELECT Password FROM AdminTable WHERE UserName='"+(user)+"'";
         }
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);

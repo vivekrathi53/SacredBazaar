@@ -16,8 +16,8 @@
             <HBox>
                <children>
                   <Button fx:id="BuyButton" mnemonicParsing="false" text="Buy" />
-                  <Button fx:id="AddtoCart" mnemonicParsing="false" text="AddToCart" />
                   <Button fx:id="AddtoWishList" mnemonicParsing="false" text="AddToWishList" />
+                  <Button fx:id="AddtoCart" mnemonicParsing="false" text="AddToCart" />
                </children>
             </HBox>
          </children>

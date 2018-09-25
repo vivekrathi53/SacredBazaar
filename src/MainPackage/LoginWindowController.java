@@ -7,11 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
-import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -52,7 +50,8 @@ public class LoginWindowController
     }
     public void loginadmin()
     {
-        try {
+        try
+        {
             Login(3);
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,7 +65,6 @@ public class LoginWindowController
             e.printStackTrace();
         }
     }
-    //FXMLLoader loader= loader = new FXMLLoader(getClass().getResource("LoginWindow.fxml"));
     public void Login(int type) throws IOException
     {
         window = (Stage)name.getScene().getWindow();
@@ -111,7 +109,16 @@ public class LoginWindowController
                         e.printStackTrace();
                     }
                 }
-                else if(type==3);
+                else if(type==3)
+                {
+                    System.out.println("Admin Approved!!");
+                    AdminWindow aw = new AdminWindow();
+                    aw.oos = oos;
+                    aw.ois = ois;
+                    aw.socket = socket;
+                    aw.start(window);
+
+                }
             }
             else
             {
