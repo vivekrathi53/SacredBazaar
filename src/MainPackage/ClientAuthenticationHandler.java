@@ -145,7 +145,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        connection = DriverManager.getConnection(url, "root", "ayushman2002");
+        connection = DriverManager.getConnection(url, "root", "password");
         String q="INSERT INTO RetailerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(Email)+"')";
         PreparedStatement preStat = connection.prepareStatement(q);
     }
@@ -177,7 +177,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        connection = DriverManager.getConnection(url, "root", "ayushman2002");
+        connection = DriverManager.getConnection(url, "root", "password");
         String q="INSERT INTO CustomerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(email)+"','0')";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
@@ -205,7 +205,7 @@ public class ClientAuthenticationHandler implements Runnable
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Connected to database");
         String url = "jdbc:mysql://localhost:3306/SacredBazaar";
-        connection = DriverManager.getConnection(url, "root", "ayushman2002");
+        connection = DriverManager.getConnection(url, "root", "password");
         if(type==0)
         {
             query="SELECT Password FROM RetailerTable WHERE UserName='"+(user)+"'";
