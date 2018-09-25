@@ -15,6 +15,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -38,8 +39,6 @@ public class ShopWindowController
     Button TrendingButton;
     @FXML
     VBox TopVBox,LeftVBox,CentreDisplay;
-    @FXML
-    Scene ProfileScene,CartScene,WishListScene,TrendingScene;
     @FXML
     BorderPane DisplayPane;
     @FXML
@@ -70,10 +69,6 @@ public class ShopWindowController
     private void ShowHistory()
     {
         ShowProductList(customer.getProductsBought());
-    }
-    ShopWindowController()
-    {
-
     }
     private void ShowProductList(ArrayList<Product> prodList)
     {
@@ -107,7 +102,7 @@ public class ShopWindowController
         bp.Quantity=1;
         bp.prod=prod;
         bp.CustomerUserName=customer.getUserName();
-        bp.time= new Time(new Date().getTime());
+        bp.time= new Timestamp(new Date().getTime());
         bp.Address = customer.getAddress();
         try {
             oos.writeObject(bp);
@@ -123,7 +118,7 @@ public class ShopWindowController
         bp.Quantity=1;
         bp.prod=prod;
         bp.CustomerUserName=customer.getUserName();
-        bp.time= new Time(new Date().getTime());
+        bp.time= new Timestamp(new Date().getTime());
         bp.Address = customer.getAddress();
         bp.type=2;
         try {
@@ -141,7 +136,7 @@ public class ShopWindowController
         bp.Quantity=1;
         bp.prod=prod;
         bp.CustomerUserName=customer.getUserName();
-        bp.time= new Time(new Date().getTime());
+        bp.time= new Timestamp(new Date().getTime());
         bp.Address = customer.getAddress();
         bp.type=3;
         try {
@@ -170,8 +165,9 @@ public class ShopWindowController
     }
 
     @FXML
-    void SetProfileScene()
+    void SetProfileScene() throws IOException, ClassNotFoundException
     {
+        SetSpendings();
         UserNameLabel = new Label("UserName");
         PasswordLabel = new Label("Password");
         UserNameArea = new TextArea();
@@ -238,8 +234,8 @@ public class ShopWindowController
         ArrayList<Product> prodlist = (ArrayList<Product>) ois.readObject();
         ShowProductList(prodlist);
     }
-
-    public void Logout(ActionEvent actionEvent)
+    @FXML
+    public void Logout()
     {
         LogoutClient lc =new LogoutClient();
         try {
@@ -251,6 +247,24 @@ public class ShopWindowController
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void SetSpendings()
+    {
+        try
+        {
+            oos.writeObject(new TotalSpending());
+            oos.flush();
+            int spending = (int)ois.readObject();
+            Totalspending.setText("Rs "+(spending)+"");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException e)
+        {
             e.printStackTrace();
         }
 

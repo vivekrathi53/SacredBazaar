@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="DisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ShopWindowController">
+<BorderPane fx:id="DisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="MainPackage.ShopWindowController">
    <left>
       <VBox fx:id="LeftVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,9 +13,9 @@
             <Button fx:id="WishListButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowWishList" text="Wish List" />
             <Button minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowHistory" text="History" />
             <Button fx:id="TrendingButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowTrending" text="Trending " />
-            <Button onAction="#Logout" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Logout" />
-             <Label fx:id="Spending" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="   Spending" textAlignment="CENTER" />
-            <Label fx:id="Totalspending" />
+            <Button mnemonicParsing="false" onAction="#Logout" prefHeight="28.0" prefWidth="99.0" text="Logout" />
+             <Label fx:id="Spending" minHeight="25.0" minWidth="100.0" text="Spendings" textAlignment="CENTER" />
+            <Label fx:id="Totalspending" prefHeight="15.0" prefWidth="97.0" text="Rs" />
          </children>
       </VBox>
    </left>

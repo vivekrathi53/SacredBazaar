@@ -73,8 +73,9 @@ public class RetailerWindowController
     {
         LineChart<?,?> MainDisplay;
         loader = new FXMLLoader(getClass().getResource("graph.fxml")) ;
-        graphcontroller controller = loader.getController();
         MainDisplay  = (LineChart<?,?>) loader.load();
+        graphcontroller controller = loader.getController();
+
         controller.ois=ois;
         controller.oos=oos;
         controller.username = retailer.getUserName();

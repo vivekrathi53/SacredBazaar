@@ -76,24 +76,27 @@ public class ClientAuthenticationHandler implements Runnable
             try {
                 if (verifyLogin() == 1)
                 {
+                    Transaction t = new Authentication(true, "Successfull Login");
+                    objectOutputStream.writeObject(t);
+                    objectOutputStream.flush();
+                    System.out.println("Logged In!!");
                         if(client.getType()==1)
                         {
-                            Transaction t = new Authentication(true, "Successfull Login");
-                            objectOutputStream.writeObject(t);
-                            objectOutputStream.flush();
-                            System.out.println("Logged In!!");
+
                             CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
                             ch.handle();
                             Thread.currentThread().interrupt();
                         }
                         else if(client.getType()==0)
                         {
-                            Transaction t = new Authentication(true,"Successfull Login");
-                            objectOutputStream.writeObject(t);
-                            objectOutputStream.flush();
-                            System.out.println("Logged in!!");
                             RetailerHandler rh = new RetailerHandler(ClientSocket,(LoginData)client,connection,objectInputStream,objectOutputStream);
                             rh.handle();
+                            Thread.currentThread().interrupt();
+                        }
+                        else if(client.getType()==3)
+                        {
+                            AdminHandler ah = new AdminHandler(ClientSocket,(LoginData)client,connection,objectInputStream,objectOutputStream);
+                            ah.handle();
                             Thread.currentThread().interrupt();
                         }
                     }
@@ -213,7 +216,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         else if(type==3)
         {
-            query = "SELECT Password FROM LOGINADMIN WHERE USERNAME='"+(user)+"'";
+            query = "SELECT Password FROM AdminTable WHERE UserName='"+(user)+"'";
         }
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
