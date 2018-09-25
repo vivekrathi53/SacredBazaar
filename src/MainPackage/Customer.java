@@ -13,6 +13,7 @@ public class Customer implements Client, Serializable
     private String MobileNo;
     private String PinNo;
     private String Email;
+    private int totalspending;
     private ArrayList<Product> ProductsInCart;
     private ArrayList<Product> ProductsBought;
     private ArrayList<Product> ProductsWishList;
@@ -20,6 +21,8 @@ public class Customer implements Client, Serializable
     public String getFirstName() {
         return FirstName;
     }
+    public int getTotalspending(){return  totalspending;}
+    public void setTotalspending(int Totalspending){totalspending=Totalspending;}
 
     public void setFirstName(String firstName) {
         FirstName = firstName;

@@ -43,6 +43,7 @@ public class RetailerHandler
                 oos.writeObject(lrd.getDetails());
                 oos.flush();
             }
+            //else if(transaction instanceof G)
             else if(transaction instanceof ChangeRetailerDetails)
             {
                 ChangeRetailerDetails ccd = (ChangeRetailerDetails) transaction;
@@ -78,6 +79,12 @@ public class RetailerHandler
                 DeliveredProduct dp = (DeliveredProduct) transaction;
                 dp.connection = connection;
                 dp.mark();
+            }
+            else if(transaction instanceof GenerateGraph)
+            {
+                GenerateGraph gg = (GenerateGraph) transaction;
+                gg.connection=connection;
+                oos.writeObject(gg.generate());
             }
         }
 

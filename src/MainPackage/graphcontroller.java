@@ -1,9 +1,13 @@
 package MainPackage;
 
 import MainPackage.Retailer;
+import RetailerQueries.GenerateGraph;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,44 +22,22 @@ public class graphcontroller
     private CategoryAxis x;
     @FXML
     private NumberAxis y;
-    Connection connection;
-    Retailer username;
-    String currentdate;
+    String username;
     int Time;
-    public void startgraph() throws ClassNotFoundException, SQLException
-    {
-        int []arr=new int[40];
-        Class.forName("com.mysql.jdbc.Driver");
-        System.out.println("Connected to database");
-        String url = "jdbc:mysql://localhost:3306/SacredBazzar";
+    ObjectInputStream ois;
+    ObjectOutputStream oos;
+    public void startgraph() throws ClassNotFoundException, SQLException, IOException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd");
         Date date = new Date();
         String currentdate = formatter.format(date);
-        int datecurrent=Integer.parseInt(currentdate);
-        connection = DriverManager.getConnection(url, "root", "password");
-        String query="SELECT * FROM TRANSACTION WHERE CustomerUserName='"+(username)+"'";
-        PreparedStatement preStat = connection.prepareStatement(query);
-        ResultSet rs = preStat.executeQuery(query);
-        rs.next();
-        while(!rs.next())
-        {
-            Time=rs.getTime("Time").getDate();
-            if(Time==datecurrent-1)
-                arr[datecurrent-1]++;
-            else if(Time==datecurrent-2)
-                arr[datecurrent-2]++;
-            else if(Time==datecurrent-3)
-                arr[datecurrent-3]++;
-            else if(Time==datecurrent-4)
-                arr[datecurrent-4]++;
-            else if (Time==datecurrent-5)
-                arr[datecurrent-5]++;
-            else if (Time==datecurrent-6)
-                arr[datecurrent-6]++;
-            else if(Time==datecurrent)
-                arr[datecurrent]++;
-        }
+        GenerateGraph gg = new GenerateGraph();
+        gg.currentdate = currentdate;
+        gg.username = username;
+        oos.writeObject(gg);
+        oos.flush();
+        int[] arr = (int[]) ois.readObject();
         XYChart.Series set1=new XYChart.Series();
+        int datecurrent = Integer.parseInt(currentdate);
         set1.getData().add(new XYChart.Data(" "+(datecurrent-6)+" ",arr[datecurrent-6]));
         set1.getData().add(new XYChart.Data(" "+(datecurrent-5)+" ",arr[datecurrent-5]));
         set1.getData().add(new XYChart.Data(" "+(datecurrent-4)+" ",arr[datecurrent-4]));

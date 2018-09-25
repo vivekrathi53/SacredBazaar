@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RetailerWindowController
@@ -30,6 +32,7 @@ public class RetailerWindowController
     public BorderPane borderPane;
     FXMLLoader loader;
     Stage currentStage;
+
     public void ShowProfile()
     {
         loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
@@ -65,6 +68,20 @@ public class RetailerWindowController
 
         DisplayProducts(retailer.getAllProducts());
     }
+
+    public void buildGraph() throws IOException, SQLException, ClassNotFoundException
+    {
+        LineChart<?,?> MainDisplay;
+        loader = new FXMLLoader(getClass().getResource("graph.fxml")) ;
+        graphcontroller controller = loader.getController();
+        MainDisplay  = (LineChart<?,?>) loader.load();
+        controller.ois=ois;
+        controller.oos=oos;
+        controller.username = retailer.getUserName();
+        controller.startgraph();
+        borderPane.setCenter(MainDisplay);
+    }
+
     public void DisplayProducts(ArrayList<Product> prodList)
     {
         VBox CDisplay = new VBox();
@@ -172,4 +189,5 @@ public class RetailerWindowController
         }
 
     }
+
 }
