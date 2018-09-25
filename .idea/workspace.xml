@@ -141,6 +141,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RetailerWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainPackage.RetailerWindow" />
+      <module name="SacredBazaar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MainPackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RetalierWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainPackage.RetalierWindow" />
       <module name="SacredBazaar" />
@@ -171,12 +184,15 @@
       <item itemvalue="Application.SacredServer" />
       <item itemvalue="Application.LoginWindow" />
       <item itemvalue="Application.RetalierWindow" />
+      <item itemvalue="Application.RetailerWindow" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RetailerWindow" />
+        <item itemvalue="Application.RetalierWindow" />
         <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.SacredServer" />
-        <item itemvalue="Application.RetalierWindow" />
+        <item itemvalue="Application.LoginWindow" />
       </list>
     </recent_temporary>
   </component>
