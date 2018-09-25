@@ -1,6 +1,7 @@
 package MainPackage;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Retailer implements Client, Serializable
@@ -30,8 +31,8 @@ public class Retailer implements Client, Serializable
         LastName = lastName;
     }
 
-    private List<Product> ProductsPending;
-    private int ProductSold;
+    private ArrayList<Product> AllProducts;
+    private ArrayList<Product> ProductSold;
     private int TurnOver;
     public String getUserName() {
         return UserName;
@@ -86,19 +87,19 @@ public class Retailer implements Client, Serializable
         Email = email;
     }
 
-    public List<Product> getProductsPending() {
-        return ProductsPending;
+    public ArrayList<Product> getAllProducts() {
+        return AllProducts;
     }
 
-    public void setProductsPending(List<Product> productsPending) {
-        ProductsPending = productsPending;
+    public void setAllProducts(ArrayList<Product> allProducts) {
+        AllProducts = allProducts;
     }
 
-    public int getProductSold() {
+    public ArrayList<Product> getProductSold() {
         return ProductSold;
     }
 
-    public void setProductSold(int productSold) {
+    public void setProductSold(ArrayList<Product> productSold) {
         ProductSold = productSold;
     }
 
@@ -110,7 +111,7 @@ public class Retailer implements Client, Serializable
         TurnOver = turnOver;
     }
 
-    public Retailer(String firstName, String lastName, String userName, String password, String address, String mobileNo, String pinNo, String email, List<Product> productsPending, int productSold, int turnOver) {
+    public Retailer(String firstName, String lastName, String userName, String password, String address, String mobileNo, String pinNo, String email, ArrayList<Product> productsPending, ArrayList<Product> productSold, int turnOver) {
         FirstName = firstName;
         LastName = lastName;
         UserName = userName;
@@ -119,7 +120,7 @@ public class Retailer implements Client, Serializable
         MobileNo = mobileNo;
         PinNo = pinNo;
         Email = email;
-        ProductsPending = productsPending;
+        AllProducts = productsPending;
         ProductSold = productSold;
         TurnOver = turnOver;
     }

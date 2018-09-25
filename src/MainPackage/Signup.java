@@ -95,7 +95,7 @@ public class Signup
         }
         else if(type==1)
         {
-            Retailer data =new Retailer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,0,0);
+            Retailer data =new Retailer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,null,0);
             objectOutputStream.writeObject(data);
             objectOutputStream.flush();
             logwindow.start((Stage)SignInButton.getScene().getWindow());

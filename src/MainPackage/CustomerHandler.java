@@ -29,14 +29,24 @@ public class CustomerHandler
     public void handle() throws IOException, ClassNotFoundException, SQLException {
         LoadCustomerDetails lcd = new LoadCustomerDetails(connection);
         oos.writeObject(lcd.getDetails(clientLoginDetails.getUserName()));
-        oos.flush();
+        oos.flush();int a;
         while(true)
         {
-            Object transaction = ois.readObject();
+            Object transaction = ois.readObject();//query send by Shop Window Controller
             if(transaction instanceof LoadCustomerDetails)
             {
                 lcd = (LoadCustomerDetails) ois.readObject();
                 lcd.getDetails(clientLoginDetails.getUserName());
+            }
+            else if(transaction instanceof TotalSpending)
+            {
+                TotalSpending ts=(TotalSpending) transaction;
+                ts.connection=connection;
+                ts.customer=clientLoginDetails.getUserName();
+                a=ts.count();
+                lcd.getDetails(clientLoginDetails.getUserName()).setTotalspending(a);
+                oos.writeObject(a);
+                oos.flush();
             }
             else if(transaction instanceof ChangeCustomerDetails)
             {
@@ -73,6 +83,10 @@ public class CustomerHandler
                 gtl.connection=connection;
                 oos.writeObject(gtl.getList());
                 oos.flush();
+            }
+            else if(transaction instanceof LogoutClient)
+            {
+                return;
             }
         }
 

@@ -12,7 +12,6 @@ import java.sql.SQLException;
 
 public class ClientAuthenticationHandler implements Runnable
 {
-    Thread thread;
     private Socket ClientSocket;
     private Client client;
     Connection connection;
@@ -52,6 +51,7 @@ public class ClientAuthenticationHandler implements Runnable
             client = (Retailer) obj;
             try {
                 signupretailer();
+                Thread.currentThread().interrupt();
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -63,6 +63,7 @@ public class ClientAuthenticationHandler implements Runnable
             client = (Customer) obj;
             try {
                 signupcustomer();
+                Thread.currentThread().interrupt();
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -73,14 +74,31 @@ public class ClientAuthenticationHandler implements Runnable
         {
             client = (LoginData) obj;
             try {
-                if (verifyLogin() == 1) {
-                        Transaction t = new Authentication(true, "Successfull Login");
-                        objectOutputStream.writeObject(t);
-                        objectOutputStream.flush();
-                        System.out.println("Logged In!!");
-                        CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
-                        ch.handle();
-                    } else {
+                if (verifyLogin() == 1)
+                {
+                        if(client.getType()==1)
+                        {
+                            Transaction t = new Authentication(true, "Successfull Login");
+                            objectOutputStream.writeObject(t);
+                            objectOutputStream.flush();
+                            System.out.println("Logged In!!");
+                            CustomerHandler ch = new CustomerHandler(ClientSocket, (LoginData) client, connection, objectInputStream, objectOutputStream);
+                            ch.handle();
+                            Thread.currentThread().interrupt();
+                        }
+                        else if(client.getType()==0)
+                        {
+                            Transaction t = new Authentication(true,"Successfull Login");
+                            objectOutputStream.writeObject(t);
+                            objectOutputStream.flush();
+                            System.out.println("Logged in!!");
+                            RetailerHandler rh = new RetailerHandler(ClientSocket,(LoginData)client,connection,objectInputStream,objectOutputStream);
+                            rh.handle();
+                            Thread.currentThread().interrupt();
+                        }
+                    }
+                    else
+                    {
                             Transaction t=new Authentication(false,"Invalid username or password");
                             objectOutputStream.writeObject(t);
                             objectOutputStream.flush();
@@ -127,8 +145,6 @@ public class ClientAuthenticationHandler implements Runnable
         connection = DriverManager.getConnection(url, "root", "password");
         String q="INSERT INTO RetailerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(Email)+"')";
         PreparedStatement preStat = connection.prepareStatement(q);
-        preStat.executeUpdate();
-        thread.stop();
     }
 
     private void signupcustomer() throws SQLException, ClassNotFoundException {
@@ -162,7 +178,6 @@ public class ClientAuthenticationHandler implements Runnable
         String q="INSERT INTO CustomerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(email)+"','0')";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
-        thread.stop();
     }
 
 
@@ -190,7 +205,7 @@ public class ClientAuthenticationHandler implements Runnable
         connection = DriverManager.getConnection(url, "root", "password");
         if(type==0)
         {
-            query="SELECT Password FROM RetailerTable WHERE USERNAME='"+(user)+"'";
+            query="SELECT Password FROM RetailerTable WHERE UserName='"+(user)+"'";
         }
         else if(type==1)
         {
@@ -202,15 +217,18 @@ public class ClientAuthenticationHandler implements Runnable
         }
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
-        rs.next();
-        CheckPassword=rs.getString("Password");
-        if(CheckPassword.equals(password))
+        if(rs.next())
         {
-            return 1;
+            CheckPassword=rs.getString("Password");
+            if(CheckPassword.equals(password))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
-        else
-        {
-            return 0;
-        }
+        else return 0;
     }
 }

@@ -1,19 +1,21 @@
 package MainPackage;
 
 import CustomerQueries.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.*;
 import java.util.Date;
-import java.sql.Time;
 import java.util.ArrayList;
 
 public class ShopWindowController
@@ -25,11 +27,7 @@ public class ShopWindowController
     Label UserNameLabel,PasswordLabel,EmailLabel,MobileNoLabel,FirstNameLabel,LasNameLabel,AddressLabel,PinNoLabel;
     TextArea UserNameArea,PasswordArea,FirstNameArea,LastNameArea,MobileNoArea,AddressArea,EmailArea,PinNoArea;
     Button SaveProfile;
-    public ShopWindowController()
-    {
-
-    }
-
+    public Stage currentStage;
     @FXML
     Button ProfileButton;
     @FXML
@@ -48,6 +46,10 @@ public class ShopWindowController
     ScrollPane scrollPane;
     @FXML
     TextArea SearchBar;
+    @FXML
+    Label Spending;
+    @FXML
+    Label Totalspending;
     @FXML
     private void ShowInCart()
     {
@@ -69,6 +71,10 @@ public class ShopWindowController
     {
         ShowProductList(customer.getProductsBought());
     }
+    ShopWindowController()
+    {
+
+    }
     private void ShowProductList(ArrayList<Product> prodList)
     {
         CentreDisplay.getChildren().clear();
@@ -84,7 +90,7 @@ public class ShopWindowController
                 controller.BuyButton.setOnAction(e -> BuyProducts(prod));
                 controller.AddtoCart.setOnAction(e -> AddToCartProduct(prod));
                 controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
-                controller.price.setText(controller.price.getText() + Integer.toString(prod.getPrice()));
+                controller.price.setText(controller.price.getText() + prod.getPrice());
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
                 productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());
@@ -216,8 +222,6 @@ public class ShopWindowController
         ChangeCustomerDetails ccd = new ChangeCustomerDetails();
         customer = new Customer(FirstNameArea.getText(),LastNameArea.getText(),UserNameArea.getText(),PasswordArea.getText(),AddressArea.getText(),MobileNoArea.getText(),PinNoArea.getText(),EmailArea.getText(),null,null,null);
         ccd.client = customer;
-        ccd.connection=null;
-        if(oos==null)System.out.println(oos);
         oos.writeObject(ccd);
         oos.flush();
         customer= (Customer)ois.readObject();
@@ -234,5 +238,21 @@ public class ShopWindowController
         ArrayList<Product> prodlist = (ArrayList<Product>) ois.readObject();
         ShowProductList(prodlist);
     }
-}
 
+    public void Logout(ActionEvent actionEvent)
+    {
+        LogoutClient lc =new LogoutClient();
+        try {
+            oos.writeObject(lc);
+            oos.flush();
+            socket.close();
+            LoginWindow lw = new LoginWindow();
+            lw.start(currentStage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
