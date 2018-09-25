@@ -3,11 +3,12 @@ package AdminQueries;
 import MainPackage.Admin;
 import MainPackage.Customer;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ChangeAdminDetails
+public class ChangeAdminDetails implements Serializable
 {
     public Admin client;
     public Connection connection;
@@ -33,7 +34,7 @@ public class ChangeAdminDetails
         {
             exception.printStackTrace();
         }
-        String q="UPDATE TransactionTable SET FirstName = '"+(firstname)+"',LastName = '"+(lastname)+"',Password = '"+(password)+"',Address = '"+(Address)+"',MobileNo = '"+(MobileNo)+"',PinNo = '"+(PinNo)+"',Email = '"+(email)+"' WHERE UserName =  '"+(client.getUserName())+"'";
+        String q="UPDATE AdminTable SET FirstName = '"+(firstname)+"',LastName = '"+(lastname)+"',Password = '"+(password)+"',Address = '"+(Address)+"',MobileNo = '"+(MobileNo)+"',PinNo = '"+(PinNo)+"',Email = '"+(email)+"' WHERE UserName =  '"+(client.getUserName())+"'";
         PreparedStatement preStat = connection.prepareStatement(q);
         preStat.executeUpdate();
     }

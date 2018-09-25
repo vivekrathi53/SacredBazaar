@@ -2,6 +2,7 @@ package MainPackage;
 
 import AdminQueries.ChangeAdminDetails;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
@@ -25,6 +26,7 @@ public class AdminProfileController
     public Label UserNameDisplay;
     public Label AddressDisplay;
     public Admin admin;
+    public ScrollPane displayPane;
     public void ShowProfile()
     {
         AddressBox.setText(admin.getAddress());
@@ -41,7 +43,7 @@ public class AdminProfileController
 
     public void ChangeProfile()
     {
-        ChangeAdminDetails crd = new ChangeAdminDetails();
+        ChangeAdminDetails cad = new ChangeAdminDetails();
         admin.setAddress(AddressBox.getText());
         admin.setEmail(EmailBox.getText());
         admin.setFirstName(FirstNameBox.getText());
@@ -49,9 +51,9 @@ public class AdminProfileController
         admin.setPinNo(PinNoBox.getText());
         admin.setMobileNo(MobileNoBox.getText());
         admin.setPassword(PasswordBox.getText());
-        crd.client=admin;
+        cad.client=admin;
         try {
-            oos.writeObject(crd);
+            oos.writeObject(cad);
             oos.flush();
             admin = (Admin) ois.readObject();
             ShowProfile();

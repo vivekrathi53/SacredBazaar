@@ -40,14 +40,17 @@ public class AdminHandler
             if(transaction instanceof LoadAdminDetails)
             {
                 lad = (LoadAdminDetails) transaction;
+                lad.connection = connection;
                 oos.writeObject(lad.getDetails());
                 oos.flush();
             }
             else if(transaction instanceof ChangeAdminDetails)
             {
-                ChangeAdminDetails cad = new ChangeAdminDetails();
+                ChangeAdminDetails cad = (ChangeAdminDetails) transaction ;
                 cad.connection=connection;
                 cad.updateEntries();
+                oos.writeObject(lad.getDetails());
+                oos.flush();
             }
             else if(transaction instanceof LogoutClient)
             {
