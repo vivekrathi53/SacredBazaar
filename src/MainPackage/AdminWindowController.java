@@ -1,12 +1,13 @@
 package MainPackage;
 
+import AdminQueries.ChangeProduct;
 import AdminQueries.LoadAdminDetails;
+import AdminQueries.RemoveProduct;
 import CustomerQueries.SearchFor;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -65,7 +66,7 @@ public class AdminWindowController
     {
         SearchFor sf = new SearchFor();
         sf.searchProduct=SearchBar.getText();
-        ArrayList<Product> prodList = new ArrayList<>();
+        ArrayList<Product> prodList = null;
         try {
             oos.writeObject(sf);
             oos.flush();
@@ -79,12 +80,69 @@ public class AdminWindowController
 
     }
 
-    private void showProductList(ArrayList<Product> prodList) {
-        VBox vBox = new VBox();
+    private void showProductList(ArrayList<Product> prodList)
+    {
+        VBox displayForProducts = new VBox();
         for (int i = 0; i < prodList.size(); i++)
         {
-            HBox hBox=  new
+            VBox vBox = null;
+            loader = new FXMLLoader(getClass().getResource("ProductInfo.fxml"));
+            ProductInfoController controller;
+            try {
+                vBox = loader.load();
+                controller = loader.getController();
+                controller.CategoryBox.setText(prodList.get(i).getProductCategory());
+                controller.ProductIdBox.setText(Integer.toString(prodList.get(i).getProductId()));
+                controller.DescriptionBox.setText(prodList.get(i).getProductDescription());
+                controller.DiscountBox.setText(Integer.toString(prodList.get(i).getDiscount()));
+                controller.PriceBox.setText(Integer.toString(prodList.get(i).getPrice()));
+                controller.QuantityBox.setText(Integer.toString(prodList.get(i).getQuantity()));
+                controller.RetailerUserNameBox.setText(prodList.get(i).getRetailer());
+                Product p = prodList.get(i);
+                controller.DeleteProduct.setOnAction(e -> RemoveProduct(p));
+                controller.ProductChanges.setOnAction(e ->
+                {
+                    p.setProductCategory((controller.CategoryBox.getText()));
+                    p.setPrice(Integer.parseInt(controller.PriceBox.getText()));
+                    p.setDiscount(Integer.parseInt(controller.DiscountBox.getText()));
+                    p.setQuantity(Integer.parseInt(controller.QuantityBox.getText()));
+                    p.setProductDescription(controller.DescriptionBox.getText());
+                    p.setRetailer(controller.RetailerUserNameBox.getText());
+                    SaveChanges(p);
+                });
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            displayForProducts.getChildren().add(vBox);
         }
+        AdminPane.setCenter(displayForProducts);
+    }
+
+    private void RemoveProduct(Product p)
+    {
+        RemoveProduct rp = new RemoveProduct();
+        rp.ProductId = p.getProductId();
+        try {
+            oos.writeObject(rp);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void SaveChanges(Product prod)
+    {
+        ChangeProduct cp = new ChangeProduct();
+        cp.product = prod;
+        try {
+            oos.writeObject(cp);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void ShowProfile() throws IOException, ClassNotFoundException {
