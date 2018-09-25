@@ -13,15 +13,16 @@ public class GenerateGraph implements Serializable
     public Connection connection;
     public String username;
     public String currentdate;
+    public int type;
     public int[] generate() throws SQLException {
         int []arr=new int[40];
         int Time;
         int datecurrent=Integer.parseInt(currentdate);
-        String query="SELECT * FROM TRANSACTION WHERE CustomerUserName='"+(username)+"'";
+        String query = null;
+        if(type==1)  query="SELECT * FROM TransactionTable WHERE CustomerUserName='"+(username)+"'";// type is 1 for customer graph generation
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
-        rs.next();
-        while(!rs.next())
+        while(rs.next())
         {
             Time=rs.getTime("Time").getDate();
             if(Time==datecurrent-1)

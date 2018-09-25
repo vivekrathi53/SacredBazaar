@@ -11,23 +11,23 @@ public class TotalSpending implements Serializable
     public Connection connection;
     public int count() throws ClassNotFoundException, SQLException
     {
-        String price;int q;int p;String quantity;int sum=0;
-        String query="SELECT ProductId,Quantity FROM TRANSACTION WHERE CustomerUserName='"+(customer)+"'";
+        int q;
+        int p;
+        int sum=0;
+        String query="SELECT ProductId,Quantity FROM TransactionTable WHERE CustomerUserName='"+(customer)+"'";
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
-        rs.next();
-        String query2,product;
-        while(!rs.next())
+        String query2;
+        int product;
+        while(rs.next())
         {
-            product=rs.getString("ProductId");
-            quantity=rs.getString("ProductId");
-            query2="SELECT Price FROM Productstable WHERE ProductId='"+(product)+"'";
+            product=rs.getInt("ProductId");
+            q=rs.getInt("ProductId");
+            query2="SELECT Price FROM ProductsTable WHERE ProductId='"+(product)+"'";
             preStat = connection.prepareStatement(query2);
             ResultSet res = preStat.executeQuery(query2);
             res.next();
-            q=Integer.parseInt(quantity);
-            price=res.getString("Price");
-            p=Integer.parseInt(price);
+            p=res.getInt("Price");
             sum+=p*q;
         }
         return sum;

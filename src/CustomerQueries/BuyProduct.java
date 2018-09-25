@@ -3,10 +3,7 @@ package CustomerQueries;
 import MainPackage.Product;
 
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Time;
+import java.sql.*;
 
 
 public class BuyProduct implements Serializable
@@ -15,7 +12,7 @@ public class BuyProduct implements Serializable
     public String CustomerUserName;
     public Connection connection;
     public int Quantity;
-    public Time time;
+    public Timestamp time;
     public String Address;
     public void buyProduct() throws SQLException
     {
