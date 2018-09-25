@@ -51,7 +51,6 @@ public class ShopWindow extends Application implements Initializable
         primaryStage.setWidth((primScreenBounds.getWidth()));
         primaryStage.setHeight((primScreenBounds.getHeight()));
         primaryStage.show();
-
     }
     @Override
     public void initialize(URL location, ResourceBundle resources)
