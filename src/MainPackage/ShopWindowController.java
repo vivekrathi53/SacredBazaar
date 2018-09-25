@@ -47,6 +47,8 @@ public class ShopWindowController
     @FXML
     TextArea SearchBar;
     @FXML
+    Label Spending;
+    @FXML
     Label Totalspending;
     @FXML
     private void ShowInCart()
@@ -69,13 +71,16 @@ public class ShopWindowController
     {
         ShowProductList(customer.getProductsBought());
     }
+    ShopWindowController()
+    {
 
+    }
     private void ShowProductList(ArrayList<Product> prodList)
     {
         CentreDisplay.getChildren().clear();
         int len = prodList.size();
-        SplitPane[] productDetailsDisplay = new SplitPane[len+1];
-        for(int i=1;i<=len;i++)
+        SplitPane[] productDetailsDisplay = new SplitPane[len];
+        for(int i=0;i<len;i++)
         {
             Product prod = prodList.get(i);
             try {
@@ -217,8 +222,6 @@ public class ShopWindowController
         ChangeCustomerDetails ccd = new ChangeCustomerDetails();
         customer = new Customer(FirstNameArea.getText(),LastNameArea.getText(),UserNameArea.getText(),PasswordArea.getText(),AddressArea.getText(),MobileNoArea.getText(),PinNoArea.getText(),EmailArea.getText(),null,null,null);
         ccd.client = customer;
-        ccd.connection=null;
-        if(oos==null)System.out.println(oos);
         oos.writeObject(ccd);
         oos.flush();
         customer= (Customer)ois.readObject();
@@ -251,32 +254,5 @@ public class ShopWindowController
             e.printStackTrace();
         }
 
-    }
-    public int Total() throws ClassNotFoundException, SQLException
-    {
-        String price;int q;int p;String quantity;int sum=0;
-        Class.forName("com.mysql.jdbc.Driver");
-        System.out.println("Connected to database");
-        String url = "jdbc:mysql://localhost:3306/SacredBazzar";
-        Connection connection = DriverManager.getConnection(url, "root", "password");
-        String query="SELECT ProductId,Quantity FROM TRANSACTION WHERE CustomerUserName='"+(customer.getUserName())+"'";
-        PreparedStatement preStat = connection.prepareStatement(query);
-        ResultSet rs = preStat.executeQuery(query);
-        rs.next();
-        String query2,product;
-        while(!rs.next())
-        {
-            product=rs.getString("ProductId");
-            quantity=rs.getString("ProductId");
-            query2="SELECT Price FROM Productstable WHERE ProductId='"+(product)+"'";
-            preStat = connection.prepareStatement(query2);
-            ResultSet res = preStat.executeQuery(query2);
-            res.next();
-            q=Integer.parseInt(quantity);
-            price=res.getString("Price");
-            p=Integer.parseInt(price);
-            sum+=p*q;
-        }
-        return sum;
     }
 }

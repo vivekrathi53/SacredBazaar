@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<LineChart fx:id="RetailerGraph" prefHeight="478.0" prefWidth="704.0" title="Retailer user Interaction" xmlns:fx="http://javafx.com/fxml" fx:controller="MainPackage.graphcontroller">
+  <xAxis>
+    <CategoryAxis label="Time" side="BOTTOM" fx:id="x" />
+  </xAxis>
+  <yAxis>
+    <NumberAxis fx:id="y" label="No of User" side="LEFT" />
+  </yAxis>
+</LineChart>
