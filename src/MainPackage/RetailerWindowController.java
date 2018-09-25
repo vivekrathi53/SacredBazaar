@@ -75,10 +75,11 @@ public class RetailerWindowController
         loader = new FXMLLoader(getClass().getResource("graph.fxml")) ;
         graphcontroller controller = loader.getController();
         MainDisplay  = (LineChart<?,?>) loader.load();
+        controller.ois=ois;
+        controller.oos=oos;
+        controller.username = retailer.getUserName();
         controller.startgraph();
-        currentStage.setTitle("Retailer Window");
-        currentStage.setScene(new Scene(MainDisplay));
-        currentStage.show();//check
+        borderPane.setCenter(MainDisplay);
     }
 
     public void DisplayProducts(ArrayList<Product> prodList)

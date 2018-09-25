@@ -9,10 +9,6 @@ public class TotalSpending implements Serializable
 {
     public String customer;
     public Connection connection;
-    TotalSpending() {
-
-    }
-
     public int count() throws ClassNotFoundException, SQLException
     {
         String price;int q;int p;String quantity;int sum=0;

@@ -45,6 +45,8 @@ public class CustomerHandler
                 ts.customer=clientLoginDetails.getUserName();
                 a=ts.count();
                 lcd.getDetails(clientLoginDetails.getUserName()).setTotalspending(a);
+                oos.writeObject(a);
+                oos.flush();
             }
             else if(transaction instanceof ChangeCustomerDetails)
             {

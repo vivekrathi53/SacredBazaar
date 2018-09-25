@@ -73,7 +73,7 @@ public class ShopWindowController
     }
     ShopWindowController()
     {
-        Totalspending.setText("$ "+(customer.getTotalspending())+"");
+
     }
     private void ShowProductList(ArrayList<Product> prodList)
     {
