@@ -117,6 +117,7 @@ public class LoginWindowController
                     aw.ois = ois;
                     aw.socket = socket;
                     aw.start(window);
+
                 }
             }
             else

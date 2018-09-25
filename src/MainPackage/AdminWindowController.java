@@ -1,28 +1,25 @@
 package MainPackage;
 
 import AdminQueries.LoadAdminDetails;
-import javafx.event.ActionEvent;
+import CustomerQueries.SearchFor;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class AdminWindowController
 {
 
     public BorderPane AdminPane;
     public VBox LeftVBox;
-    public Label Spending;
-    public Label Totalspending;
     public VBox TopVBox;
     public TextArea SearchBar;
     FXMLLoader loader;
@@ -66,7 +63,28 @@ public class AdminWindowController
 
     public void SearchProduct()
     {
+        SearchFor sf = new SearchFor();
+        sf.searchProduct=SearchBar.getText();
+        ArrayList<Product> prodList = new ArrayList<>();
+        try {
+            oos.writeObject(sf);
+            oos.flush();
+            prodList = (ArrayList<Product>) ois.readObject();
+            showProductList(prodList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    private void showProductList(ArrayList<Product> prodList) {
+        VBox vBox = new VBox();
+        for (int i = 0; i < prodList.size(); i++)
+        {
+            HBox hBox=  new
+        }
     }
 
     public void ShowProfile() throws IOException, ClassNotFoundException {
@@ -75,11 +93,11 @@ public class AdminWindowController
         oos.writeObject(lad);
         oos.flush();
         admin = (Admin) ois.readObject();
-        loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
-        AdminProfileController controller=null;
+        loader = new FXMLLoader(getClass().getResource("AdminProfile.fxml")) ;
+        AdminProfileController controller;
         try
         {
-            CentreDisplay = (ScrollPane) loader.load();
+            CentreDisplay= (ScrollPane) loader.load();
             controller = loader.getController();
             controller.admin =  admin;
             controller.oos = oos;
