@@ -1,5 +1,7 @@
 package MainPackage;
 
+import MainPackage.Client;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
