@@ -205,8 +205,8 @@ public class ClientAuthenticationHandler implements Runnable
         System.out.println("Hii");
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Connected to database");
-        String url = "jdbc:mysql://localhost:3306/SacredBazaar";
-        connection = DriverManager.getConnection(url, "root", "ayushman2002");
+        String url = "jdbc:mysql://localhost:3306/SacredBazzar";
+        connection = DriverManager.getConnection(url, "root", "password");
         if(type==0)
         {
             query="SELECT Password FROM RetailerTable WHERE UserName='"+(user)+"'";

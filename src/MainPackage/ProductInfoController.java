@@ -17,9 +17,4 @@ public class ProductInfoController
     public TextField DiscountBox;
     public Button ProductChanges;
     public Button DeleteProduct;
-
-    public void UpdateProduct()
-    {
-
-    }
 }

@@ -1,5 +1,7 @@
 package MainPackage;
 
+import AdminQueries.ChangeProduct;
+import AdminQueries.RemoveProduct;
 import RetailerQueries.*;
 
 import java.io.IOException;
@@ -85,6 +87,22 @@ public class RetailerHandler
                 GenerateGraph gg = (GenerateGraph) transaction;
                 gg.connection=connection;
                 oos.writeObject(gg.generate());
+            }
+            else if(transaction instanceof ChangeProduct)
+            {
+                ChangeProduct cp = (ChangeProduct) transaction;
+                cp.connection = connection;
+                cp.saveChanges();
+            }
+            else if(transaction instanceof RemoveProduct)
+            {
+                RemoveProduct rp = (RemoveProduct) transaction;
+                rp.connection = connection;
+                rp.remove();
+            }
+            else if(transaction instanceof LogoutClient)
+            {
+                return;
             }
         }
 
