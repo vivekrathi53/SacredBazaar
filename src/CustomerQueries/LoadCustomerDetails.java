@@ -21,7 +21,7 @@ public class LoadCustomerDetails implements Serializable
         PreparedStatement prepStat = connection.prepareStatement(query);
         ResultSet rs = prepStat.executeQuery();
         rs.next();
-        ArrayList<Product> prodList = new ArrayList<>();
+        ArrayList<Product> prodList;
         CustomerProducts Cprods = new CustomerProducts();
         Cprods.connection=connection;
         Cprods.UserName=userName;

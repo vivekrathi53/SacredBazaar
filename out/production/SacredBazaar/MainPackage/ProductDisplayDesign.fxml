@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.7628361858190709" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDesignController">
+<SplitPane dividerPositions="0.6886446886446886" prefHeight="72.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDesignController">
   <items>
       <VBox>
          <children>
@@ -35,11 +35,12 @@
                   <Font name="FreeSans Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="price" text="PRICE Rs." textFill="#c91515">
+            <Label fx:id="price" text="Price Rs." textFill="#c91515">
                <font>
                   <Font name="Lucida Bright Demibold" size="24.0" />
                </font>
             </Label>
+            <Label fx:id="QuantityAvail" text="Quantity Available" textFill="#7a59d3" />
          </children>
       </VBox>
   </items>

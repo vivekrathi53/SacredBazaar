@@ -98,6 +98,7 @@ public class RetailerWindowController
                 controller.AddtoCart.setVisible(false);
                 controller.AddtoWishList.setVisible(false);
                 controller.EditProductBtn.setVisible(true);
+                controller.QuantityAvail.setText(controller.QuantityAvail.getText() + prod.getQuantity());
                 controller.EditProductBtn.setOnAction(e -> {
                     try {
                         EditProduct(prod);

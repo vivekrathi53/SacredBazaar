@@ -50,7 +50,7 @@ public class Customershow implements Serializable
                 c=lcd.getDetails();
              TotalSpending ts = new TotalSpending();
              ts.connection = connection;
-             ts.customer = c.getUserName();
+             ts.UserName = c.getUserName();
              c.setTotalspending(ts.count());
                 spending.add(c) ;
          }
