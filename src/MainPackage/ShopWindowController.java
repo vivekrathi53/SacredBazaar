@@ -116,8 +116,12 @@ public class ShopWindowController
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent())
         {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
             String quan = result.get();
             int quantity = Integer.parseInt(quan);
+            alert.setContentText("Total Amount - Rs."+Integer.toString(quantity*prod.getPrice()));
+            alert.show();
             BuyProduct bp = new BuyProduct();
             System.out.println(quantity);
             bp.Quantity = quantity;
@@ -137,42 +141,75 @@ public class ShopWindowController
 
     private void AddToCartProduct(Product prod)
     {
-        AddProductTo bp = new AddProductTo();
-        bp.Quantity=1;
-        bp.prod=prod;
-        bp.CustomerUserName=customer.getUserName();
-        bp.time= new Timestamp(new Date().getTime());
-        bp.Address = customer.getAddress();
-        bp.type=2;
-        try {
-            oos.writeObject(bp);
-            oos.flush();
-            System.out.println("Done!!");
-        } catch (IOException e) {
-            e.printStackTrace();
+        TextInputDialog dialog = new TextInputDialog("1");
+        dialog.setTitle("Confirmation");
+        dialog.setHeaderText("Do you want place order?");
+        dialog.setContentText("Please Enter Quantity?");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+            String quan = result.get();
+            int quantity = Integer.parseInt(quan);
+            alert.setContentText("Total Amount - Rs."+Integer.toString(quantity*prod.getPrice()));
+            alert.show();
+            AddProductTo bp = new AddProductTo();
+            System.out.println(quantity);
+            bp.Quantity = quantity;
+            bp.prod = prod;
+            bp.CustomerUserName = customer.getUserName();
+            bp.time = new Timestamp(new Date().getTime());
+            bp.Address = customer.getAddress();
+            bp.type=2;
+            try {
+                oos.writeObject(bp);
+                oos.flush();
+                System.out.println("Done!!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void AddToWishListProduct(Product prod)
     {
-        AddProductTo bp = new AddProductTo();
-        bp.Quantity=1;
-        bp.prod=prod;
-        bp.CustomerUserName=customer.getUserName();
-        bp.time= new Timestamp(new Date().getTime());
-        bp.Address = customer.getAddress();
-        bp.type=3;
-        try {
-            oos.writeObject(bp);
-            oos.flush();
-            System.out.println("Done!!");
-        } catch (IOException e) {
-            e.printStackTrace();
+        TextInputDialog dialog = new TextInputDialog("1");
+        dialog.setTitle("Confirmation");
+        dialog.setHeaderText("Do you want place order?");
+        dialog.setContentText("Please Enter Quantity?");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+            String quan = result.get();
+            int quantity = Integer.parseInt(quan);
+            alert.setContentText("Total Amount - Rs." + Integer.toString(quantity*prod.getPrice()));
+            alert.show();
+            AddProductTo bp = new AddProductTo();
+            System.out.println(quantity);
+            bp.Quantity = quantity;
+            bp.prod = prod;
+            bp.CustomerUserName = customer.getUserName();
+            bp.time = new Timestamp(new Date().getTime());
+            bp.Address = customer.getAddress();
+            bp.type=3;
+            try {
+                oos.writeObject(bp);
+                oos.flush();
+                System.out.println("Done!!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private ArrayList<Product> getTending()
     {
+        flagwishlist=0;
+        flaghistory=0;
+        flagadd=0;
         GetTrendingList gtl = new GetTrendingList();
         try {
             oos.writeObject(gtl);
@@ -190,6 +227,9 @@ public class ShopWindowController
     @FXML
     void SetProfileScene() throws IOException, ClassNotFoundException
     {
+        flagadd=0;
+        flagwishlist=0;
+        flaghistory=0;
         SetSpendings();
         UserNameLabel = new Label("UserName");
         PasswordLabel = new Label("Password");

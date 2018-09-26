@@ -68,7 +68,7 @@ public class LoginWindowController
     public void Login(int type) throws IOException
     {
         window = (Stage)name.getScene().getWindow();
-        socket = new Socket("127.0.0.1",8188);
+        socket = new Socket("192.168.43.78",8188);
         System.out.println("Connected to server");
         LoginData data = new LoginData(name.getText(),pass.getText(),type);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
@@ -143,7 +143,7 @@ public class LoginWindowController
         Parent root = loader.load();
         Signup controllers = loader.getController();
         window.setTitle("SignUp Window");
-        socket = new Socket("127.0.0.1",8188);
+        socket = new Socket("192.168.43.78",8188);
         System.out.println("Connected to server");
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
