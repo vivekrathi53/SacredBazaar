@@ -1,6 +1,7 @@
 package MainPackage;
 
 import AdminQueries.ChangeProduct;
+import AdminQueries.GenerateGraph;
 import AdminQueries.RemoveProduct;
 import RetailerQueries.*;
 
