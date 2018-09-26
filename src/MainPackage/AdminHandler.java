@@ -77,6 +77,25 @@ public class AdminHandler
                 rp.connection = connection;
                 rp.remove();
             }
+            else if(transaction instanceof LoadCustomerDetails)
+            {
+                LoadCustomerDetails lcd = (LoadCustomerDetails) transaction;
+                lcd.connection = connection;
+                oos.writeObject(lcd.getDetails());
+                oos.flush();
+            }
+            else if(transaction instanceof ChangeCustomerDetails)
+            {
+                ChangeCustomerDetails ccd = (ChangeCustomerDetails) transaction;
+                ccd.connection=connection;
+                ccd.updateEntries();
+                LoadCustomerDetails lcd = new LoadCustomerDetails();
+                lcd.userName = ccd.client.getUserName();
+                lcd.connection = connection;
+                Customer c = lcd.getDetails();
+                oos.writeObject(c);
+                oos.flush();
+            }
             else if(transaction instanceof LogoutClient)
             {
                 return;

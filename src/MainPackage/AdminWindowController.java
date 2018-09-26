@@ -3,11 +3,14 @@ package MainPackage;
 import AdminQueries.ChangeProduct;
 import AdminQueries.LoadAdminDetails;
 import AdminQueries.RemoveProduct;
+import CustomerQueries.ChangeCustomerDetails;
+import CustomerQueries.LoadCustomerDetails;
 import CustomerQueries.SearchFor;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -29,7 +32,7 @@ public class AdminWindowController
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
     private Socket socket;
-
+    private VBox vBox;
     public Admin getAdmin() {
         return admin;
     }
@@ -167,5 +170,79 @@ public class AdminWindowController
         {
             e.printStackTrace();
         }
+    }
+
+    public void getUserInfo()
+    {
+        TextField tf = new TextField();
+        tf.setPromptText("Search User");
+        Button btn = new Button();
+        btn.setOnAction(e-> {
+            try {
+                displayInfo(tf.getText());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
+            }
+        });
+        vBox = new VBox();
+        HBox hBox = new HBox();
+        hBox.getChildren().addAll(tf,btn);
+        vBox.getChildren().add(hBox);
+        AdminPane.setCenter(vBox);
+    }
+    public void displayInfo(String UserName) throws IOException, ClassNotFoundException {
+        vBox.getChildren().clear();
+        LoadCustomerDetails lcd = new LoadCustomerDetails();
+        lcd.userName = UserName;
+        oos.writeObject(lcd);
+        oos.flush();
+        Customer customer = (Customer)ois.readObject();
+        Label UserNameLabel,PasswordLabel,EmailLabel,MobileNoLabel,FirstNameLabel,LasNameLabel,AddressLabel,PinNoLabel;
+        TextArea UserNameArea,PasswordArea,FirstNameArea,LastNameArea,MobileNoArea,AddressArea,EmailArea,PinNoArea;
+        Button SaveProfile;
+        UserNameLabel = new Label("UserName");
+        PasswordLabel = new Label("Password");
+        UserNameArea = new TextArea();
+        UserNameArea.setText(customer.getUserName());
+        UserNameArea.setDisable(true);
+        PasswordArea = new TextArea();
+        PasswordArea.setText(customer.getPassword());
+        EmailLabel = new Label("Email");
+        MobileNoLabel = new Label("Mobile No");
+        FirstNameLabel = new Label("First Name");
+        LasNameLabel = new Label("Last Name");
+        AddressLabel = new Label("Address");
+        PinNoLabel = new Label("Pin No");
+        PinNoArea = new TextArea();
+        PinNoArea.setText(customer.getPinNo());
+        FirstNameArea = new TextArea();
+        FirstNameArea.setText(customer.getFirstName());
+        EmailArea = new TextArea();
+        EmailArea.setText(customer.getEmail());
+        LastNameArea = new TextArea();
+        LastNameArea.setText(customer.getLastName());
+        MobileNoArea = new TextArea();
+        MobileNoArea.setText(customer.getMobileNo());
+        AddressArea = new TextArea();
+        AddressArea.setText(customer.getAddress());
+        SaveProfile = new Button("Save Your Changes");
+        SaveProfile.setOnAction(e -> {
+            try {
+                ChangeCustomerDetails ccd = new ChangeCustomerDetails();
+                Customer c = new Customer(FirstNameArea.getText(),LastNameArea.getText(),UserNameArea.getText(),PasswordArea.getText(),AddressArea.getText(),MobileNoArea.getText(),PinNoArea.getText(),EmailArea.getText(),null,null,null);
+                ccd.client = c;
+                oos.writeObject(ccd);
+                oos.flush();
+                c = (Customer)ois.readObject();
+                displayInfo(UserName);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
+            }
+        });
+        vBox.getChildren().addAll(UserNameLabel, UserNameArea, PasswordLabel, PasswordArea, FirstNameLabel, FirstNameArea, LasNameLabel, LastNameArea, EmailLabel, EmailArea, MobileNoLabel, MobileNoArea, AddressLabel, AddressArea,PinNoLabel,PinNoArea,SaveProfile);
     }
 }

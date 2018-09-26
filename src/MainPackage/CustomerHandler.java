@@ -27,16 +27,19 @@ public class CustomerHandler
     }
 
     public void handle() throws IOException, ClassNotFoundException, SQLException {
-        LoadCustomerDetails lcd = new LoadCustomerDetails(connection);
-        oos.writeObject(lcd.getDetails(clientLoginDetails.getUserName()));
+        LoadCustomerDetails lcd = new LoadCustomerDetails();
+        lcd.userName = clientLoginDetails.getUserName();
+        lcd.connection = connection;
+        oos.writeObject(lcd.getDetails());
         oos.flush();int a;
         while(true)
         {
             Object transaction = ois.readObject();//query send by Shop Window Controller
             if(transaction instanceof LoadCustomerDetails)
             {
-                lcd = (LoadCustomerDetails) ois.readObject();
-                lcd.getDetails(clientLoginDetails.getUserName());
+                lcd = (LoadCustomerDetails) transaction;
+                lcd.userName = clientLoginDetails.getUserName();
+                oos.writeObject(lcd.getDetails());
             }
             else if(transaction instanceof TotalSpending)
             {
@@ -44,7 +47,8 @@ public class CustomerHandler
                 ts.connection=connection;
                 ts.customer=clientLoginDetails.getUserName();
                 a=ts.count();
-                lcd.getDetails(clientLoginDetails.getUserName()).setTotalspending(a);
+                lcd.userName = clientLoginDetails.getUserName();
+                lcd.getDetails().setTotalspending(a);
                 oos.writeObject(a);
                 oos.flush();
             }
@@ -53,7 +57,8 @@ public class CustomerHandler
                 ChangeCustomerDetails ccd = (ChangeCustomerDetails) transaction;
                 ccd.connection=connection;
                 ccd.updateEntries();
-                Customer c = lcd.getDetails(clientLoginDetails.getUserName());
+                lcd.userName = clientLoginDetails.getUserName();
+                Customer c = lcd.getDetails();
             }
             else if(transaction instanceof SearchFor)
             {
