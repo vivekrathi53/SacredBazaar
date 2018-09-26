@@ -26,7 +26,7 @@ public class TotalSpending implements Serializable
             query2="SELECT Price FROM ProductsTable WHERE ProductId='"+(product)+"'";
             preStat = connection.prepareStatement(query2);
             ResultSet res = preStat.executeQuery(query2);
-            res.next();
+            if(!res.next()) continue;
             p=res.getInt("Price");
             sum+=p*q;
         }
