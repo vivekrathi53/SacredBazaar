@@ -7,12 +7,10 @@ import AdminQueries.RemoveProduct;
 import CustomerQueries.ChangeCustomerDetails;
 import CustomerQueries.LoadCustomerDetails;
 import CustomerQueries.SearchFor;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -84,20 +82,22 @@ public class AdminWindowController
     {
         VBox vBox = new VBox();
         int len=customerList.size();
-        customeradmincontroller controller;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("customerdisplayadmin.fxml")) ;
+
+
         HBox customerDetailsDisplay = new HBox();
         customerDetailsDisplay.getChildren().add(new Label("Rank"));
         customerDetailsDisplay.getChildren().add(new Label("Customer UserName"));
         customerDetailsDisplay.getChildren().add(new Label("Total Spending"));
+        vBox.getChildren().add(customerDetailsDisplay);
         for(int i=0;i<len;i++)
         {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerDisplayAdmin.fxml")) ;
             customerDetailsDisplay = (HBox) loader.load();
-            controller = loader.getController();
+            CustomerAdminController controller = loader.getController();
             Customer con = customerList.get(i);
-            controller.customerno.setText(""+(i+1)+"");
+            controller.customern.setText(""+(i+1)+"");
             controller.UserName.setText(con.getUserName());
-            controller.customerspending.setText("Rs. "+con.getTotalspending());
+            controller.CustomerSpendings.setText("Rs. "+con.getTotalspending());
             vBox.getChildren().add(customerDetailsDisplay);
         }
         AdminPane.setCenter(vBox);

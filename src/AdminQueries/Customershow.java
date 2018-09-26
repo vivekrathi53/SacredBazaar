@@ -1,6 +1,7 @@
 package AdminQueries;
 
 import CustomerQueries.LoadCustomerDetails;
+import CustomerQueries.TotalSpending;
 import MainPackage.Customer;
 
 import java.io.IOException;
@@ -37,14 +38,20 @@ public class Customershow implements Serializable
      {
          ArrayList<Customer> spending = new ArrayList<>();
          String user;
-         String query="SELECT UserName FROM CUSTOMERTABLE";
+         String query="SELECT UserName FROM CustomerTable";
          PreparedStatement preStat = connection.prepareStatement(query);
          ResultSet rs = preStat.executeQuery(query);
-         LoadCustomerDetails lcd=new LoadCustomerDetails(connection);
+         LoadCustomerDetails lcd=new LoadCustomerDetails();
+         lcd.connection = connection;
          while(rs.next())
          {
                 user=rs.getString("UserName");
-                c=lcd.getDetails(user);
+                lcd.userName = user;
+                c=lcd.getDetails();
+             TotalSpending ts = new TotalSpending();
+             ts.connection = connection;
+             ts.customer = c.getUserName();
+             c.setTotalspending(ts.count());
                 spending.add(c) ;
          }
          Collections.sort(spending,new Sortbyroll());
