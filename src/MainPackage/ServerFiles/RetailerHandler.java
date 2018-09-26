@@ -1,7 +1,10 @@
-package MainPackage;
+package MainPackage.ServerFiles;
 
 import AdminQueries.ChangeProduct;
 import AdminQueries.RemoveProduct;
+import MainPackage.LoginData;
+import MainPackage.LogoutClient;
+import MainPackage.Retailer;
 import RetailerQueries.*;
 
 import java.io.IOException;

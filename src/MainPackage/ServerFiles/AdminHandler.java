@@ -1,7 +1,8 @@
-package MainPackage;
+package MainPackage.ServerFiles;
 
 import AdminQueries.*;
 import CustomerQueries.*;
+import MainPackage.Customer;
 import MainPackage.LoginData;
 import MainPackage.LogoutClient;
 import MainPackage.Product;

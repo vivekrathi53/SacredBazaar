@@ -15,4 +15,5 @@ public class ProductDesignController
     public Label productDescription;
     public Button EditProductBtn;
     public Label QuantityAvail;
+    public Label DiscountLabel;
 }

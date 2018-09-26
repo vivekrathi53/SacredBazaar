@@ -2,11 +2,13 @@ package MainPackage;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -152,7 +154,10 @@ public class LoginWindowController
         controllers.socket = socket;
         controllers.objectOutputStream = oos;
         controllers.objectInputStream = ois;
-        window.setScene(new Scene(root,700,800));
+        window.setScene(new Scene(root));
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        window.setWidth((primScreenBounds.getWidth()));
+        window.setHeight((primScreenBounds.getHeight()));
         window.show();
     }
 

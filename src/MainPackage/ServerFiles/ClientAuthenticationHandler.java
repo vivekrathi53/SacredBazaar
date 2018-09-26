@@ -1,4 +1,6 @@
-package MainPackage;
+package MainPackage.ServerFiles;
+
+import MainPackage.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
