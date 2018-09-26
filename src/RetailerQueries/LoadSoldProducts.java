@@ -30,7 +30,7 @@ public class LoadSoldProducts
             String q = "SELECT * FROM ProductsTable WHERE ProductId='" + (rs.getInt("ProductId")) + "'";
             PreparedStatement ps = connection.prepareStatement(q);
             ResultSet res = ps.executeQuery();
-            res.next();
+            if(!res.next()) continue;
             Product prod = new Product(res.getInt("ProductId"),res.getString("Retailer"),res.getInt("Price"),rs.getInt("Quantity"),res.getString("Category"),res.getString("Description"),res.getInt("Discount"));
             prodList.add(prod);
         }

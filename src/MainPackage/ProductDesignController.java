@@ -13,4 +13,5 @@ public class ProductDesignController
     public Label productCategory;
     public Label price;
     public Label productDescription;
+    public Button EditProductBtn;
 }

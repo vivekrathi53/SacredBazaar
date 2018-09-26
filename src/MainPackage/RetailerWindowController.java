@@ -1,16 +1,15 @@
 package MainPackage;
 
+import AdminQueries.ChangeProduct;
+import AdminQueries.RemoveProduct;
 import RetailerQueries.GetRetailerProducts;
 import RetailerQueries.LoadNotifications;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SplitPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -98,6 +97,14 @@ public class RetailerWindowController
                 controller.BuyButton.setVisible(false);
                 controller.AddtoCart.setVisible(false);
                 controller.AddtoWishList.setVisible(false);
+                controller.EditProductBtn.setVisible(true);
+                controller.EditProductBtn.setOnAction(e -> {
+                    try {
+                        EditProduct(prod);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                });
                 controller.price.setText(controller.price.getText() + Integer.toString(prod.getPrice()));
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
@@ -186,6 +193,59 @@ public class RetailerWindowController
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void EditProduct(Product prod) throws IOException {
+        Stage s = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductInfo.fxml"));
+        VBox display = loader.load();
+        ProductInfoController controller = loader.getController();
+        controller.CategoryBox.setText(prod.getProductCategory());
+        controller.ProductIdBox.setText(Integer.toString(prod.getProductId()));
+        controller.DescriptionBox.setText(prod.getProductDescription());
+        controller.DiscountBox.setText(Integer.toString(prod.getDiscount()));
+        controller.PriceBox.setText(Integer.toString(prod.getPrice()));
+        controller.QuantityBox.setText(Integer.toString(prod.getQuantity()));
+        controller.RetailerUserNameBox.setText(prod.getRetailer());
+        Product p = prod;
+        controller.DeleteProduct.setOnAction(e -> RemoveProduct(p));
+        controller.ProductChanges.setOnAction(e ->
+        {
+            p.setProductCategory((controller.CategoryBox.getText()));
+            p.setPrice(Integer.parseInt(controller.PriceBox.getText()));
+            p.setDiscount(Integer.parseInt(controller.DiscountBox.getText()));
+            p.setQuantity(Integer.parseInt(controller.QuantityBox.getText()));
+            p.setProductDescription(controller.DescriptionBox.getText());
+            p.setRetailer(controller.RetailerUserNameBox.getText());
+            SaveChanges(p);
+        });
+        s.setScene(new Scene(display));
+        s.show();
+    }
+
+    private void SaveChanges(Product prod)
+    {
+        ChangeProduct cp = new ChangeProduct();
+        cp.product = prod;
+        try {
+            oos.writeObject(cp);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void RemoveProduct(Product p)
+    {
+        RemoveProduct rp = new RemoveProduct();
+        rp.ProductId = p.getProductId();
+        try {
+            oos.writeObject(rp);
+            oos.flush();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

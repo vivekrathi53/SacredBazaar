@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.39712918660287083" prefHeight="135.0" prefWidth="300" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDesignController">
+<SplitPane dividerPositions="0.7628361858190709" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDesignController">
   <items>
       <VBox>
          <children>
@@ -16,8 +16,9 @@
             <HBox>
                <children>
                   <Button fx:id="BuyButton" mnemonicParsing="false" text="Buy" />
-                  <Button fx:id="AddtoCart" mnemonicParsing="false" text="AddToCart" />
                   <Button fx:id="AddtoWishList" mnemonicParsing="false" text="AddToWishList" />
+                  <Button fx:id="AddtoCart" mnemonicParsing="false" text="AddToCart" />
+                  <Button fx:id="EditProductBtn" mnemonicParsing="false" text="EditThisProduct" visible="false" />
                </children>
             </HBox>
          </children>

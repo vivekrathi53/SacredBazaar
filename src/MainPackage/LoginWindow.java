@@ -37,15 +37,8 @@ public class LoginWindow extends Application {
         loader = new FXMLLoader(getClass().getResource("LoginWindowDesign.fxml"));
         controller = loader.getController();
         MainDisplay  = (AnchorPane) loader.load();
-
         primaryStage.setScene(new Scene(MainDisplay));
         window = primaryStage;
-        System.out.println(Type);
-        //controller.socket = this.socket;
-        //controller.ois = this.ois;
-        //controller.oos = this.oos;
-        //FileInputStream input = new FileInputStream("/home/dell/Desktop/FinalYearSeniors.jpg");
-
         window.setTitle("Log in Page");
         window.show();
     }

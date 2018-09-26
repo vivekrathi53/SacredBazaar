@@ -16,7 +16,7 @@ public class BuyProduct implements Serializable
     public String Address;
     public void buyProduct() throws SQLException
     {
-        String query = "UPDATE ProductsTable  SET Quantity = '"+(prod.getQuantity()-1)+"' WHERE ProductId = '"+(prod.getProductId())+"'";
+        String query = "UPDATE ProductsTable  SET Quantity = '"+(prod.getQuantity()-Quantity)+"' WHERE ProductId = '"+(prod.getProductId())+"'";
         PreparedStatement prepStat = connection.prepareStatement(query);
         prepStat.executeUpdate();
         prod.setQuantity(prod.getQuantity() - Quantity);
