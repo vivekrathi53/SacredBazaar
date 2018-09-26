@@ -18,9 +18,11 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ShopWindowController
 {
+    int flagadd;int flaghistory;int flagwishlist;
     public Socket socket;
     ObjectOutputStream oos;
     ObjectInputStream ois;
@@ -52,11 +54,13 @@ public class ShopWindowController
     @FXML
     private void ShowInCart()
     {
+        flagadd=1;flagwishlist=0;
         ShowProductList(customer.getProductsInCart());
     }
     @FXML
     private void ShowWishList()
     {
+        flagwishlist=1;flagadd=0;
         ShowProductList(customer.getProductsWishList());
     }
     @FXML
@@ -68,6 +72,7 @@ public class ShopWindowController
     @FXML
     private void ShowHistory()
     {
+        flagadd=0;flagwishlist=0;
         ShowProductList(customer.getProductsBought());
     }
     private void ShowProductList(ArrayList<Product> prodList)
@@ -83,8 +88,14 @@ public class ShopWindowController
                 productDetailsDisplay[i] = (SplitPane) loader.load();
                 ProductDesignController controller = loader.getController();
                 controller.BuyButton.setOnAction(e -> BuyProducts(prod));
-                controller.AddtoCart.setOnAction(e -> AddToCartProduct(prod));
-                controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
+                if(flagadd==0)
+                    controller.AddtoCart.setOnAction(e -> AddToCartProduct(prod));
+                else
+                    controller.AddtoCart.setVisible(false);
+                if(flagwishlist==0)
+                    controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
+                else
+                    controller.AddtoWishList.setVisible(false);
                 controller.price.setText(controller.price.getText() + prod.getPrice());
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
@@ -98,20 +109,32 @@ public class ShopWindowController
 
     private void BuyProducts(Product prod)
     {
-        BuyProduct bp = new BuyProduct();
-        bp.Quantity=1;
-        bp.prod=prod;
-        bp.CustomerUserName=customer.getUserName();
-        bp.time= new Timestamp(new Date().getTime());
-        bp.Address = customer.getAddress();
-        try {
-            oos.writeObject(bp);
-            oos.flush();
-            System.out.println("Done!!");
-        } catch (IOException e) {
-            e.printStackTrace();
+        TextInputDialog dialog = new TextInputDialog("1");
+        dialog.setTitle("Confirmation");
+        dialog.setHeaderText("Do you want place order?");
+        dialog.setContentText("Please Enter Quantity?");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent())
+        {
+            String quan = result.get();
+            int quantity = Integer.parseInt(quan);
+            BuyProduct bp = new BuyProduct();
+            System.out.println(quantity);
+            bp.Quantity = quantity;
+            bp.prod = prod;
+            bp.CustomerUserName = customer.getUserName();
+            bp.time = new Timestamp(new Date().getTime());
+            bp.Address = customer.getAddress();
+            try {
+                oos.writeObject(bp);
+                oos.flush();
+                System.out.println("Done!!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+
     private void AddToCartProduct(Product prod)
     {
         AddProductTo bp = new AddProductTo();
