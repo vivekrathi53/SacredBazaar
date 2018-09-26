@@ -20,7 +20,13 @@
             <children>
                 <Button fx:id="ProfileButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowProfile" text="Profile" />
                 <Button fx:id="WishListButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="Graphs" />
+<<<<<<< HEAD
             <Button mnemonicParsing="false" onAction="#getUserInfo" prefHeight="25.0" prefWidth="102.0" text="GetUserInfo" />
+=======
+                <Button minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="History" />
+                <Button fx:id="TrendingButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" text="Trending " />
+                <Button fx:id="Topcustomer" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#showcustomer" text="Customers " />
+>>>>>>> 7423f53ce6d2131fc6a3574e1696f22ad36c1e0e
             </children>
         </VBox>
     </left>

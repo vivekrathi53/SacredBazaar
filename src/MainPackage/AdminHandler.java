@@ -1,9 +1,6 @@
 package MainPackage;
 
-import AdminQueries.ChangeAdminDetails;
-import AdminQueries.ChangeProduct;
-import AdminQueries.LoadAdminDetails;
-import AdminQueries.RemoveProduct;
+import AdminQueries.*;
 import CustomerQueries.*;
 import MainPackage.LoginData;
 import MainPackage.LogoutClient;
@@ -14,6 +11,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,6 +23,8 @@ public class AdminHandler
     Connection connection;
     ObjectInputStream ois;
     ObjectOutputStream oos;
+    LoadCustomerDetails lcd;
+    Customer c;
     public AdminHandler(Socket clientSocket, LoginData client, Connection connection, ObjectInputStream objectInputStream, ObjectOutputStream objectOutputStream)
     {
         this.ClientSocket = clientSocket;
@@ -41,12 +42,21 @@ public class AdminHandler
         oos.flush();
         while(true)
         {
-            Object transaction = ois.readObject();//query send by Shop Window Controller
+            Object transaction = ois.readObject();//query send by Admin Controller
             if(transaction instanceof LoadAdminDetails)
             {
                 lad = (LoadAdminDetails) transaction;
                 lad.connection = connection;
                 oos.writeObject(lad.getDetails());
+                oos.flush();
+            }
+            else if(transaction instanceof Customershow)
+            {
+
+                Customershow cs=(Customershow) transaction;
+                cs.connection=connection;
+                ArrayList<Customer> topcustomerlist=cs.show();
+                oos.writeObject(topcustomerlist);
                 oos.flush();
             }
             else if(transaction instanceof ChangeAdminDetails)

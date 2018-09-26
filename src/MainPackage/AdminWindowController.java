@@ -1,6 +1,7 @@
 package MainPackage;
 
 import AdminQueries.ChangeProduct;
+import AdminQueries.Customershow;
 import AdminQueries.LoadAdminDetails;
 import AdminQueries.RemoveProduct;
 import CustomerQueries.ChangeCustomerDetails;
@@ -9,6 +10,10 @@ import CustomerQueries.SearchFor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -63,6 +68,39 @@ public class AdminWindowController
 
     public void setSocket(Socket socket) {
         this.socket = socket;
+    }
+
+    public void showcustomer() throws IOException, ClassNotFoundException
+    {
+        System.out.println("Giving List of customers");
+        Customershow cs=new Customershow();
+        oos.writeObject(cs);
+        oos.flush();
+        ArrayList<Customer> show=(ArrayList<Customer>) ois.readObject();
+        ShowProductList(show);
+    }
+
+    private void ShowProductList(ArrayList<Customer>customerList) throws IOException
+    {
+        VBox vBox = new VBox();
+        int len=customerList.size();
+        customeradmincontroller controller;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("customerdisplayadmin.fxml")) ;
+        HBox customerDetailsDisplay = new HBox();
+        customerDetailsDisplay.getChildren().add(new Label("Rank"));
+        customerDetailsDisplay.getChildren().add(new Label("Customer UserName"));
+        customerDetailsDisplay.getChildren().add(new Label("Total Spending"));
+        for(int i=0;i<len;i++)
+        {
+            customerDetailsDisplay = (HBox) loader.load();
+            controller = loader.getController();
+            Customer con = customerList.get(i);
+            controller.customerno.setText(""+(i+1)+"");
+            controller.UserName.setText(con.getUserName());
+            controller.customerspending.setText("Rs. "+con.getTotalspending());
+            vBox.getChildren().add(customerDetailsDisplay);
+        }
+        AdminPane.setCenter(vBox);
     }
 
     public void SearchProduct()
