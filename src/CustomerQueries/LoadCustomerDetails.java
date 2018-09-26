@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class LoadCustomerDetails implements Serializable
 {
-    Connection connection;
+    public Connection connection;
     Boolean solved;
 
     public LoadCustomerDetails(Connection connection)

@@ -205,7 +205,7 @@ public class ClientAuthenticationHandler implements Runnable
         System.out.println("Hii");
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Connected to database");
-        String url = "jdbc:mysql://localhost:3306/SacredBazaar";
+        String url = "jdbc:mysql://localhost:3306/SacredBazzar";
         connection = DriverManager.getConnection(url, "root", "ayushman2002");
         if(type==0)
         {
@@ -217,7 +217,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         else if(type==3)
         {
-            query = "SELECT Password FROM AdminTable WHERE UserName='"+(user)+"'";
+            query = "SELECT Password FROM adminTable WHERE UserName='"+(user)+"'";
         }
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
