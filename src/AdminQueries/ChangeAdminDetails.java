@@ -1,7 +1,6 @@
 package AdminQueries;
 
 import MainPackage.Admin;
-import MainPackage.Customer;
 
 import java.io.Serializable;
 import java.sql.Connection;

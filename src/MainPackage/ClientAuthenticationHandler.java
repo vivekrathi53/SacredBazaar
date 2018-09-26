@@ -1,4 +1,5 @@
 package MainPackage;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -205,7 +206,7 @@ public class ClientAuthenticationHandler implements Runnable
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Connected to database");
         String url = "jdbc:mysql://localhost:3306/SacredBazaar";
-        connection = DriverManager.getConnection(url, "root", "password");
+        connection = DriverManager.getConnection(url, "root", "ayushman2002");
         if(type==0)
         {
             query="SELECT Password FROM RetailerTable WHERE UserName='"+(user)+"'";

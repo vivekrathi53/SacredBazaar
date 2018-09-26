@@ -1,8 +1,13 @@
 package MainPackage;
 
 import AdminQueries.ChangeAdminDetails;
+import AdminQueries.ChangeProduct;
 import AdminQueries.LoadAdminDetails;
+import AdminQueries.RemoveProduct;
 import CustomerQueries.*;
+import MainPackage.LoginData;
+import MainPackage.LogoutClient;
+import MainPackage.Product;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -51,6 +56,26 @@ public class AdminHandler
                 cad.updateEntries();
                 oos.writeObject(lad.getDetails());
                 oos.flush();
+            }
+            else if(transaction instanceof ChangeProduct)
+            {
+                ChangeProduct cp = (ChangeProduct) transaction;
+                cp.connection = connection;
+                cp.saveChanges();
+            }
+            else if(transaction instanceof SearchFor)
+            {
+                SearchFor sf = (SearchFor) transaction;
+                sf.connection=connection;
+                ArrayList<Product> prodList= sf.getReleventProducts();
+                oos.writeObject(prodList);
+                oos.flush();
+            }
+            else if(transaction instanceof RemoveProduct)
+            {
+                RemoveProduct rp = (RemoveProduct) transaction;
+                rp.connection = connection;
+                rp.remove();
             }
             else if(transaction instanceof LogoutClient)
             {
