@@ -149,6 +149,7 @@ public class ClientAuthenticationHandler implements Runnable
         connection = DriverManager.getConnection(url, "root", "password");
         String q="INSERT INTO RetailerTable VALUES('"+(firstname)+"','"+(lastname)+"','"+(username)+"','"+(password)+"','"+(Address)+"','"+(MobileNo)+"','"+(PinNo)+"','"+(Email)+"')";
         PreparedStatement preStat = connection.prepareStatement(q);
+        preStat.executeUpdate();
     }
 
     private void signupcustomer() throws SQLException, ClassNotFoundException {

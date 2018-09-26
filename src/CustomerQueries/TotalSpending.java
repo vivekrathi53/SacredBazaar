@@ -14,7 +14,7 @@ public class TotalSpending implements Serializable
         int q;
         int p;
         int sum=0;
-        String query="SELECT ProductId,Quantity FROM TransactionTable WHERE CustomerUserName='"+(customer)+"'";
+        String query="SELECT ProductId,Quantity FROM TransactionTable WHERE CustomerUserName='"+(customer)+"' AND Status='"+(1)+"'";
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);
         String query2;

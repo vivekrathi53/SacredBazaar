@@ -85,7 +85,7 @@ public class Signup
     {
         display();
 
-
+        logwindow = new LoginWindow();
         if(type==0)
         {
             Customer data = new Customer(firstName,lastName,userName,password,address,mobileNo,pinNo,email,null,null,null);

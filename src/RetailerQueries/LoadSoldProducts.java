@@ -21,7 +21,7 @@ public class LoadSoldProducts
 
     public ArrayList<Product> loadProducts() throws SQLException
     {
-        String query = "SELECT * FROM TransactionTable ";
+        String query = "SELECT * FROM TransactionTable";
         ArrayList<Product> prodList = new ArrayList<>();
         PreparedStatement prepStat = connection.prepareStatement(query);
         ResultSet rs = prepStat.executeQuery();
@@ -32,7 +32,7 @@ public class LoadSoldProducts
             ResultSet res = ps.executeQuery();
             if(!res.next()) continue;
             Product prod = new Product(res.getInt("ProductId"),res.getString("Retailer"),res.getInt("Price"),rs.getInt("Quantity"),res.getString("Category"),res.getString("Description"),res.getInt("Discount"));
-            prodList.add(prod);
+            if(prod.getRetailer().equals(UserName))prodList.add(prod);
         }
         return prodList;
     }
