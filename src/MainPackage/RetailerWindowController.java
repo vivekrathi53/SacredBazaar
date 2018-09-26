@@ -99,6 +99,7 @@ public class RetailerWindowController
                 controller.AddtoWishList.setVisible(false);
                 controller.EditProductBtn.setVisible(true);
                 controller.QuantityAvail.setText(controller.QuantityAvail.getText() + prod.getQuantity());
+                controller.DiscountLabel.setText(controller.DiscountLabel.getText() + prod.getDiscount());
                 controller.EditProductBtn.setOnAction(e -> {
                     try {
                         EditProduct(prod);

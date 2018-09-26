@@ -112,6 +112,7 @@ public class ShopWindowController
                 controller.price.setText(controller.price.getText() + prod.getPrice());
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
+                controller.DiscountLabel.setText(controller.DiscountLabel.getText() + prod.getDiscount());
                 productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());
             } catch (IOException e) {
                 e.printStackTrace();

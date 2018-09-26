@@ -1,6 +1,10 @@
-package MainPackage;
+package MainPackage.ServerFiles;
 
 import CustomerQueries.*;
+import MainPackage.Customer;
+import MainPackage.LoginData;
+import MainPackage.LogoutClient;
+import MainPackage.Product;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
