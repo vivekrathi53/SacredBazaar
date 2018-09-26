@@ -52,15 +52,23 @@ public class ShopWindowController
     @FXML
     Label Totalspending;
     @FXML
-    private void ShowInCart()
-    {
+    private void ShowInCart() throws IOException, ClassNotFoundException {
         flagadd=1;flagwishlist=0;
+        LoadCustomerDetails lcd = new LoadCustomerDetails();
+        lcd.userName = customer.getUserName();
+        oos.writeObject(lcd);
+        oos.flush();
+        customer = (Customer) ois.readObject();
         ShowProductList(customer.getProductsInCart());
     }
     @FXML
-    private void ShowWishList()
-    {
+    private void ShowWishList() throws IOException, ClassNotFoundException {
         flagwishlist=1;flagadd=0;
+        LoadCustomerDetails lcd = new LoadCustomerDetails();
+        lcd.userName = customer.getUserName();
+        oos.writeObject(lcd);
+        oos.flush();
+        customer = (Customer) ois.readObject();
         ShowProductList(customer.getProductsWishList());
     }
     @FXML
@@ -70,9 +78,13 @@ public class ShopWindowController
         ShowProductList(prodList);
     }
     @FXML
-    private void ShowHistory()
-    {
+    private void ShowHistory() throws IOException, ClassNotFoundException {
         flagadd=0;flagwishlist=0;
+        LoadCustomerDetails lcd = new LoadCustomerDetails();
+        lcd.userName = customer.getUserName();
+        oos.writeObject(lcd);
+        oos.flush();
+        customer = (Customer) ois.readObject();
         ShowProductList(customer.getProductsBought());
     }
     private void ShowProductList(ArrayList<Product> prodList)

@@ -23,6 +23,9 @@ public class BuyProduct implements Serializable
         query = "INSERT INTO TransactionTable(`ProductId`,`CustomerUserName`,`Time`,`Address`,`Quantity`,`Status`) VALUES ('" +(prod.getProductId())+"','" +(CustomerUserName)+ "','" +(time)+ "','" +Address+"','"+ +(Quantity)+"','"+1+ "')";
         prepStat = connection.prepareStatement(query);
         prepStat.executeUpdate();
+        query = "DELETE FROM TransactionTable WHERE ProductId ='"+(prod.getProductId())+"' AND CustomerUserName='"+(CustomerUserName)+"'";
+        prepStat = connection.prepareStatement(query);
+        prepStat.executeUpdate();
     }
 
 }
