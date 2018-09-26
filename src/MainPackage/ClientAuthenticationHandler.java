@@ -219,7 +219,7 @@ public class ClientAuthenticationHandler implements Runnable
         }
         else if(type==3)
         {
-            query = "SELECT Password FROM adminTable WHERE UserName='"+(user)+"'";
+            query = "SELECT Password FROM AdminTable WHERE UserName='"+(user)+"'";
         }
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);

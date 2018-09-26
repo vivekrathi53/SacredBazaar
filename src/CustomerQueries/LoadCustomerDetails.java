@@ -14,13 +14,8 @@ public class LoadCustomerDetails implements Serializable
 {
     public Connection connection;
     Boolean solved;
-
-    public LoadCustomerDetails(Connection connection)
-    {
-        this.connection = connection;
-    }
-
-    public Customer getDetails(String userName) throws SQLException
+    public String userName;
+    public Customer getDetails() throws SQLException
     {
         String query = "SELECT * FROM CustomerTable WHERE UserName='" + userName + "'";
         PreparedStatement prepStat = connection.prepareStatement(query);
