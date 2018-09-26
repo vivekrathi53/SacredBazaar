@@ -38,6 +38,7 @@ public class CustomerHandler
             if(transaction instanceof LoadCustomerDetails)
             {
                 lcd = (LoadCustomerDetails) transaction;
+                lcd.connection = connection;
                 lcd.userName = clientLoginDetails.getUserName();
                 oos.writeObject(lcd.getDetails());
             }
