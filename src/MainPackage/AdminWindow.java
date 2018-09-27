@@ -38,7 +38,7 @@ public class AdminWindow
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         primaryStage.setWidth((primScreenBounds.getWidth()));
         primaryStage.setHeight((primScreenBounds.getHeight()));
-        window.setTitle("Admin Window");
+        window.setTitle("Admin Window ");
         window.show();
     }
 }

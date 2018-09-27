@@ -90,7 +90,14 @@ public class ShopWindowController
     private void ShowProductList(ArrayList<Product> prodList)
     {
         CentreDisplay.getChildren().clear();
-        int len = prodList.size();
+        int len=0;
+        if(prodList!=null)len= prodList.size();
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Product not found Please use better search ");
+            alert.show();
+        }
         SplitPane[] productDetailsDisplay = new SplitPane[len];
         for(int i=0;i<len;i++)
         {
