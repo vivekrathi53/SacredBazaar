@@ -68,7 +68,7 @@ public class RetailerWindowController
         DisplayProducts(retailer.getAllProducts());
     }
 
-    public void buildGraph() throws IOException, SQLException, ClassNotFoundException
+    /*public void buildGraph() throws IOException, SQLException, ClassNotFoundException
     {
         LineChart<?,?> MainDisplay;
         loader = new FXMLLoader(getClass().getResource("graph.fxml")) ;
@@ -80,7 +80,7 @@ public class RetailerWindowController
         controller.username = retailer.getUserName();
         controller.startgraph();
         borderPane.setCenter(MainDisplay);
-    }
+    }*/
 
     public void DisplayProducts(ArrayList<Product> prodList)
     {
