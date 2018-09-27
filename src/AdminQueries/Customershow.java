@@ -3,6 +3,7 @@ package AdminQueries;
 import CustomerQueries.LoadCustomerDetails;
 import CustomerQueries.TotalSpending;
 import MainPackage.Customer;
+import com.sun.media.jfxmediaimpl.NativeMediaManager;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,15 +18,12 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
-class Sortbyroll implements Comparator<Customer>, Serializable
+class  Sortbyspend implements Comparator<Customer>
 {
-    @Override
-    public int compare(Customer c1, Customer c2)
-    {
-        if(c1.getTotalspending()>c2.getTotalspending())
-            return 1;
-        return 0;
-    }
+public int compare(Customer a, Customer b)
+{
+        return b.getTotalspending() -a.getTotalspending();
+}
 }
 
 public class Customershow implements Serializable
@@ -52,9 +50,10 @@ public class Customershow implements Serializable
              ts.connection = connection;
              ts.UserName = c.getUserName();
              c.setTotalspending(ts.count());
-                spending.add(c) ;
+            // customersort cse=new customersort(c.getUserName(),c.getTotalspending());
+             spending.add(c) ;
          }
-         Collections.sort(spending,new Sortbyroll());
+         Collections.sort(spending,new Sortbyspend());
          return spending;
      }
 }

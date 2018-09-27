@@ -147,7 +147,8 @@ public class LoginWindowController
         Parent root = loader.load();
         Signup controllers = loader.getController();
         window.setTitle("SignUp Window");
-        socket = new Socket(ServerIP.getText(),Integer.parseInt(PortNo.getText()));
+    socket = new Socket(ServerIP.getText(),Integer.parseInt(PortNo.getText()));
+
         System.out.println("Connected to server");
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
