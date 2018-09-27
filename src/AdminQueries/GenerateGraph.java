@@ -26,8 +26,7 @@ public class GenerateGraph implements Serializable
         String currentdate = formatter.format(date);
         datecurrent=Integer.parseInt(currentdate);
         //System.out.println(datecurrent);
-        query = null;
-       // System.out.println(username);
+        System.out.println(username);
         query="SELECT * FROM TransactionTable WHERE CustomerUserName='"+(username)+"'";// type is 1 for customer graph generation
         PreparedStatement preStat = connection.prepareStatement(query);
         ResultSet rs = preStat.executeQuery(query);

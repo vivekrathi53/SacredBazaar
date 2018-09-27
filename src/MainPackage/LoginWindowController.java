@@ -73,7 +73,6 @@ public class LoginWindowController
     {
         window = (Stage)name.getScene().getWindow();
         socket = new Socket(ServerIP.getText(),Integer.parseInt(PortNo.getText()));
-
         System.out.println("Connected to server");
         LoginData data = new LoginData(name.getText(),pass.getText(),type);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());

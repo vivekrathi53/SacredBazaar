@@ -2,6 +2,7 @@ package MainPackage;
 
 import AdminQueries.GenerateGraph;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.chart.XYChart.Series;
@@ -23,7 +24,8 @@ public class graphcontroller
     @FXML
     public NumberAxis y;
     int Time;
-    int []arr;int i;
+    int []arr;
+    int i;
     int datecurrent;
 
 
@@ -31,22 +33,25 @@ public class graphcontroller
     public void startgraph() throws ClassNotFoundException, SQLException, IOException
     {
         System.out.println(datecurrent);
-        //CategoryAxis x=new CategoryAxis();
-       // NumberAxis y=new NumberAxis();
-        XYChart.Series<Number,Number> set= new XYChart.Series<Number,Number>();
-        set.getData().add(new XYChart.Data<Number, Number>(1,0));
-        // AdminGraph.getData().addAll(series);
-        /*XYChart.Series set= new XYChart.Series();
+        NumberAxis x=new NumberAxis();
+        NumberAxis y=new NumberAxis();
+        x.labelProperty().setValue("Time in days");
+        y.labelProperty().setValue("No. of products Bought");
+        LineChart lineChart = new LineChart(x,y);
+        lineChart.setTitle("Customer Monitoring");
+        XYChart.Series set = new XYChart.Series();
+        set.setName("My portfolio");
         if(datecurrent>=7)
         {
             for (i = 6; i >= 0; i--)
             {
                 System.out.println((arr[datecurrent-i]));
-                set.getData().add(new XYChart.Data( "1", "2"));
+                set.getData().add(new XYChart.Data( datecurrent-i, arr[datecurrent-i]));
             }
-        }*/
-        AdminGraph.getData().addAll();
-        Scene scene  = new Scene(AdminGraph,800,600);
+        }
+        lineChart.getData().addAll(set);
+        Group root = new Group(lineChart);
+        Scene scene  = new Scene(root,800,600);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();

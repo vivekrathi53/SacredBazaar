@@ -245,13 +245,8 @@ public class AdminWindowController
         });
         graph.setOnAction((ActionEvent e) ->
         {
-            try {
-                gg.username=usernamerequire(tf.getText());
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            } catch (ClassNotFoundException e1) {
-                e1.printStackTrace();
-            }
+
+            gg.username=tf.getText();
             int []arr=new int[40];
             try {
                 oos.writeObject(gg);

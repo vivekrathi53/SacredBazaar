@@ -36,15 +36,15 @@ public class GetTrendingList implements Serializable
                 else count.add(prodList.indexOf(prod),count.get(prodList.indexOf(prod))+1);
             }
         }
-        SortProducts sp = new SortProducts();
+        /*SortProducts sp = new SortProducts();
         sp.count=count;
         sp.prodList=prodList;
-        Collections.sort(prodList, sp);
+        Collections.sort(prodList, sp);*/
         return prodList;
     }
 
 }
-class SortProducts implements Comparator<Product> {
+/*class SortProducts implements Comparator<Product> {
 
     ArrayList<Integer> count;
     ArrayList<Product> prodList;
@@ -55,5 +55,5 @@ class SortProducts implements Comparator<Product> {
             return 0;
         else return 1;
     }
-}
+}*/
 
