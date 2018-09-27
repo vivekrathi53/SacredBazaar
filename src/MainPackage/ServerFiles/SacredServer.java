@@ -1,4 +1,4 @@
-package MainPackage;
+package MainPackage.ServerFiles;
 
 import MainPackage.ServerFiles.ClientAuthenticationHandler;
 
