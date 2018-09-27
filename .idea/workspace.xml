@@ -6,16 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0a45a4b-b15d-477d-b50d-a5d1985dd771" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/CustomerQueries/SortProducts.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SacredBazaar/MainPackage/SacredServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/AdminWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/AdminWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/RetailerWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/RetailerWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/SacredServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ServerFiles/SacredServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" afterDir="false" />
-    </list>
+    <list default="true" id="e0a45a4b-b15d-477d-b50d-a5d1985dd771" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,12 +32,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="33" />
-          <entry key="java" value="2008" />
+          <entry key="java" value="2012" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2008" />
+          <entry key="JAVA" value="2012" />
           <entry key="XML" value="33" />
         </counts>
       </usages-collector>
@@ -128,7 +119,7 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
@@ -147,11 +138,11 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CustomerQueries/SearchFor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="18" column="94" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
+              <caret line="18" column="92" lean-forward="true" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -221,8 +212,8 @@
         <option value="$PROJECT_DIR$/src/MainPackage/ShopWindow.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/AdminWindow.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/RetailerWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" />
         <option value="$PROJECT_DIR$/src/MainPackage/ShopWindowController.java" />
+        <option value="$PROJECT_DIR$/src/CustomerQueries/SearchFor.java" />
       </list>
     </option>
   </component>
@@ -254,7 +245,7 @@
               <item name="SacredBazaar" type="b2602c69:ProjectViewProjectNode" />
               <item name="SacredBazaar" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="AdminQueries" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomerQueries" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SacredBazaar" type="b2602c69:ProjectViewProjectNode" />
@@ -271,7 +262,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538025231390" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538025308846" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -714,17 +705,17 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CustomerQueries/SearchFor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="94" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainPackage/ShopWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CustomerQueries/SearchFor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="92" lean-forward="true" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
         </state>
       </provider>
     </entry>
