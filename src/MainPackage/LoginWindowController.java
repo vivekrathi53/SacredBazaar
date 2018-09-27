@@ -2,11 +2,13 @@ package MainPackage;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -70,11 +72,8 @@ public class LoginWindowController
     public void Login(int type) throws IOException
     {
         window = (Stage)name.getScene().getWindow();
-<<<<<<< HEAD
         socket = new Socket(ServerIP.getText(),Integer.parseInt(PortNo.getText()));
-=======
-        socket = new Socket("192.168.43.78",8188);
->>>>>>> 6508d3126e71b6d00c30598b8bf81e5aa43f7507
+
         System.out.println("Connected to server");
         LoginData data = new LoginData(name.getText(),pass.getText(),type);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
@@ -149,18 +148,18 @@ public class LoginWindowController
         Parent root = loader.load();
         Signup controllers = loader.getController();
         window.setTitle("SignUp Window");
-<<<<<<< HEAD
-        socket = new Socket(ServerIP.getText(),Integer.parseInt(PortNo.getText()));
-=======
-        socket = new Socket("192.168.43.78",8188);
->>>>>>> 6508d3126e71b6d00c30598b8bf81e5aa43f7507
+    socket = new Socket(ServerIP.getText(),Integer.parseInt(PortNo.getText()));
+
         System.out.println("Connected to server");
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
         controllers.socket = socket;
         controllers.objectOutputStream = oos;
         controllers.objectInputStream = ois;
-        window.setScene(new Scene(root,700,800));
+        window.setScene(new Scene(root));
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        window.setWidth((primScreenBounds.getWidth()));
+        window.setHeight((primScreenBounds.getHeight()));
         window.show();
     }
 

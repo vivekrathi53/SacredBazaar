@@ -1,5 +1,6 @@
 package MainPackage;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -116,5 +117,16 @@ public class Signup
         address=useraddress.getText();
         password=Password.getText();
         System.out.println(firstName);
+    }
+
+    public void StartLogin()
+    {
+        LoginWindow lw = new LoginWindow();
+        try {
+            lw.start((Stage)SignInButton.getScene().getWindow());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

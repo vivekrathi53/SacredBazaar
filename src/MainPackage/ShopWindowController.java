@@ -108,9 +108,11 @@ public class ShopWindowController
                     controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
                 else
                     controller.AddtoWishList.setVisible(false);
+                controller.QuantityAvail.setText(controller.QuantityAvail.getText() + prod.getQuantity());
                 controller.price.setText(controller.price.getText() + prod.getPrice());
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
+                controller.DiscountLabel.setText(controller.DiscountLabel.getText() + prod.getDiscount());
                 productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -135,7 +137,6 @@ public class ShopWindowController
             alert.setContentText("Total Amount - Rs."+Integer.toString(quantity*prod.getPrice()));
             alert.show();
             BuyProduct bp = new BuyProduct();
-            System.out.println(quantity);
             bp.Quantity = quantity;
             bp.prod = prod;
             bp.CustomerUserName = customer.getUserName();
@@ -146,9 +147,12 @@ public class ShopWindowController
                 oos.flush();
                 System.out.println("Done!!");
             } catch (IOException e) {
-                e.printStackTrace();
+                Alert error = new Alert(Alert.AlertType.INFORMATION);
+                error.setContentText("Error in Sending Data To Server");
+                error.show();
             }
         }
+        SetSpendings();
     }
 
     private void AddToCartProduct(Product prod)
@@ -179,7 +183,9 @@ public class ShopWindowController
                 oos.flush();
                 System.out.println("Done!!");
             } catch (IOException e) {
-                e.printStackTrace();
+                Alert error = new Alert(Alert.AlertType.INFORMATION);
+                error.setContentText("Error in Sending Data To Server");
+                error.show();
             }
         }
     }
@@ -212,7 +218,9 @@ public class ShopWindowController
                 oos.flush();
                 System.out.println("Done!!");
             } catch (IOException e) {
-                e.printStackTrace();
+                Alert error = new Alert(Alert.AlertType.INFORMATION);
+                error.setContentText("Error in Sending Data To Server");
+                error.show();
             }
         }
     }
@@ -229,9 +237,13 @@ public class ShopWindowController
             ArrayList<Product> prodList = (ArrayList<Product>) ois.readObject();
             return prodList;
         } catch (IOException e) {
-            e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setContentText("Error in Sending Data To Server");
+            error.show();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setContentText("Error in  Connection To Server");
+            error.show();
         }
         return null;
     }
@@ -273,7 +285,9 @@ public class ShopWindowController
             try {
                 SaveChangesToProfile();
             } catch (IOException e1) {
-                e1.printStackTrace();
+                Alert error = new Alert(Alert.AlertType.INFORMATION);
+                error.setContentText("Error in Sending Data To Server");
+                error.show();
             } catch (ClassNotFoundException e1) {
                 e1.printStackTrace();
             }
@@ -300,13 +314,29 @@ public class ShopWindowController
     }
 
     @FXML
-    public void SearchProduct() throws IOException, ClassNotFoundException
+    public void SearchProduct()
     {
         SearchFor sf = new SearchFor();
         sf.searchProduct = SearchBar.getText();
-        oos.writeObject(sf);
-        oos.flush();
-        ArrayList<Product> prodlist = (ArrayList<Product>) ois.readObject();
+        try {
+            oos.writeObject(sf);
+            oos.flush();
+        } catch (IOException e) {
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setContentText("Error in Sending Data To Server");
+            error.show();
+        }
+
+        ArrayList<Product> prodlist = null;
+        try {
+            prodlist = (ArrayList<Product>) ois.readObject();
+        } catch (IOException e) {
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setContentText("Error in Sending Data To Server");
+            error.show();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         ShowProductList(prodlist);
     }
     @FXML
@@ -320,7 +350,9 @@ public class ShopWindowController
             LoginWindow lw = new LoginWindow();
             lw.start(currentStage);
         } catch (IOException e) {
-            e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setContentText("Error in Sending Data To Server but Logging Out Locally");
+            error.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -330,13 +362,17 @@ public class ShopWindowController
     {
         try
         {
-            oos.writeObject(new TotalSpending());
+            TotalSpending ts = new TotalSpending();
+            ts.UserName = customer.getUserName();
+            oos.writeObject(ts);
             oos.flush();
             int spending = (int)ois.readObject();
             Totalspending.setText("Rs "+(spending)+"");
         }
         catch (IOException e) {
-            e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setContentText("Error in Sending Data To Server");
+            error.show();
         }
         catch (ClassNotFoundException e)
         {

@@ -1,6 +1,10 @@
-package MainPackage;
+package MainPackage.ServerFiles;
 
 import CustomerQueries.*;
+import MainPackage.Customer;
+import MainPackage.LoginData;
+import MainPackage.LogoutClient;
+import MainPackage.Product;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -46,10 +50,8 @@ public class CustomerHandler
             {
                 TotalSpending ts=(TotalSpending) transaction;
                 ts.connection=connection;
-                ts.customer=clientLoginDetails.getUserName();
                 a=ts.count();
                 lcd.userName = clientLoginDetails.getUserName();
-                lcd.getDetails().setTotalspending(a);
                 oos.writeObject(a);
                 oos.flush();
             }
@@ -60,6 +62,8 @@ public class CustomerHandler
                 ccd.updateEntries();
                 lcd.userName = clientLoginDetails.getUserName();
                 Customer c = lcd.getDetails();
+                oos.writeObject(c);
+                oos.flush();
             }
             else if(transaction instanceof SearchFor)
             {

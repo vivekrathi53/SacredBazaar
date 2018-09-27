@@ -20,10 +20,10 @@ public class BuyProduct implements Serializable
         PreparedStatement prepStat = connection.prepareStatement(query);
         prepStat.executeUpdate();
         prod.setQuantity(prod.getQuantity() - Quantity);
-        query = "INSERT INTO TransactionTable(`ProductId`,`CustomerUserName`,`Time`,`Address`,`Quantity`,`Status`) VALUES ('" +(prod.getProductId())+"','" +(CustomerUserName)+ "','" +(time)+ "','" +Address+"','"+ +(Quantity)+"','"+1+ "')";
+        query = "INSERT INTO TransactionTable (`ProductId`,`CustomerUserName`,`Time`,`Address`,`Quantity`,`Status`) VALUES ('" +(prod.getProductId())+"','" +(CustomerUserName)+ "','" +(time)+ "','" +Address+"','"+ +(Quantity)+"','"+1+ "')";
         prepStat = connection.prepareStatement(query);
         prepStat.executeUpdate();
-        query = "DELETE FROM TransactionTable WHERE ProductId ='"+(prod.getProductId())+"' AND CustomerUserName='"+(CustomerUserName)+"'";
+        query = "DELETE FROM TransactionTable WHERE ProductId ='"+(prod.getProductId())+"' AND CustomerUserName='"+(CustomerUserName)+"' AND Status='" +2+ "' OR Status='"+3+"'";
         prepStat = connection.prepareStatement(query);
         prepStat.executeUpdate();
     }

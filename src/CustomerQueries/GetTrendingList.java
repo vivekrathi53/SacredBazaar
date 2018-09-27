@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GetTrendingList implements Serializable
 {
@@ -34,24 +36,24 @@ public class GetTrendingList implements Serializable
                 else count.add(prodList.indexOf(prod),count.get(prodList.indexOf(prod))+1);
             }
         }
-        /*SortProducts sp = new SortProducts();
+        SortProducts sp = new SortProducts();
         sp.count=count;
         sp.prodList=prodList;
-        Collections.sort(prodList, sp);*/
+        Collections.sort(prodList, sp);
         return prodList;
     }
 
 }
-/*class SortProducts implements  Comparator<Product> {
+class SortProducts implements Comparator<Product> {
 
     ArrayList<Integer> count;
     ArrayList<Product> prodList;
+
     @Override
-    public int compare(Product o1, Product o2)
-    {
-        if(count.get(prodList.indexOf(o1))>count.get(prodList.indexOf(o2)))
-                return 0;
+    public int compare(Product o1, Product o2) {
+        if (count.get(prodList.indexOf(o1)) > count.get(prodList.indexOf(o2)))
+            return 0;
         else return 1;
     }
-}*/
+}
 
