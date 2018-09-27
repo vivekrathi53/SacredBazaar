@@ -1,13 +1,15 @@
 package MainPackage;
 
-import AdminQueries.ChangeProduct;
-import AdminQueries.Customershow;
-import AdminQueries.LoadAdminDetails;
-import AdminQueries.RemoveProduct;
+import AdminQueries.*;
 import CustomerQueries.ChangeCustomerDetails;
 import CustomerQueries.LoadCustomerDetails;
 import CustomerQueries.SearchFor;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,16 +17,23 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AdminWindowController
 {
-
+    @FXML
+    LineChart<?, ?> AdminGraph;
+    @FXML
+    CategoryAxis x;
+    @FXML
+    NumberAxis y;
     public BorderPane AdminPane;
     public VBox LeftVBox;
     public VBox TopVBox;
@@ -66,6 +75,10 @@ public class AdminWindowController
 
     public void setSocket(Socket socket) {
         this.socket = socket;
+    }
+
+    public void graphcustomer(){
+
     }
 
     public void showcustomer() throws IOException, ClassNotFoundException
@@ -210,11 +223,17 @@ public class AdminWindowController
         }
     }
 
-    public void getUserInfo()
+    public void getUserInfo() throws IOException, ClassNotFoundException, SQLException
     {
+        GenerateGraph gg = new GenerateGraph();
+        graphcontroller gc=new graphcontroller();
         TextField tf = new TextField();
         tf.setPromptText("Search User");
         Button btn = new Button();
+        Button graph=new Button();
+        graph.setText("Graph");
+        btn.setText("Search");
+       // gg.connection;
         btn.setOnAction(e-> {
             try {
                 displayInfo(tf.getText());
@@ -224,12 +243,52 @@ public class AdminWindowController
                 e1.printStackTrace();
             }
         });
+        graph.setOnAction((ActionEvent e) ->
+        {
+
+            gg.username=tf.getText();
+            int []arr=new int[40];
+            try {
+                oos.writeObject(gg);
+                oos.flush();
+                arr = (int[]) ois.readObject();
+            }  catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
+            }
+            gc.arr=arr;
+            SimpleDateFormat formatter = new SimpleDateFormat("dd");
+            Date date = new Date();
+            String currentdate = formatter.format(date);
+            int datecurrent=Integer.parseInt(currentdate);
+            gc.datecurrent=datecurrent;
+            try {
+                gc.startgraph();
+            } catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
         vBox = new VBox();
         HBox hBox = new HBox();
-        hBox.getChildren().addAll(tf,btn);
+        hBox.getChildren().addAll(tf,btn,graph);
         vBox.getChildren().add(hBox);
         AdminPane.setCenter(vBox);
     }
+
+    public String usernamerequire(String UserName) throws IOException, ClassNotFoundException {
+        LoadCustomerDetails lcd = new LoadCustomerDetails();
+        lcd.userName = UserName;
+        oos.writeObject(lcd);
+        oos.flush();
+        Customer customer = (Customer)ois.readObject();
+        return customer.getUserName();
+    }
+
     public void displayInfo(String UserName) throws IOException, ClassNotFoundException {
         vBox.getChildren().clear();
         LoadCustomerDetails lcd = new LoadCustomerDetails();
@@ -282,5 +341,6 @@ public class AdminWindowController
             }
         });
         vBox.getChildren().addAll(UserNameLabel, UserNameArea, PasswordLabel, PasswordArea, FirstNameLabel, FirstNameArea, LasNameLabel, LastNameArea, EmailLabel, EmailArea, MobileNoLabel, MobileNoArea, AddressLabel, AddressArea,PinNoLabel,PinNoArea,SaveProfile);
+        return ;
     }
 }

@@ -10,6 +10,7 @@ import MainPackage.Product;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -105,6 +106,13 @@ public class AdminHandler
                 lcd.connection = connection;
                 Customer c = lcd.getDetails();
                 oos.writeObject(c);
+                oos.flush();
+            }
+            else if(transaction instanceof GenerateGraph)
+            {
+                GenerateGraph gg=(GenerateGraph)  transaction;
+                gg.connection=connection;
+                oos.writeObject((Serializable)gg.generate());
                 oos.flush();
             }
             else if(transaction instanceof LogoutClient)

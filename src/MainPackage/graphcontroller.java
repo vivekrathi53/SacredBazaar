@@ -1,50 +1,59 @@
 package MainPackage;
 
-import MainPackage.Retailer;
-import RetailerQueries.GenerateGraph;
+import AdminQueries.GenerateGraph;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.chart.XYChart.Series;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 
 public class graphcontroller
 {
     @FXML
-    private LineChart<?, ?>RetailerGraph;
+    public LineChart<?, ?> AdminGraph;
     @FXML
-    private CategoryAxis x;
+    public CategoryAxis x;
     @FXML
-    private NumberAxis y;
-    String username;
+    public NumberAxis y;
     int Time;
-    ObjectInputStream ois;
-    ObjectOutputStream oos;
-    public void startgraph() throws ClassNotFoundException, SQLException, IOException {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd");
-        Date date = new Date();
-        String currentdate = formatter.format(date);
-        GenerateGraph gg = new GenerateGraph();
-        gg.currentdate = currentdate;
-        gg.username = username;
-        oos.writeObject(gg);
-        oos.flush();
-        int[] arr = (int[]) ois.readObject();
-        XYChart.Series set1=new XYChart.Series();
-        int datecurrent = Integer.parseInt(currentdate);
-        set1.getData().add(new XYChart.Data(" "+(datecurrent-6)+" ",arr[datecurrent-6]));
-        set1.getData().add(new XYChart.Data(" "+(datecurrent-5)+" ",arr[datecurrent-5]));
-        set1.getData().add(new XYChart.Data(" "+(datecurrent-4)+" ",arr[datecurrent-4]));
-        set1.getData().add(new XYChart.Data(" "+(datecurrent-3)+" ",arr[datecurrent-3]));
-        set1.getData().add(new XYChart.Data(" "+(datecurrent-2)+" ",arr[datecurrent-2]));
-        set1.getData().add(new XYChart.Data(" "+(datecurrent-1)+" ",arr[datecurrent-1]));
-        set1.getData().add(new XYChart.Data(" "+datecurrent+" ",arr[datecurrent]));
-        RetailerGraph.getData().addAll(set1);
+    int []arr;
+    int i;
+    int datecurrent;
+
+
+
+    public void startgraph() throws ClassNotFoundException, SQLException, IOException
+    {
+        System.out.println(datecurrent);
+        NumberAxis x=new NumberAxis();
+        NumberAxis y=new NumberAxis();
+        x.labelProperty().setValue("Time in days");
+        y.labelProperty().setValue("No. of products Bought");
+        LineChart lineChart = new LineChart(x,y);
+        lineChart.setTitle("Customer Monitoring");
+        XYChart.Series set = new XYChart.Series();
+        set.setName("My portfolio");
+        if(datecurrent>=7)
+        {
+            for (i = 6; i >= 0; i--)
+            {
+                System.out.println((arr[datecurrent-i]));
+                set.getData().add(new XYChart.Data( datecurrent-i, arr[datecurrent-i]));
+            }
+        }
+        lineChart.getData().addAll(set);
+        Group root = new Group(lineChart);
+        Scene scene  = new Scene(root,800,600);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 }

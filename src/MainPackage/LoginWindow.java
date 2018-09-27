@@ -39,6 +39,7 @@ public class LoginWindow extends Application {
         MainDisplay  = (AnchorPane) loader.load();
         primaryStage.setScene(new Scene(MainDisplay));
         window = primaryStage;
+
         window.setTitle("Log in Page");
         window.show();
     }

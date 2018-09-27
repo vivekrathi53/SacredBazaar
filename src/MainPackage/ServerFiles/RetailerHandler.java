@@ -1,6 +1,7 @@
 package MainPackage.ServerFiles;
 
 import AdminQueries.ChangeProduct;
+import AdminQueries.GenerateGraph;
 import AdminQueries.RemoveProduct;
 import MainPackage.LoginData;
 import MainPackage.LogoutClient;
