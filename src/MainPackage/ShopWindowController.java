@@ -1,10 +1,8 @@
 package MainPackage;
 
 import CustomerQueries.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -15,7 +13,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -103,7 +100,7 @@ public class ShopWindowController
         {
             Product prod = prodList.get(i);
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductDisplayDesign.fxml")) ;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_files/ProductDisplayDesign.fxml")) ;
                 productDetailsDisplay[i] = (SplitPane) loader.load();
                 ProductDesignController controller = loader.getController();
                 controller.BuyButton.setOnAction(e -> BuyProducts(prod));

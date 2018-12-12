@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="AdminPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.AdminWindowController">
+<BorderPane fx:id="AdminPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.AdminWindowController">
     <left>
         <VBox fx:id="LeftVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="ProfileButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowProfile" text="Profile" />
                 <Button mnemonicParsing="false" onAction="#getUserInfo" prefHeight="25.0" prefWidth="102.0" text="GetUserInfo" />
                 <Button fx:id="Topcustomer" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#showcustomer" text="Customers " />
+            <Button mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="100.0" text="Logout" />
             </children>
         </VBox>
     </left>

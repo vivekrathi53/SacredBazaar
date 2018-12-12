@@ -17,6 +17,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -38,6 +40,8 @@ public class AdminWindowController
     public VBox LeftVBox;
     public VBox TopVBox;
     public TextArea SearchBar;
+    public Stage window;
+    public Stage Loginwindow;
     FXMLLoader loader;
     public ScrollPane CentreDisplay;
     private Admin admin;
@@ -104,7 +108,7 @@ public class AdminWindowController
         vBox.getChildren().add(customerDetailsDisplay);
         for(int i=0;i<len;i++)
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerDisplayAdmin.fxml")) ;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_files/CustomerDisplayAdmin.fxml")) ;
             customerDetailsDisplay = (HBox) loader.load();
             CustomerAdminController controller = loader.getController();
             Customer con = customerList.get(i);
@@ -140,7 +144,7 @@ public class AdminWindowController
         for (int i = 0; i < prodList.size(); i++)
         {
             VBox vBox = null;
-            loader = new FXMLLoader(getClass().getResource("ProductInfo.fxml"));
+            loader = new FXMLLoader(getClass().getResource("FXML_files/ProductInfo.fxml"));
             ProductInfoController controller;
             try {
                 vBox = loader.load();
@@ -205,7 +209,7 @@ public class AdminWindowController
         oos.writeObject(lad);
         oos.flush();
         admin = (Admin) ois.readObject();
-        loader = new FXMLLoader(getClass().getResource("AdminProfile.fxml")) ;
+        loader = new FXMLLoader(getClass().getResource("FXML_files/AdminProfile.fxml")) ;
         AdminProfileController controller;
         try
         {
@@ -342,5 +346,15 @@ public class AdminWindowController
         });
         vBox.getChildren().addAll(UserNameLabel, UserNameArea, PasswordLabel, PasswordArea, FirstNameLabel, FirstNameArea, LasNameLabel, LastNameArea, EmailLabel, EmailArea, MobileNoLabel, MobileNoArea, AddressLabel, AddressArea,PinNoLabel,PinNoArea,SaveProfile);
         return ;
+    }
+
+    public void Logout(ActionEvent actionEvent)
+    {
+        LoginWindow lg = new LoginWindow();
+        try {
+            lg.start(Loginwindow);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

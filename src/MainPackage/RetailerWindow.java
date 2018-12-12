@@ -31,7 +31,7 @@ public class RetailerWindow extends Application
     @Override
     public void start(Stage primaryStage)
     {
-        loader = new FXMLLoader(getClass().getResource("RetailerWindow.fxml"));
+        loader = new FXMLLoader(getClass().getResource("FXML_files/RetailerWindow.fxml"));
         try
         {
             DisplayPane  = (BorderPane) loader.load();

@@ -13,7 +13,7 @@
     <children>
         <ImageView fitHeight="683.0" fitWidth="1000.0" layoutX="-30.0" AnchorPane.leftAnchor="-30.0">
             <image>
-                <Image url="@graphicstock-blurred-background-people-shopping-at-market-fair-in-sunny-day-blur-background-with-bokeh_STxcmVy9JW_SB_PM.jpg" />
+                <Image url="@../Images/graphicstock-blurred-background-people-shopping-at-market-fair-in-sunny-day-blur-background-with-bokeh_STxcmVy9JW_SB_PM.jpg" />
             </image>
         </ImageView>
         <TextField fx:id="name" layoutX="359.0" layoutY="157.0" opacity="0.79" prefHeight="36.0" prefWidth="222.0" promptText="Username" />

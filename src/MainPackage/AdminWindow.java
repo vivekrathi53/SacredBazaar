@@ -20,11 +20,12 @@ public class AdminWindow
     public Socket socket;
     FXMLLoader loader;
     AdminWindowController controller;
+    Stage Loginwindow;
     Stage window;
     BorderPane MainDisplay;
     public void start(Stage primaryStage) throws Exception
     {
-        loader = new FXMLLoader(getClass().getResource("Admin.fxml"));
+        loader = new FXMLLoader(getClass().getResource("FXML_files/Admin.fxml"));
         MainDisplay  = (BorderPane) loader.load();
         controller = loader.getController();
         window = primaryStage;
@@ -34,6 +35,7 @@ public class AdminWindow
         controller.setOos(oos);
         controller.setSocket(socket);
         controller.AdminPane = MainDisplay;
+        controller.Loginwindow=Loginwindow;
         primaryStage.setScene(new Scene(MainDisplay));
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         primaryStage.setWidth((primScreenBounds.getWidth()));

@@ -2,23 +2,10 @@ package MainPackage;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class LoginWindow extends Application {
@@ -34,12 +21,11 @@ public class LoginWindow extends Application {
 
     public void start(Stage primaryStage) throws Exception
     {
-        loader = new FXMLLoader(getClass().getResource("LoginWindowDesign.fxml"));
+        loader = new FXMLLoader(getClass().getResource("FXML_files/LoginWindowDesign.fxml"));
         controller = loader.getController();
         MainDisplay  = (AnchorPane) loader.load();
         primaryStage.setScene(new Scene(MainDisplay));
         window = primaryStage;
-
         window.setTitle("Log in Page");
         window.show();
     }
