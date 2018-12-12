@@ -120,6 +120,7 @@ public class LoginWindowController
                     aw.oos = oos;
                     aw.ois = ois;
                     aw.socket = socket;
+                    aw.Loginwindow=window;
                     aw.start(window);
 
                 }
@@ -143,7 +144,7 @@ public class LoginWindowController
 
     public void sign() throws IOException {
         window = (Stage)name.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Signup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_files/Signup.fxml"));
         Parent root = loader.load();
         Signup controllers = loader.getController();
         window.setTitle("SignUp Window");

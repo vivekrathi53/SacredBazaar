@@ -7,7 +7,6 @@ import RetailerQueries.LoadNotifications;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RetailerWindowController
@@ -34,7 +32,7 @@ public class RetailerWindowController
 
     public void ShowProfile()
     {
-        loader = new FXMLLoader(getClass().getResource("RetailerProfile.fxml")) ;
+        loader = new FXMLLoader(getClass().getResource("FXML_files/RetailerProfile.fxml")) ;
         try
         {
             CentreDisplay = (ScrollPane) loader.load();
@@ -91,7 +89,7 @@ public class RetailerWindowController
         {
             Product prod = prodList.get(i);
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductDisplayDesign.fxml")) ;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_files/ProductDisplayDesign.fxml")) ;
                 productDetailsDisplay[i] = (SplitPane) loader.load();
                 ProductDesignController controller = loader.getController();
                 controller.BuyButton.setVisible(false);
@@ -141,7 +139,7 @@ public class RetailerWindowController
         assert pp != null;
         for(int i = 0; i<pp.size(); i++)
         {
-            loader = new FXMLLoader(getClass().getResource("NotificationDesign.fxml"));
+            loader = new FXMLLoader(getClass().getResource("FXML_files/NotificationDesign.fxml"));
             try
             {
                 vBox.getChildren().add(loader.load());
@@ -170,7 +168,7 @@ public class RetailerWindowController
 
     public void AddProduct()
     {
-        loader = new FXMLLoader(getClass().getResource("AddProduct.fxml"));
+        loader = new FXMLLoader(getClass().getResource("FXML_files/AddProduct.fxml"));
         try
         {
             borderPane.setCenter(loader.load());
@@ -202,7 +200,7 @@ public class RetailerWindowController
 
     public void EditProduct(Product prod) throws IOException {
         Stage s = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductInfo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_files/ProductInfo.fxml"));
         VBox display = loader.load();
         ProductInfoController controller = loader.getController();
         controller.CategoryBox.setText(prod.getProductCategory());

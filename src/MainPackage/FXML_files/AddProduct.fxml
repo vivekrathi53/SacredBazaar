@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="315.0" fitWidth="600.0" pickOnBounds="true">
          <image>
-            <Image url="@AddproductBackgound.png" />
+            <Image url="@../Images/AddproductBackgound.png" />
          </image>
       </ImageView>
       <TextField fx:id="productCategoryBox" layoutX="142.0" layoutY="79.0" prefHeight="25.0" prefWidth="136.0" />

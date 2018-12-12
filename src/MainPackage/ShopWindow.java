@@ -1,6 +1,5 @@
 package MainPackage;
 
-import CustomerQueries.TotalSpending;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,7 +29,7 @@ public class ShopWindow extends Application implements Initializable
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        loader = new FXMLLoader(getClass().getResource("ShopWindow.fxml"));
+        loader = new FXMLLoader(getClass().getResource("FXML_files/ShopWindow.fxml"));
         DisplayPane  = (BorderPane) loader.load();
         controller = loader.getController();
         window=primaryStage;
