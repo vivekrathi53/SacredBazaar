@@ -29,7 +29,7 @@ public class RetailerWindowController
     public BorderPane borderPane;
     FXMLLoader loader;
     Stage currentStage;
-
+    public VBox CDisplay;
     public void ShowProfile()
     {
         loader = new FXMLLoader(getClass().getResource("FXML_files/RetailerProfile.fxml")) ;
@@ -82,7 +82,7 @@ public class RetailerWindowController
 
     public void DisplayProducts(ArrayList<Product> prodList)
     {
-        VBox CDisplay = new VBox();
+        CDisplay.getChildren().clear();
         int len = prodList.size();
         SplitPane[] productDetailsDisplay = new SplitPane[len];
         for(int i=0;i<len;i++)
@@ -113,9 +113,7 @@ public class RetailerWindowController
                 e.printStackTrace();
             }
             CDisplay.getChildren().add(productDetailsDisplay[i]);
-
         }
-        borderPane.setCenter(CDisplay);
     }
 
     public void ShowNotifications()
@@ -130,13 +128,13 @@ public class RetailerWindowController
             pp = (ArrayList<PendingProducts>) ois.readObject();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e)
-        {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         NotificationDesignController ndc;
-        VBox vBox = new VBox();
-        assert pp != null;
+        VBox vBox = CDisplay;
+        vBox.getChildren().clear();
+        System.out.println(pp.size());
         for(int i = 0; i<pp.size(); i++)
         {
             loader = new FXMLLoader(getClass().getResource("FXML_files/NotificationDesign.fxml"));
@@ -158,7 +156,6 @@ public class RetailerWindowController
             ndc.TotalAmountBox.setText(ndc.TotalAmountBox.getText() + Integer.toString(pp.get(i).getPrice()*pp.get(i).getQuantityOrdered()));
         }
         vBox.setFillWidth(true);
-        borderPane.setCenter(vBox);
     }
 
     public void ShowSoldProducts()

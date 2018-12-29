@@ -8,12 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="341.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDisplayController">
+<AnchorPane prefHeight="373.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDisplayController">
    <children>
-      <HBox prefHeight="347.0" prefWidth="600.0">
+      <HBox prefHeight="409.0" prefWidth="952.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="344.0" prefWidth="275.0">
+            <VBox>
                <children>
                   <ImageView fx:id="ProductImage" fitHeight="346.0" fitWidth="275.0" pickOnBounds="true">
                      <image>
@@ -22,30 +21,44 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox prefHeight="349.0" prefWidth="325.0">
+            <VBox>
                <children>
-                  <Label fx:id="productCategory" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="322.0" text="Product Name" textAlignment="JUSTIFY">
+                  <Label fx:id="productCategory" alignment="CENTER" contentDisplay="CENTER" text="Product Name" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Lucida Bright Demibold" size="38.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="productDescription" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Product Specialities">
+                  <HBox>
+                     <children>
+                        <Label fx:id="price" text="Price">
+                           <font>
+                              <Font name="Lucida Bright Regular" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="DiscountLabel" prefHeight="14.0" prefWidth="194.0" text="Discount Applied">
+                           <font>
+                              <Font name="Lucida Bright Regular" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="productDescription" editable="false" promptText="Product Specialities">
                      <font>
                         <Font name="Lucida Sans Regular" size="19.0" />
                      </font>
                   </TextArea>
                   <VBox prefHeight="69.0" prefWidth="325.0">
                      <children>
-                        <Label fx:id="RetailerName" prefHeight="27.0" prefWidth="328.0" text="Retailer Name" />
-                        <Label fx:id="RetailerAdd" prefHeight="26.0" prefWidth="325.0" text="Retailer Address" />
-                        <Label fx:id="RetailerContact" prefHeight="27.0" prefWidth="323.0" text="Retailer Contact Number " />
+                        <Label fx:id="RetailerName" text="Retailer Name" />
+                        <Label fx:id="RetailerAdd" text="Retailer Address" />
+                        <Label fx:id="RetailerContact" text="Retailer Contact Number " />
                      </children>
                   </VBox>
                   <HBox prefHeight="28.0" prefWidth="325.0">
                      <children>
-                        <Button fx:id="AddtoCart" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" text="Add to cart" />
-                        <Button fx:id="AddtoWishList" mnemonicParsing="false" prefHeight="27.0" prefWidth="129.0" text="Add to wish list" />
-                        <Button fx:id="BuyButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Buy" />
+                        <Button fx:id="AddtoCart" mnemonicParsing="false" text="Add to cart" />
+                        <Button fx:id="AddtoWishList" mnemonicParsing="false" text="Add to wish list" />
+                        <Button fx:id="BuyButton" mnemonicParsing="false" text="Buy" />
                      </children>
                   </HBox>
                </children>

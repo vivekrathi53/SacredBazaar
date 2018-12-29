@@ -11,11 +11,10 @@ public class ProductDisplayController
     public Button BuyButton;
     public Button AddtoCart;
     public Button AddtoWishList;
-    public ImageView imageView;
+    public ImageView ProductImage;
     public Label productCategory;
     public Label price;
     public TextArea productDescription;
-    public Button EditProductBtn;
-    public Label QuantityAvail;
     public Label DiscountLabel;
+    public Label RetailerName;
 }

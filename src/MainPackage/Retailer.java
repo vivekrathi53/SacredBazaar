@@ -15,19 +15,23 @@ public class Retailer implements Client, Serializable
     private String PinNo;
     private String Email;
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return FirstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         FirstName = firstName;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return LastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         LastName = lastName;
     }
 
