@@ -108,22 +108,39 @@ public class ShopWindowController
                 if(flagadd==0)
                     controller.AddtoCart.setOnAction(e -> AddToCartProduct(prod));
                 else
-                    controller.AddtoCart.setVisible(false);
+                {
+                    controller.AddtoCart.setText("Remove from Cart");
+                    controller.AddtoCart.setOnAction(e-> RemoveFromCart(prod));
+                }
                 if(flagwishlist==0)
                     controller.AddtoWishList.setOnAction(e -> AddToWishListProduct(prod));
                 else
-                    controller.AddtoWishList.setVisible(false);
-//                controller.QuantityAvail.setText(controller.QuantityAvail.getText() + prod.getQuantity());
-//                controller.price.setText(controller.price.getText() + prod.getPrice());
+                {
+                    controller.AddtoWishList.setText("Remove From WishList");
+                    controller.AddtoWishList.setOnAction(e-> RemoveFromWishList(prod));
+                }
+                controller.RetailerName.setText(prod.getRetailer());
+                controller.productDescription.setText(controller.productDescription.getText() +"\n"+ prod.getQuantity());
+                controller.price.setText(controller.price.getText() + prod.getPrice());
                 controller.productCategory.setText(prod.getProductCategory());
                 controller.productDescription.setText(prod.getProductDescription());
-//                controller.DiscountLabel.setText(controller.DiscountLabel.getText() + prod.getDiscount());
-                productDetailsDisplay[i].setPrefWidth(CentreDisplay.getPrefWidth());
+                controller.DiscountLabel.setText(controller.DiscountLabel.getText() + prod.getDiscount());
+                productDetailsDisplay[i].setMinWidth(CentreDisplay.getWidth());
             } catch (IOException e) {
                 e.printStackTrace();
             }
             CentreDisplay.getChildren().add(productDetailsDisplay[i]);
         }
+    }
+
+    private void RemoveFromWishList(Product prod)
+    {
+
+    }
+
+    private void RemoveFromCart(Product prod)
+    {
+
     }
 
     private void BuyProducts(Product prod)

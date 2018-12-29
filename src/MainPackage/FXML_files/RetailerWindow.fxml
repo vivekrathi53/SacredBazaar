@@ -41,12 +41,15 @@
             <Button mnemonicParsing="false" onAction="#ShowNotifications" prefHeight="37.0" prefWidth="112.0" text="Notifications" />
             <Button mnemonicParsing="false" onAction="#ShowSoldProducts" prefHeight="42.0" prefWidth="113.0" text="Sold Products" />
             <Button mnemonicParsing="false" onAction="#AddProduct" prefHeight="39.0" prefWidth="112.0" text="Add Products" />
-            <Button mnemonicParsing="false"  prefHeight="38.0" prefWidth="113.0" text="Graph" />
+            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="113.0" text="Graph" />
              <Button mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="113.0" text="Logout" />
          </children>
       </VBox>
    </left>
    <center>
-      <ScrollPane fx:id="CentreDisplay" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="CentreDisplay" prefHeight="371.0" prefWidth="484.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="CDisplay" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="485.0" />
+         </content></ScrollPane>
    </center>
 </BorderPane>
