@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="373.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ProductDisplayController">
+   <children>
+      <HBox prefHeight="409.0" prefWidth="952.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox>
+               <children>
+                  <ImageView fx:id="ProductImage" fitHeight="346.0" fitWidth="275.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../Images/image_not_avail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label fx:id="productCategory" alignment="CENTER" contentDisplay="CENTER" text="Product Name" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Lucida Bright Demibold" size="38.0" />
+                     </font>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <Label fx:id="price" text="Price">
+                           <font>
+                              <Font name="Lucida Bright Regular" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="DiscountLabel" prefHeight="14.0" prefWidth="194.0" text="Discount Applied">
+                           <font>
+                              <Font name="Lucida Bright Regular" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="productDescription" editable="false" promptText="Product Specialities">
+                     <font>
+                        <Font name="Lucida Sans Regular" size="19.0" />
+                     </font>
+                  </TextArea>
+                  <VBox prefHeight="69.0" prefWidth="325.0">
+                     <children>
+                        <Label fx:id="RetailerName" text="Retailer Name" />
+                        <Label fx:id="RetailerAdd" text="Retailer Address" />
+                        <Label fx:id="RetailerContact" text="Retailer Contact Number " />
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="28.0" prefWidth="325.0">
+                     <children>
+                        <Button fx:id="AddtoCart" mnemonicParsing="false" text="Add to cart" />
+                        <Button fx:id="AddtoWishList" mnemonicParsing="false" text="Add to wish list" />
+                        <Button fx:id="BuyButton" mnemonicParsing="false" text="Buy" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

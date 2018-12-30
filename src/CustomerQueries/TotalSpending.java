@@ -1,7 +1,5 @@
 package CustomerQueries;
 
-import MainPackage.Customer;
-
 import java.io.Serializable;
 import java.sql.*;
 

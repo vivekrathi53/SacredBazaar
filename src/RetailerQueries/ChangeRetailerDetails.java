@@ -1,6 +1,5 @@
 package RetailerQueries;
 
-import MainPackage.Customer;
 import MainPackage.Retailer;
 
 import java.io.Serializable;

@@ -1,9 +1,6 @@
 package MainPackage;
 
-import MainPackage.Client;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Admin implements Client, Serializable
 {

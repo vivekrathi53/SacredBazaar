@@ -3,11 +3,8 @@ package AdminQueries;
 import CustomerQueries.LoadCustomerDetails;
 import CustomerQueries.TotalSpending;
 import MainPackage.Customer;
-import com.sun.media.jfxmediaimpl.NativeMediaManager;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
