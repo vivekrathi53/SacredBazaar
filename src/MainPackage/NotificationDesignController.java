@@ -1,7 +1,6 @@
 package MainPackage;
 
 import RetailerQueries.DeliveredProduct;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
 import java.io.IOException;

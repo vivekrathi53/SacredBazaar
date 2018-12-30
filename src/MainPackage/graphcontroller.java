@@ -1,19 +1,13 @@
 package MainPackage;
 
-import AdminQueries.GenerateGraph;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
-import javafx.scene.chart.XYChart.Series;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class graphcontroller
 {

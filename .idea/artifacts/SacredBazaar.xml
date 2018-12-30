@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SacredBazaar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SacredBazaar</output-path>
+    <root id="archive" name="SacredBazaar.jar">
+      <element id="module-output" name="SacredBazaar" />
+      <element id="extracted-dir" path="$USER_HOME$/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
