@@ -7,8 +7,7 @@
 2. Now username and password for admin is admin (both). 
 3. You can login using LoginWindow and change admin details .
 4. Using Login window customers and retailers can also register and use platform.
-5. First Start the server by changing the directory to out/production/SacredBazaar/MainPackage/ServerFiles and type command java SacredServer 
-6. To use LoginWindow change directory to out/production/SacredBazaar/MainPackage and type command java LoginWindow 
+5. Use IntelliJ Idea to open project which will be much easier and quick.
 
 Now Application is ready to use. Provide any feedback at vivekrathi53@gmail.com and everybody is free to contribute to this project via this repo.
 Soon I will upload full stack self installable version util...
