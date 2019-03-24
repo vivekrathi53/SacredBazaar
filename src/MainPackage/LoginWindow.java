@@ -6,17 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.net.Socket;
-
 public class LoginWindow extends Application {
     Stage window;
-    Scene s2;
-    Socket socket;
     FXMLLoader loader;
     LoginWindowController controller;
-    Transaction Authentication;
     AnchorPane MainDisplay;
-    int Type;
     @Override
 
     public void start(Stage primaryStage) throws Exception
