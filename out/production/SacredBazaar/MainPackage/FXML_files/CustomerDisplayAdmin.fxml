@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fx:id="customeruser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.CustomerAdminController">
+<HBox fx:id="customeruser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.CustomerAdminController">
    <children>
-            <Label fx:id="customern" text="No" />
-            <Label fx:id="UserName" text="UserName" />
-            <Label fx:id="CustomerSpendings" text="Total  Spending" />
+            <Label fx:id="customern" prefHeight="15.0" prefWidth="78.0" text="No">
+         <font>
+            <Font name="Lucida Bright Regular" size="19.0" />
+         </font></Label>
+            <Label fx:id="UserName" prefHeight="25.0" prefWidth="127.0" text="UserName">
+         <font>
+            <Font name="Lucida Bright Regular" size="20.0" />
+         </font></Label>
+            <Label fx:id="CustomerSpendings" prefHeight="15.0" prefWidth="157.0" text="Total  Spending">
+         <font>
+            <Font name="Lucida Bright Regular" size="19.0" />
+         </font></Label>
          </children>
 </HBox>
