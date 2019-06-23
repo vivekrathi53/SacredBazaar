@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="DisplayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ClientFiles.CustomerFiles.ShopWindowController">
+   <left>
+      <VBox fx:id="LeftVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ProfileButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#SetProfileScene" text="Profile" />
+            <Button fx:id="MyCartButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowInCart" text="My Cart" />
+            <Button fx:id="WishListButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowWishList" text="Wish List" />
+            <Button minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowHistory" text="History" />
+            <Button fx:id="TrendingButton" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#ShowTrending" text="Trending " />
+            <Button mnemonicParsing="false" onAction="#Logout" prefHeight="28.0" prefWidth="99.0" text="Logout" />
+             <Label fx:id="Spending" minHeight="25.0" minWidth="100.0" text="Spendings" textAlignment="CENTER" />
+            <Label fx:id="Totalspending" prefHeight="15.0" prefWidth="97.0" text="Rs" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <VBox fx:id="TopVBox" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="0.0" prefWidth="600.0">
+               <children>
+                  <TextArea fx:id="SearchBar" cache="true" promptText="Search For Product" />
+                  <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#SearchProduct" text="Search" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="CentreDisplay" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

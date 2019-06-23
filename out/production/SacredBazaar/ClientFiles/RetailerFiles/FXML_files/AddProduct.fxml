@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.RetailerFiles.AddProductController">
+   <children>
+      <ImageView fitHeight="315.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../Images/AddproductBackgound.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="productCategoryBox" layoutX="142.0" layoutY="79.0" prefHeight="25.0" prefWidth="136.0" />
+      <TextField fx:id="discountBox" layoutX="142.0" layoutY="199.0" prefHeight="25.0" prefWidth="136.0" />
+      <TextField fx:id="priceBox" layoutX="142.0" layoutY="158.0" prefHeight="25.0" prefWidth="136.0" />
+      <TextField fx:id="quantityBox" layoutX="142.0" layoutY="117.0" prefHeight="25.0" prefWidth="136.0" />
+      <TextArea fx:id="descriptionBox" layoutX="142.0" layoutY="237.0" prefHeight="62.0" prefWidth="153.0" />
+      <Label layoutX="12.0" layoutY="84.0" text="Product Category" />
+      <Label layoutX="10.0" layoutY="122.0" prefHeight="15.0" prefWidth="114.0" text="Quantity" />
+      <Label layoutX="11.0" layoutY="163.0" prefHeight="15.0" prefWidth="114.0" text="Price" />
+      <Label layoutX="12.0" layoutY="204.0" prefHeight="15.0" prefWidth="114.0" text="Discount" />
+      <Label layoutX="12.0" layoutY="250.0" prefHeight="25.0" prefWidth="129.0" text="Product Description" />
+      <Button fx:id="AddProductButton" layoutX="366.0" layoutY="275.0" mnemonicParsing="false" text="Add Product" onAction="#AddProduct"/>
+   </children>
+</AnchorPane>

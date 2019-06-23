@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6886446886446886" prefHeight="72.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.RetailerFiles.ProductDesignController">
+  <items>
+      <VBox>
+         <children>
+            <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" />
+            <HBox>
+               <children>
+                  <Button fx:id="BuyButton" mnemonicParsing="false" text="Buy" />
+                  <Button fx:id="AddtoWishList" mnemonicParsing="false" text="AddToWishList" />
+                  <Button fx:id="AddtoCart" mnemonicParsing="false" text="AddToCart" />
+                  <Button fx:id="EditProductBtn" mnemonicParsing="false" text="EditThisProduct" visible="false" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox>
+         <children>
+            <Label fx:id="productCategory" text="Product Category" textFill="#3711cd">
+               <font>
+                  <Font name="SansSerif Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="productDescription" text="Product Description">
+               <font>
+                  <Font name="FreeSans Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="price" text="Price Rs." textFill="#c91515">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="QuantityAvail" text="Quantity Available " textFill="#7a59d3" />
+            <Label text="Discount Applied " fx:id="DiscountLabel"/>
+         </children>
+      </VBox>
+  </items>
+</SplitPane>

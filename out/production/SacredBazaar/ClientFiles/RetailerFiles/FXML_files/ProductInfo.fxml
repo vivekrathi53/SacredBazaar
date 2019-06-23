@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.RetailerFiles.ProductInfoController">
+   <children>
+      <HBox>
+         <children>
+            <Label text="ProductId">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ProductIdBox" alignment="BASELINE_RIGHT" editable="false" prefHeight="25.0" prefWidth="488.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="256.0" text="Retailer UserName">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="RetailerUserNameBox" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="349.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="40.0">
+         <children>
+            <Label text="Price">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="PriceBox" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="538.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="70.0">
+         <children>
+            <Label prefHeight="0.0" prefWidth="127.0" text="Quantity">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="QuantityBox" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="474.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="100.0">
+         <children>
+            <Label prefHeight="0.0" prefWidth="127.0" text="Category">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="CategoryBox" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="480.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="130.0">
+         <children>
+            <Label text="Description">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="DescriptionBox" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="443.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="160.0">
+         <children>
+            <Label text="Discount">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="DiscountBox" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="472.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="608.0">
+         <children>
+            <Button fx:id="ProductChanges" mnemonicParsing="false" text="Save Details Changes" />
+            <Button fx:id="DeleteProduct" mnemonicParsing="false" text="Delete Product ">
+               <HBox.margin>
+                  <Insets left="300.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

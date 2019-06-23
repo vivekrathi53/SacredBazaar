@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.RetailerFiles.RetailerProfileController">
+   <content>
+      <FlowPane prefHeight="398.0" prefWidth="597.0">
+         <children>
+            <ImageView fx:id="ProfileImage" fitHeight="199.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/RetailerProfileImage.jpeg" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="394.0">
+               <children>
+                  <Label fx:id="NameDisplay" prefHeight="71.0" prefWidth="388.0" text="RetailerName" />
+                  <Label fx:id="UserNameDisplay" prefHeight="64.0" prefWidth="394.0" text="UserName" />
+                  <Label fx:id="AddressDisplay" prefHeight="62.0" prefWidth="390.0" text="Address" />
+               </children>
+            </VBox>
+            <VBox prefHeight="195.0" prefWidth="594.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="FirstNameBox" prefHeight="200.0" prefWidth="200.0" promptText="FirstName" />
+                        <TextArea fx:id="LastNameBox" prefHeight="200.0" prefWidth="200.0" promptText="LastName" />
+                        <TextArea fx:id="AddressBox" prefHeight="200.0" prefWidth="200.0" promptText="Address" />
+                        <TextArea fx:id="MobileNoBox" prefHeight="200.0" prefWidth="200.0" promptText="Mobile No." />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="PinNoBox" prefHeight="200.0" prefWidth="200.0" promptText="Pin No." />
+                        <TextArea fx:id="EmailBox" prefHeight="200.0" prefWidth="200.0" promptText="E-mail" />
+                        <TextArea fx:id="PasswordBox" prefHeight="200.0" prefWidth="200.0" promptText="Password" />
+                     </children>
+                  </HBox>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ChangeProfile" text="Save Your Changes" />
+               </children>
+            </VBox>
+         </children>
+      </FlowPane>
+   </content>
+</ScrollPane>

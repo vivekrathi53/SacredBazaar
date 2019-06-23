@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.LoginWindowController">
+    <children>
+        <ImageView fitHeight="683.0" fitWidth="1000.0" layoutX="-30.0" AnchorPane.leftAnchor="-30.0">
+            <image>
+                <Image url="@../Images/graphicstock-blurred-background-people-shopping-at-market-fair-in-sunny-day-blur-background-with-bokeh_STxcmVy9JW_SB_PM.jpg" />
+            </image>
+        </ImageView>
+        <TextField fx:id="name" layoutX="359.0" layoutY="157.0" opacity="0.79" prefHeight="36.0" prefWidth="222.0" promptText="Username" />
+        <TextField fx:id="pass" layoutX="359.0" layoutY="203.0" opacity="0.79" prefHeight="36.0" prefWidth="229.0" promptText="Password" />
+        <Button fx:id="customer" layoutX="367.0" layoutY="388.0" mnemonicParsing="false" onAction="#logincustomer" prefHeight="31.0" prefWidth="161.0" text="Login as a Customer" textFill="#0e10b5" />
+        <Button fx:id="retailer" layoutX="359.0" layoutY="318.0" mnemonicParsing="false" onAction="#loginretalier" prefHeight="31.0" prefWidth="168.0" text="Login as a  Retalier" />
+        <Button fx:id="admin" layoutX="398.0" layoutY="460.0" mnemonicParsing="false" onAction="#loginadmin" text="Login As Admin" />
+        <Button layoutX="418.0" layoutY="555.0" mnemonicParsing="false" onAction="#signUp" text="Register" />
+      <TextField fx:id="ServerIP" layoutX="799.0" layoutY="568.0" text="127.0.0.1" />
+      <TextField fx:id="PortNo" layoutX="799.0" layoutY="593.0" text="8188" />
+    </children>
+</AnchorPane>

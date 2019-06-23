@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.RetailerFiles.RetailerWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="371.0" prefWidth="112.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#ShowProfile" prefHeight="34.0" prefWidth="112.0" text="Profile" />
+            <Button mnemonicParsing="false" onAction="#ShowAllProducts" prefHeight="35.0" prefWidth="112.0" text="My Products" />
+            <Button mnemonicParsing="false" onAction="#ShowNotifications" prefHeight="37.0" prefWidth="112.0" text="Notifications" />
+            <Button mnemonicParsing="false" onAction="#ShowSoldProducts" prefHeight="42.0" prefWidth="113.0" text="Sold Products" />
+            <Button mnemonicParsing="false" onAction="#AddProduct" prefHeight="39.0" prefWidth="112.0" text="Add Products" />
+            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="113.0" text="Graph" />
+             <Button mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="113.0" text="Logout" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <ScrollPane fx:id="CentreDisplay" prefHeight="371.0" prefWidth="484.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="CDisplay" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="485.0" />
+         </content></ScrollPane>
+   </center>
+</BorderPane>
